@@ -1,6 +1,6 @@
 ﻿using Foundation;
 
-namespace Aplicativo_Promotor
+namespace AplicativoPromotor
 {
     [Register("AppDelegate")]
     public class AppDelegate : MauiUIApplicationDelegate

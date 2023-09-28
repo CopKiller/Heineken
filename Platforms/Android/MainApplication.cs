@@ -1,7 +1,7 @@
 ﻿using Android.App;
 using Android.Runtime;
 
-namespace Aplicativo_Promotor
+namespace AplicativoPromotor
 {
     [Application]
     public class MainApplication : MauiApplication

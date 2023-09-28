@@ -1,4 +1,4 @@
-﻿namespace Aplicativo_Promotor;
+﻿namespace AplicativoPromotor;
 
 public partial class AppShell : Shell
 {

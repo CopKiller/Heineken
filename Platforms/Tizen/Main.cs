@@ -2,7 +2,7 @@ using Microsoft.Maui;
 using Microsoft.Maui.Hosting;
 using System;
 
-namespace Aplicativo_Promotor
+namespace AplicativoPromotor
 {
     internal class Program : MauiApplication
     {

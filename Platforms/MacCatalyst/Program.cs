@@ -1,7 +1,7 @@
 ﻿using ObjCRuntime;
 using UIKit;
 
-namespace Aplicativo_Promotor
+namespace AplicativoPromotor
 {
     public class Program
     {

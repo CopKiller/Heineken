@@ -1,4 +1,4 @@
-namespace Aplicativo_Promotor.Pages;
+namespace AplicativoPromotor.Pages;
 
 public partial class SoviPage : ContentPage
 {

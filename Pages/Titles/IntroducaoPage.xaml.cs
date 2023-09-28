@@ -1,9 +1,9 @@
-﻿namespace Aplicativo_Promotor.Pages;
+﻿namespace AplicativoPromotor.Pages;
 
 public partial class IntroducaoPage : ContentPage
 {
 	public IntroducaoPage()
 	{
-		InitializeComponent();
+        InitializeComponent();
 	}
 }

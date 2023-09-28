@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Shell
-    x:Class="Aplicativo_Promotor.AppShell"
+    x:Class="AplicativoPromotor.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:Aplicativo_Promotor.Pages"
+    xmlns:local="clr-namespace:AplicativoPromotor.Pages"
     FlyoutBackgroundColor="Gray">
 
     <Shell.FlyoutHeader>
@@ -18,8 +18,16 @@
     </FlyoutItem>
 
     <FlyoutItem Title="Produtos" Icon="iconprodutos.png">
-        <ShellContent 
-            ContentTemplate="{DataTemplate local:ProdutosPage}"/>
+        <ShellContent Title="Craft" Icon="craft.png"
+            ContentTemplate="{DataTemplate local:CraftPage}" />
+        <ShellContent Title="Premium" Icon="premium.png"
+            ContentTemplate="{DataTemplate local:PremiumPage}" />
+        <ShellContent Title="MainStream" Icon="mainstream.png"
+            ContentTemplate="{DataTemplate local:MainStreamPage}" />
+        <ShellContent Title="Economy" Icon="economy.png"
+            ContentTemplate="{DataTemplate local:EconomyPage}" />
+        <ShellContent Title="Refrigerante" Icon="refrigerante.png"
+            ContentTemplate="{DataTemplate local:RefrigerantePage}" />
     </FlyoutItem>
 
     <FlyoutItem Title="Sovi" Icon="iconsovi.png">
