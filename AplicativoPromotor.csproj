@@ -73,7 +73,7 @@
 		<MauiImage Include="Resources\Images\*" />
 		
 		<!-- Produtos -->
-		<!--<MauiImage Include="Resources\Produtos\*\*" /> -->
+		<MauiImage Include="Resources\Produtos\*\*" />
 
 		<!-- Custom Fonts -->
 		<MauiFont Include="Resources\Fonts\*" />
@@ -140,13 +140,6 @@
 	  <Compile Update="Pages\Subtitles\CraftPage.xaml.cs">
 	    <DependentUpon>CraftPage.xaml</DependentUpon>
 	  </Compile>
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Folder Include="Produtos\MainStream\" />
-	  <Folder Include="Produtos\Economy\" />
-	  <Folder Include="Produtos\Refrigerante\" />
-	  <Folder Include="Produtos\Premium\" />
 	</ItemGroup>
 
 </Project>
