@@ -8,9 +8,9 @@ namespace AplicativoPromotor.Produtos
 {
     public class Produto
     {
-        public ulong id { get; set; }
-        public string name { get; set; }
-        public string desc { get; set; }
-        public string foto {  get; set; }
+        public ulong id { get; set; } //EAN do produto
+        public string name { get; set; } //Nome do produto
+        public string desc { get; set; } //Descrição do produto
+        public string foto {  get; set; } //Nome do arquivo de imagem + extensão do produto
     }
 }

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AplicativoPromotor.Pages.Properties.Subtitles
+namespace AplicativoPromotor.Pages.Properties.SubPages
 {
     public class Craft : Properties
     {

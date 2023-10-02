@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using AplicativoPromotor.Produtos;
 using AplicativoPromotor.Produtos.MainStream;
 
-namespace AplicativoPromotor.Pages.Properties.Subtitles
+namespace AplicativoPromotor.Pages.Properties.SubPages
 {
     public class MainStream : Properties
     {

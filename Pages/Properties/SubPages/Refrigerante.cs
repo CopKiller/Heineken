@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AplicativoPromotor.Produtos;
-using AplicativoPromotor.Produtos.Premium;
+using AplicativoPromotor.Produtos.Refrigerante;
 
-namespace AplicativoPromotor.Pages.Properties.Subtitles
+namespace AplicativoPromotor.Pages.Properties.SubPages
 {
-    public class Premium : Properties
+    public class Refrigerante : Properties
     {
         private List<Produto> items; // Alteramos para uma propriedade privada
 
@@ -25,15 +25,13 @@ namespace AplicativoPromotor.Pages.Properties.Subtitles
             }
         }
 
-        public Premium()
+        public Refrigerante()
         {
 
             Items = new List<Produto>();
 
             // Atribua os itens diretamente à propriedade Items
-            Items.AddRange(new Heineken().items);
-            items.AddRange(new Eisenbahn().items);
-            items.AddRange(new Sol().items);
+            Items.AddRange(new Fys().items);
         }
     }
 }
