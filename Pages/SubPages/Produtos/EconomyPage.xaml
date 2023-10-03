@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AplicativoPromotor.Pages.SubPages.Produtos.EconomyPage"
+             Title="Economy's"
+             BackgroundColor="#121B1A">
+
+    <!-- Conteúdo da página -->
+    <StackLayout
+    Padding="30,0">
+
+        <!-- Campo de Pesquisa -->
+        <Grid>
+            <Grid.RowDefinitions>
+                <!-- Espaço vertical flexível para o cabeçalho -->
+                <RowDefinition Height="Auto" />
+
+                <!-- Espaço vertical flexível para a caixa de pesquisa e a Picker -->
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <!-- Conteúdo flexível (caixa de pesquisa e Picker) -->
+            <StackLayout Orientation="Horizontal">
+                <!-- Caixa de pesquisa -->
+                <Entry x:Name="SearchEntry"
+       Placeholder="Pesquisar..."
+       TextChanged="OnSearchTextChanged"
+       HorizontalOptions="StartAndExpand" />
+
+                <!-- Selecione o tipo de pesquisa -->
+                <Picker x:Name="SearchTypePicker"
+        Title="Selecione o tipo de pesquisa"
+        SelectedIndexChanged="OnSearchTypeSelectedIndexChanged"
+        HorizontalOptions="End">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Nome</x:String>
+                            <x:String>EAN</x:String>
+                            <x:String>Descrição</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+            </StackLayout>
+        </Grid>
+
+        <!-- ListView existente -->
+        <ListView x:Name="ItensListView" RowHeight="90">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal" Padding="10">
+                            <Image Source="{Binding foto}" HeightRequest="70" WidthRequest="70" Aspect="AspectFit" />
+                            <StackLayout>
+                                <!-- Adicione um espaço vertical de 5 unidades após o nome -->
+                                <Label Text="{Binding name}" Margin="0,0,0,5" FontAttributes="Bold" FontSize="Medium" />
+                                <Label Text="{Binding id, StringFormat='EAN: {0}'}" Margin="0,0,0,5" />
+                                <Label Text="{Binding desc}" Margin="0,0,0,5" />
+                            </StackLayout>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>

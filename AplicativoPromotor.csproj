@@ -104,40 +104,52 @@
 	  <MauiXaml Update="Pages\MainPages\IntroducaoPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\SubPages\RefrigerantePage.xaml">
+	  <MauiXaml Update="Pages\SubPages\Produtos\RefrigerantePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\SubPages\EconomyPage.xaml">
+	  <MauiXaml Update="Pages\SubPages\Produtos\EconomyPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\SubPages\MainStreamPage.xaml">
+	  <MauiXaml Update="Pages\SubPages\Produtos\MainStreamPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\SubPages\PremiumPage.xaml">
+	  <MauiXaml Update="Pages\SubPages\Produtos\PremiumPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\SubPages\CraftPage.xaml">
+	  <MauiXaml Update="Pages\SubPages\Produtos\CraftPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\MainPages\SoviPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Pages\SubPages\Sovi\PremiumPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\SubPages\Sovi\CraftPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Update="Pages\SubPages\RefrigerantePage.xaml.cs">
+	  <Compile Update="Pages\SubPages\Produtos\RefrigerantePage.xaml.cs">
 	    <DependentUpon>RefrigerantePage.xaml</DependentUpon>
 	  </Compile>
-	  <Compile Update="Pages\SubPages\EconomyPage.xaml.cs">
+	  <Compile Update="Pages\SubPages\Produtos\EconomyPage.xaml.cs">
 	    <DependentUpon>EconomyPage.xaml</DependentUpon>
 	  </Compile>
-	  <Compile Update="Pages\SubPages\MainStreamPage.xaml.cs">
+	  <Compile Update="Pages\SubPages\Produtos\MainStreamPage.xaml.cs">
 	    <DependentUpon>MainStreamPage.xaml</DependentUpon>
 	  </Compile>
-	  <Compile Update="Pages\SubPages\PremiumPage.xaml.cs">
+	  <Compile Update="Pages\SubPages\Produtos\PremiumPage.xaml.cs">
 	    <DependentUpon>PremiumPage.xaml</DependentUpon>
 	  </Compile>
-	  <Compile Update="Pages\SubPages\CraftPage.xaml.cs">
+	  <Compile Update="Pages\SubPages\Produtos\CraftPage.xaml.cs">
+	    <DependentUpon>CraftPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\SubPages\Sovi\PremiumPage.xaml.cs">
+	    <DependentUpon>PremiumPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\SubPages\Sovi\CraftPage.xaml.cs">
 	    <DependentUpon>CraftPage.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>

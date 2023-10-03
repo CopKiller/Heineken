@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AplicativoPromotor.Pages.Properties.Titles
+namespace AplicativoPromotor.Pages.MainPages.Properties.Sovi
 {
-    internal class Produtos
+    internal class Sovi
     {
     }
 }

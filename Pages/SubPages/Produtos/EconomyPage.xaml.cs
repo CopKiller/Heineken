@@ -1,13 +1,12 @@
-using AplicativoPromotor.Pages.Properties.SubPages;
+using AplicativoPromotor.Pages.SubPages.Produtos.Interface;
 using AplicativoPromotor.Produtos;
 using Microsoft.Maui.Controls;
 using System.ComponentModel.DataAnnotations;
 
-namespace AplicativoPromotor.Pages
-{
-    public partial class CraftPage : ContentPage
+namespace AplicativoPromotor.Pages.SubPages.Produtos;
+    public partial class EconomyPage : ContentPage
     {
-        public enum SearchTypes
+    private enum SearchTypes
         {
             [Display(Name = "Nome")]
             Nome = 0,
@@ -19,18 +18,18 @@ namespace AplicativoPromotor.Pages
             Desc
         }
 
-        private List<Produto> craftPageItems; // Substitua com o seu tipo de item
+        private List<Produto> economyPageItems; // Substitua com o seu tipo de item
         private int searchType = (int)SearchTypes.Nome;
 
-        public CraftPage()
+        public EconomyPage()
         {
             InitializeComponent();
 
             // Carregue a lista original de itens da página Craft
-            craftPageItems = new Craft().Items;
+            economyPageItems = new Economy().Items;
 
             // Configure a ListView com a lista original
-            ItensListView.ItemsSource = craftPageItems;
+            ItensListView.ItemsSource = economyPageItems;
 
             // Inicialize um índice padrão de pesquisa na busca
             SearchTypePicker.SelectedIndex = (int)SearchTypes.Nome;
@@ -66,17 +65,17 @@ namespace AplicativoPromotor.Pages
                 switch (searchType)
                 {
                     case (int)SearchTypes.Nome:
-                        searchResults = craftPageItems
+                        searchResults = economyPageItems
                             .Where(item => item.name.Contains(searchTerm, StringComparison.OrdinalIgnoreCase))
                             .ToList();
                         break;
                     case (int)SearchTypes.EAN:
-                        searchResults = craftPageItems
+                        searchResults = economyPageItems
                             .Where(item => item.id.ToString().Contains(searchTerm, StringComparison.OrdinalIgnoreCase))
                             .ToList();
                         break;
                     case (int)SearchTypes.Desc:
-                        searchResults = craftPageItems
+                        searchResults = economyPageItems
                             .Where(item => item.desc.Contains(searchTerm, StringComparison.OrdinalIgnoreCase))
                             .ToList();
                         break;
@@ -92,4 +91,3 @@ namespace AplicativoPromotor.Pages
             }
         }
     }
-}

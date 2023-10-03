@@ -1,4 +1,4 @@
-﻿namespace AplicativoPromotor.Pages;
+﻿namespace AplicativoPromotor.Pages.MainPages;
 
 public partial class IntroducaoPage : ContentPage
 {

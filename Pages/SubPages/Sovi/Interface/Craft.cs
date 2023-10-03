@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using AplicativoPromotor.Produtos;
-using AplicativoPromotor.Produtos.Economy;
+﻿using AplicativoPromotor.Produtos;
+using AplicativoPromotor.Produtos.Craft;
+using AplicativoPromotor.Pages.PropertiesPage;
 
-namespace AplicativoPromotor.Pages.Properties.SubPages
+namespace AplicativoPromotor.Pages.SubPages.Sovi.Interface
 {
-    public class Economy : Properties
+    public class Craft : Properties
     {
         private List<Produto> items; // Alteramos para uma propriedade privada
 
@@ -25,13 +21,15 @@ namespace AplicativoPromotor.Pages.Properties.SubPages
             }
         }
 
-        public Economy()
+        public Craft()
         {
 
             Items = new List<Produto>();
 
             // Atribua os itens diretamente à propriedade Items
-            Items.AddRange(new Schin().items);
+            Items.AddRange(new Badden().items);
+            Items.AddRange(new Lagunitas().items);
+            Items.AddRange(new Bluemoon().items);
         }
     }
 }

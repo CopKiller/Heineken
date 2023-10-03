@@ -1,0 +1,59 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AplicativoPromotor.Pages.SubPages.Sovi.PremiumPage"
+             Title="Sovi Premium"
+             BackgroundColor="#121B1A">
+
+    <!-- Conteúdo da página -->
+    <ScrollView>
+        <VerticalStackLayout
+        Spacing="25"
+        Padding="30,0"
+        VerticalOptions="Center">
+
+            <!-- Caixa de espaço total -->
+            <Entry x:Name="SpaceEntry"
+                    Keyboard="Numeric"
+                    TextChanged="OnEntryTextChanged"
+                    Placeholder="Espaço craft em Centímetros..."
+                    HorizontalOptions="CenterAndExpand" />
+            <!--TextChanged="OnSearchTextChanged" -->
+
+            <HorizontalStackLayout>
+                <Image
+                    Source="baddenipa350.png"
+                    WidthRequest="50"
+                    HorizontalOptions="Center" />
+                <Image
+                    Source="bluemoon350.png"
+                    WidthRequest="50"
+                    HorizontalOptions="Center" />
+                <Image
+                    Source="lagunitas350.png"
+                    WidthRequest="50"
+                    HorizontalOptions="Center" />
+            </HorizontalStackLayout>
+
+            <!-- Label 1
+            <Label
+            Text="Bem-vindo à ferramenta do promotor!"
+            SemanticProperties.HeadingLevel="Level1"
+            FontSize="30"
+            HorizontalOptions="Center" />
+
+            <Label
+            Text="Você terá uma experiência incrível ao obter os resultados desta ferramenta no seu dia-a-dia."
+            SemanticProperties.HeadingLevel="Level2"
+            SemanticProperties.Description="resumo"
+            FontSize="18"
+            HorizontalOptions="Center" />
+            <Label
+            Text="CHEERS!!!"
+            TextColor="Green"
+            SemanticProperties.HeadingLevel="Level3"
+            SemanticProperties.Description="Cheers"
+            FontSize="25"
+            HorizontalOptions="Center" /> -->
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

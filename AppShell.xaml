@@ -3,7 +3,9 @@
     x:Class="AplicativoPromotor.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:AplicativoPromotor.Pages"
+    xmlns:local="clr-namespace:AplicativoPromotor.Pages.MainPages"
+    xmlns:local2="clr-namespace:AplicativoPromotor.Pages.SubPages.Produtos"
+    xmlns:local3="clr-namespace:AplicativoPromotor.Pages.SubPages.Sovi"
     FlyoutBackgroundColor="Gray">
 
     <Shell.FlyoutHeader>
@@ -19,20 +21,22 @@
 
     <FlyoutItem Title="Produtos" Icon="iconprodutos.png">
         <ShellContent Title="Craft" Icon="craft.png"
-            ContentTemplate="{DataTemplate local:CraftPage}" />
+            ContentTemplate="{DataTemplate local2:CraftPage}" />
         <ShellContent Title="Premium" Icon="premium.png"
-            ContentTemplate="{DataTemplate local:PremiumPage}" />
+            ContentTemplate="{DataTemplate local2:PremiumPage}" />
         <ShellContent Title="MainStream" Icon="mainstream.png"
-            ContentTemplate="{DataTemplate local:MainStreamPage}" />
+            ContentTemplate="{DataTemplate local2:MainStreamPage}" />
         <ShellContent Title="Economy" Icon="economy.png"
-            ContentTemplate="{DataTemplate local:EconomyPage}" />
+            ContentTemplate="{DataTemplate local2:EconomyPage}" />
         <ShellContent Title="Refrigerante" Icon="refrigerante.png"
-            ContentTemplate="{DataTemplate local:RefrigerantePage}" />
+            ContentTemplate="{DataTemplate local2:RefrigerantePage}" />
     </FlyoutItem>
 
     <FlyoutItem Title="Sovi" Icon="iconsovi.png">
-        <ShellContent
-            ContentTemplate="{DataTemplate local:SoviPage}"/>
+        <ShellContent Title="Craft" Icon="craft.png"
+        ContentTemplate="{DataTemplate local3:CraftPage}" />
+        <ShellContent Title="Premium" Icon="premium.png"
+        ContentTemplate="{DataTemplate local3:PremiumPage}" />
     </FlyoutItem>
 
 </Shell>

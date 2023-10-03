@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using AplicativoPromotor.Pages.PropertiesPage;
 using AplicativoPromotor.Produtos;
-using AplicativoPromotor.Produtos.Refrigerante;
+using AplicativoPromotor.Produtos.MainStream;
 
-namespace AplicativoPromotor.Pages.Properties.SubPages
+namespace AplicativoPromotor.Pages.SubPages.Sovi.Interface
 {
-    public class Refrigerante : Properties
+    public class MainStream : Properties
     {
         private List<Produto> items; // Alteramos para uma propriedade privada
 
@@ -25,13 +21,14 @@ namespace AplicativoPromotor.Pages.Properties.SubPages
             }
         }
 
-        public Refrigerante()
+        public MainStream()
         {
 
             Items = new List<Produto>();
 
             // Atribua os itens diretamente à propriedade Items
-            Items.AddRange(new Fys().items);
+            Items.AddRange(new Amstel().items);
+            items.AddRange(new Devassa().items);
         }
     }
 }

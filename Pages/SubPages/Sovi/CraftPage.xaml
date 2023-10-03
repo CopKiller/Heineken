@@ -1,0 +1,82 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AplicativoPromotor.Pages.SubPages.Sovi.CraftPage"
+             Title="Sovi Craft"
+             BackgroundColor="#121B1A">
+
+    <!-- Conteúdo da página -->
+    <ScrollView>
+        <StackLayout
+            Spacing="20"
+            Padding="30,0">
+
+            <!-- Caixa de espaço total -->
+            <StackLayout Orientation="Horizontal">
+                <HorizontalStackLayout
+                    
+                HorizontalOptions="CenterAndExpand">
+
+                    <Entry x:Name="SpaceEntry"
+                    Keyboard="Numeric"
+                    TextChanged="OnEntryTextChanged"
+                    Placeholder="Espaço craft em Centímetros..." />
+                    <Label Text="cm" VerticalOptions="Center" />
+                </HorizontalStackLayout>
+            </StackLayout>
+
+            <!--<StackLayout Orientation="Horizontal">
+                <Entry Placeholder="Digite um número" Keyboard="Numeric" />
+                <Label Text="%" VerticalOptions="Center" />
+            </StackLayout> -->
+            <!--TextChanged="OnSearchTextChanged" -->
+
+            <StackLayout Orientation="Horizontal">
+                <Image
+                    Source="baddenipa350.png"
+                    WidthRequest="30"
+                    HorizontalOptions="CenterAndExpand" />
+                <Image
+    Source="baddengolden350.png"
+    WidthRequest="30"
+    HorizontalOptions="CenterAndExpand" />
+                <Image
+    Source="baddenwitbier350.png"
+    WidthRequest="30"
+    HorizontalOptions="CenterAndExpand" />
+                <Image
+    Source="baddencrystal350.png"
+    WidthRequest="30"
+    HorizontalOptions="CenterAndExpand" />
+                <Image
+                    Source="bluemoon350.png"
+                    WidthRequest="30"
+                    HorizontalOptions="CenterAndExpand" />
+                <Image
+                    Source="lagunitasipa350.png"
+                    WidthRequest="30"
+                    HorizontalOptions="CenterAndExpand" />
+            </StackLayout>
+
+            <!-- Label 1
+            <Label
+            Text="Bem-vindo à ferramenta do promotor!"
+            SemanticProperties.HeadingLevel="Level1"
+            FontSize="30"
+            HorizontalOptions="Center" />
+
+            <Label
+            Text="Você terá uma experiência incrível ao obter os resultados desta ferramenta no seu dia-a-dia."
+            SemanticProperties.HeadingLevel="Level2"
+            SemanticProperties.Description="resumo"
+            FontSize="18"
+            HorizontalOptions="Center" />
+            <Label
+            Text="CHEERS!!!"
+            TextColor="Green"
+            SemanticProperties.HeadingLevel="Level3"
+            SemanticProperties.Description="Cheers"
+            FontSize="25"
+            HorizontalOptions="Center" /> -->
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

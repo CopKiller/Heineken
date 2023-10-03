@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using AplicativoPromotor.Pages.PropertiesPage;
 using AplicativoPromotor.Produtos;
-using AplicativoPromotor.Produtos.MainStream;
+using AplicativoPromotor.Produtos.Premium;
 
-namespace AplicativoPromotor.Pages.Properties.SubPages
+namespace AplicativoPromotor.Pages.SubPages.Produtos.Interface
 {
-    public class MainStream : Properties
+    public class Premium : Properties
     {
         private List<Produto> items; // Alteramos para uma propriedade privada
 
@@ -25,14 +21,15 @@ namespace AplicativoPromotor.Pages.Properties.SubPages
             }
         }
 
-        public MainStream()
+        public Premium()
         {
 
             Items = new List<Produto>();
 
             // Atribua os itens diretamente à propriedade Items
-            Items.AddRange(new Amstel().items);
-            items.AddRange(new Devassa().items);
+            Items.AddRange(new Heineken().items);
+            items.AddRange(new Eisenbahn().items);
+            items.AddRange(new Sol().items);
         }
     }
 }
