@@ -7,7 +7,7 @@
 
     <!-- Conteúdo da página -->
     <StackLayout
-    Padding="30,0">
+        Padding="30,0">
 
         <!-- Campo de Pesquisa -->
         <Grid>
@@ -23,9 +23,9 @@
             <StackLayout Orientation="Horizontal">
                 <!-- Caixa de pesquisa -->
                 <Entry x:Name="SearchEntry"
-                Placeholder="Pesquisar..."
-                TextChanged="OnSearchTextChanged"
-                HorizontalOptions="StartAndExpand" />
+               Placeholder="Pesquisar..."
+               TextChanged="OnSearchTextChanged"
+               HorizontalOptions="FillAndExpand" />
 
                 <!-- Selecione o tipo de pesquisa -->
                 <Picker x:Name="SearchTypePicker"
