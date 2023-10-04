@@ -1,4 +1,4 @@
-using AplicativoPromotor.Pages.SubPages.Produtos.Interface;
+using AplicativoPromotor.Pages.SubPages.Produtos.PropertiesItems;
 using AplicativoPromotor.Produtos;
 using Microsoft.Maui.Controls;
 using System.ComponentModel.DataAnnotations;

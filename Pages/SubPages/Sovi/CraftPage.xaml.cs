@@ -1,4 +1,6 @@
 
+using System.Diagnostics;
+
 namespace AplicativoPromotor.Pages.SubPages.Sovi;
 public partial class CraftPage : ContentPage
 {
@@ -27,12 +29,28 @@ public partial class CraftPage : ContentPage
 
     private void OnEntryTextChanged(object sender, TextChangedEventArgs e)
     {
-        if (!string.IsNullOrEmpty(e.NewTextValue))
+        if (string.IsNullOrEmpty(e.NewTextValue))
         {
-            if (!double.TryParse(e.NewTextValue, out _))
+            return; // Não faz nada se o texto estiver vazio
+        }
+
+        if (!double.TryParse(e.NewTextValue, out var num))
+        {
+            ((Entry)sender).Text = ""; // Limpa o texto se não for um número válido
+        }
+        else
+        {
+            var nomeDoInvocador = ((Entry)sender).ClassId;
+
+            switch (nomeDoInvocador)
             {
-                // Não é um número válido, então você pode tomar alguma ação aqui, como limpar o texto.
-                ((Entry)sender).Text = "";
+                case "EntrySoviBadden":
+                    {
+                        num = Math.Max(0, Math.Min(num, 100)); // Limita o número entre 0 e 100
+                        ((Entry)sender).Text = num.ToString();
+                        break;
+                    }
+                    // Adicione mais casos aqui, se necessário
             }
         }
     }

@@ -1,8 +1,8 @@
-﻿using AplicativoPromotor.Pages.PropertiesPage;
+﻿using AplicativoPromotor.Pages.PropertiesPages;
 using AplicativoPromotor.Produtos;
 using AplicativoPromotor.Produtos.Premium;
 
-namespace AplicativoPromotor.Pages.SubPages.Produtos.Interface
+namespace AplicativoPromotor.Pages.SubPages.Produtos.PropertiesItems
 {
     public class Premium : Properties
     {

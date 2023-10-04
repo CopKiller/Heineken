@@ -1,10 +1,10 @@
-﻿using AplicativoPromotor.Pages.PropertiesPage;
+﻿using AplicativoPromotor.Pages.PropertiesPages;
 using AplicativoPromotor.Produtos;
-using AplicativoPromotor.Produtos.MainStream;
+using AplicativoPromotor.Produtos.Economy;
 
-namespace AplicativoPromotor.Pages.SubPages.Sovi.Interface
+namespace AplicativoPromotor.Pages.SubPages.Sovi.PropertiesItems
 {
-    public class MainStream : Properties
+    public class Economy : Properties
     {
         private List<Produto> items; // Alteramos para uma propriedade privada
 
@@ -21,14 +21,13 @@ namespace AplicativoPromotor.Pages.SubPages.Sovi.Interface
             }
         }
 
-        public MainStream()
+        public Economy()
         {
 
             Items = new List<Produto>();
 
             // Atribua os itens diretamente à propriedade Items
-            Items.AddRange(new Amstel().items);
-            items.AddRange(new Devassa().items);
+            Items.AddRange(new Schin().items);
         }
     }
 }

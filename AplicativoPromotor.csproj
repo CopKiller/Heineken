@@ -85,6 +85,7 @@
 	<ItemGroup>
 	  <None Remove="Resources\Images\cadastrarprodutos.png" />
 	  <None Remove="Resources\Images\heinekenlogo.png" />
+		<None Remove="Resources\Images\baddenlogo.png" />
 	  <None Remove="Resources\Images\Titles\iconprodutos.png" />
 	  <None Remove="Resources\Images\Titles\iconsovi.png" />
 	  <None Remove="Resources\Images\Titles\introducao.png" />
@@ -152,6 +153,10 @@
 	  <Compile Update="Pages\SubPages\Sovi\CraftPage.xaml.cs">
 	    <DependentUpon>CraftPage.xaml</DependentUpon>
 	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Pages\MainPages\Properties\" />
 	</ItemGroup>
 
 </Project>

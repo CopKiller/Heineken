@@ -22,14 +22,16 @@
                 Text="Bem-vindo à ferramenta do promotor!"
                 SemanticProperties.HeadingLevel="Level1"
                 FontSize="30"
-                HorizontalOptions="Center" />
+                HorizontalOptions="Center"
+                TextColor="White" />
 
             <Label
                 Text="Você terá uma experiência incrível ao obter os resultados desta ferramenta no seu dia-a-dia."
                 SemanticProperties.HeadingLevel="Level2"
                 SemanticProperties.Description="resumo"
                 FontSize="18"
-                HorizontalOptions="Center" />
+                HorizontalOptions="Center"
+                TextColor="White" />
             <Label
                 Text="CHEERS!!!"
                 TextColor="Green"

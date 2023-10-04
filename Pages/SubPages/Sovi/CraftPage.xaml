@@ -7,56 +7,133 @@
     <!-- Conteúdo da página -->
     <ScrollView>
         <StackLayout
-            Spacing="20"
+            Spacing="15"
             Padding="30,0">
 
-            <!-- Caixa de espaço total -->
-            <StackLayout Orientation="Horizontal">
-                <HorizontalStackLayout
-                    
+            <Label Text="Total espaço CRAFT" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" FontSize="Subtitle" TextColor="White" Margin="0,40,0,0"/>
+
+            <!-- Seção espaço Craft total -->
+            <HorizontalStackLayout
                 HorizontalOptions="CenterAndExpand">
 
-                    <Entry x:Name="SpaceEntry"
+                <Entry x:Name="EntryAllCraft"
                     Keyboard="Numeric"
                     TextChanged="OnEntryTextChanged"
-                    Placeholder="Espaço craft em Centímetros..." />
-                    <Label Text="cm" VerticalOptions="Center" />
-                </HorizontalStackLayout>
-            </StackLayout>
+                    Placeholder="Espaço total craft em Centímetros..." 
+                    ClassId="EntryAllCraft"/>
+                <Label Text="cm" VerticalOptions="Center" TextColor="White" />
+            </HorizontalStackLayout>
 
-            <!--<StackLayout Orientation="Horizontal">
-                <Entry Placeholder="Digite um número" Keyboard="Numeric" />
-                <Label Text="%" VerticalOptions="Center" />
-            </StackLayout> -->
-            <!--TextChanged="OnSearchTextChanged" -->
+            <HorizontalStackLayout
+            HorizontalOptions="CenterAndExpand"
+                Spacing="5">
+                <Label Text="Total CRAFT do portfólio" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" FontSize="Subtitle" TextColor="White" Margin="0,20,0,0" />
+                <Label Text="HEINEKEN" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" FontSize="Subtitle" TextColor="Green" Margin="0,20,0,0" />
+            </HorizontalStackLayout>
+            
+            <!-- Seção espaço Craft Heineken -->
+            <HorizontalStackLayout
+                HorizontalOptions="CenterAndExpand">
 
-            <StackLayout Orientation="Horizontal">
+                <Entry x:Name="EntryCraft"
+                    Keyboard="Numeric"
+                    TextChanged="OnEntryTextChanged"
+                    Placeholder="Espaço craft em Centímetros..."
+                    ClassId="EntryCraft"/>
+                <Label Text="cm" VerticalOptions="Center" TextColor="White"/>
+            </HorizontalStackLayout>
+            <VerticalStackLayout>
+                <!-- Seção Badden Badden-->
+                <Label Text="Badden Badden" 
+                       HorizontalOptions="CenterAndExpand" 
+                       FontAttributes="Bold" 
+                       FontSize="Subtitle" 
+                       TextColor="White"
+                       Margin="0,40,0,0"/>
                 <Image
-                    Source="baddenipa350.png"
-                    WidthRequest="30"
-                    HorizontalOptions="CenterAndExpand" />
+                       Source="baddenipa350.png"
+                       WidthRequest="30" />
+                <Label Text="SOVI Badden" 
+                       HorizontalOptions="CenterAndExpand"
+                       VerticalOptions="Center" 
+                       TextColor="White"
+                       Margin="0,0,0,-15"/>
+            </VerticalStackLayout>
+            <HorizontalStackLayout
+                HorizontalOptions="CenterAndExpand">
+                <Entry x:Name="EntrySoviBadden"
+                       Keyboard="Numeric"
+                       TextChanged="OnEntryTextChanged"
+                       Placeholder="Digite aqui o SOVI..." 
+                       ClassId="EntrySoviBadden"/>
+                <Label Text="%" 
+                       VerticalOptions="Center"
+                       TextColor="White"/>
+            </HorizontalStackLayout>
+            <Label Text="Espaço de Badden" 
+                   HorizontalOptions="CenterAndExpand"
+                   VerticalOptions="Center"
+                   TextColor="White"/>
+
+            <Grid
+                HorizontalOptions="Center"
+                ColumnSpacing="20"
+                RowSpacing="20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <!-- Linha 1 -->
+                <Entry Grid.Row="0" Grid.Column="0" Placeholder="cm" />
+                <Entry Grid.Row="0" Grid.Column="2" Placeholder="cm" />
+                <Entry Grid.Row="0" Grid.Column="4" Placeholder="cm" />
+                <Entry Grid.Row="0" Grid.Column="6" Placeholder="cm" />
+                <Entry Grid.Row="0" Grid.Column="8" Placeholder="cm" />
+
+                <!-- Linha 2 -->
+                <Entry Grid.Row="1" Grid.Column="0" Placeholder="cm" />
+                <Entry Grid.Row="1" Grid.Column="2" Placeholder="cm" />
+                <Entry Grid.Row="1" Grid.Column="4" Placeholder="cm" />
+                <Entry Grid.Row="1" Grid.Column="6" Placeholder="cm" />
+                <Entry Grid.Row="1" Grid.Column="8" Placeholder="cm" />
+
+                <!-- Linha 3 -->
+                <Entry Grid.Row="2" Grid.Column="0" Placeholder="cm" />
+                <Entry Grid.Row="2" Grid.Column="2" Placeholder="cm" />
+                <Entry Grid.Row="2" Grid.Column="4" Placeholder="cm" />
+                <Entry Grid.Row="2" Grid.Column="6" Placeholder="cm" />
+                <Entry Grid.Row="2" Grid.Column="8" Placeholder="cm" />
+                <!-- Adicione mais linhas e entradas conforme necessário -->
+
+            </Grid>
+            <!-- <Image
+                    Source="baddengolden350.png"
+                    WidthRequest="30" />
                 <Image
-    Source="baddengolden350.png"
-    WidthRequest="30"
-    HorizontalOptions="CenterAndExpand" />
+                    Source="baddenwitbier350.png"
+                    WidthRequest="30" />
                 <Image
-    Source="baddenwitbier350.png"
-    WidthRequest="30"
-    HorizontalOptions="CenterAndExpand" />
-                <Image
-    Source="baddencrystal350.png"
-    WidthRequest="30"
-    HorizontalOptions="CenterAndExpand" />
+                    Source="baddencrystal350.png"
+                    WidthRequest="30" />
                 <Image
                     Source="bluemoon350.png"
-                    WidthRequest="30"
-                    HorizontalOptions="CenterAndExpand" />
+                    WidthRequest="30" />
                 <Image
                     Source="lagunitasipa350.png"
-                    WidthRequest="30"
-                    HorizontalOptions="CenterAndExpand" />
-            </StackLayout>
-
+                    WidthRequest="30" />
+            </HorizontalStackLayout> -->
             <!-- Label 1
             <Label
             Text="Bem-vindo à ferramenta do promotor!"

@@ -1,8 +1,8 @@
-﻿using AplicativoPromotor.Pages.PropertiesPage;
+﻿using AplicativoPromotor.Pages.PropertiesPages;
 using AplicativoPromotor.Produtos;
 using AplicativoPromotor.Produtos.Refrigerante;
 
-namespace AplicativoPromotor.Pages.SubPages.Produtos.Interface
+namespace AplicativoPromotor.Pages.SubPages.Sovi.PropertiesItems
 {
     public class Refrigerante : Properties
     {

@@ -1,8 +1,8 @@
-﻿using AplicativoPromotor.Produtos;
+﻿using AplicativoPromotor.Pages.PropertiesPages;
+using AplicativoPromotor.Produtos;
 using AplicativoPromotor.Produtos.Craft;
-using AplicativoPromotor.Pages.PropertiesPage;
 
-namespace AplicativoPromotor.Pages.SubPages.Sovi.Interface
+namespace AplicativoPromotor.Pages.SubPages.Produtos.PropertiesItems
 {
     public class Craft : Properties
     {
