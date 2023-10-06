@@ -14,7 +14,7 @@ public partial class PremiumPage : ContentPage
     //    Desc
     //}
 
-    //private List<Produto> craftPageItems; // Substitua com o seu tipo de item
+    //private List<Item> craftPageItems; // Substitua com o seu tipo de item
     //private int searchType = (int)SearchTypes.Nome;
 
     public PremiumPage()

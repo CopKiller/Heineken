@@ -6,25 +6,24 @@ using System.Threading.Tasks;
 
 namespace AplicativoPromotor.Produtos.Craft
 {
-    public class Bluemoon
+    public class Bluemoon : Produtos
     {
-        public List<Produto> items = new List<Produto>();
         public Bluemoon()
         {
-            items.Add(new Produto
+            AddProduto(new Item
             {
-                name = "Bluemoon 355ml Belgian White",
-                id = 7898235981033,
-                desc = "Cerveja sabor Coentro & Casca de laranja",
-                foto = "bluemoon355.png"
+                Name = "Bluemoon 355ml Belgian White",
+                Id = 7898235981033,
+                Desc = "Cerveja sabor Coentro & Casca de laranja",
+                Foto = "bluemoon355.png"
             });
 
-            items.Add(new Produto
+            AddProduto(new Item
             {
-                name = "Bluemoon 350ml Belgian White",
-                id = 7896045506477,
-                desc = "Cerveja sabor Coentro & Casca de laranja",
-                foto = "bluemoon350.png"
+                Name = "Bluemoon 350ml Belgian White",
+                Id = 7896045506477,
+                Desc = "Cerveja sabor Coentro & Casca de laranja",
+                Foto = "bluemoon350.png"
             });
         }
     }

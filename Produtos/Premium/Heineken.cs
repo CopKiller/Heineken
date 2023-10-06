@@ -6,20 +6,19 @@ using System.Threading.Tasks;
 
 namespace AplicativoPromotor.Produtos.Premium
 {
-    public class Heineken
+    public class Heineken : Produtos
     {
-        public List<Produto> items = new List<Produto>();
         public Heineken()
         {
-            items.Add(new Produto { name = "Heineken 250ml Lager", id = 78935495, desc = "Cerveja Puro malte do tipo Lager", foto = "heineken250.png" });
-            items.Add(new Produto { name = "Heineken 330ml Lager", id = 78936683, desc = "Cerveja Puro malte do tipo Lager", foto = "heineken330.png" });
-            items.Add(new Produto { name = "Heineken 330ml 0.0%", id = 7896045506040, desc = "Cerveja Puro malte do tipo Zero Alcool", foto = "heinekenzero330.png" });
-            items.Add(new Produto { name = "Heineken 269ml Lager", id = 7896045506590, desc = "Cerveja Puro malte do tipo Lager", foto = "heineken269.png" });
-            items.Add(new Produto { name = "Heineken 269ml 0.0%", id = 7896045506859, desc = "Cerveja Puro malte do tipo Zero Alcool", foto = "heinekenzero269.png" });
-            items.Add(new Produto { name = "Heineken 350ml Sleek Lager", id = 7896045506880, desc = "Cerveja Puro malte do tipo Lager", foto = "heineken350.png" });
-            items.Add(new Produto { name = "Heineken 350ml Sleek 0.0%", id = 7896045506910, desc = "Cerveja Puro malte do tipo Zero Alcool", foto = "heinekenzero350.png" });
-            items.Add(new Produto { name = "Heineken 600ml Lager", id = 78905498, desc = "Cerveja Puro malte do tipo Lager", foto = "heineken600.png" });
-            items.Add(new Produto { name = "Heineken 5L Chopp", id = 7890322860009, desc = "Cerveja Puro malte do tipo Lager", foto = "heineken5000.png" });
+            AddProduto(new Item { Name = "Heineken 250ml Lager", Id = 78935495, Desc = "Cerveja Puro malte do tipo Lager", Foto = "heineken250.png" });
+            AddProduto(new Item { Name = "Heineken 330ml Lager", Id = 78936683, Desc = "Cerveja Puro malte do tipo Lager", Foto = "heineken330.png" });
+            AddProduto(new Item { Name = "Heineken 330ml 0.0%", Id = 7896045506040, Desc = "Cerveja Puro malte do tipo Zero Alcool", Foto = "heinekenzero330.png" });
+            AddProduto(new Item { Name = "Heineken 269ml Lager", Id = 7896045506590, Desc = "Cerveja Puro malte do tipo Lager", Foto = "heineken269.png" });
+            AddProduto(new Item { Name = "Heineken 269ml 0.0%", Id = 7896045506859, Desc = "Cerveja Puro malte do tipo Zero Alcool", Foto = "heinekenzero269.png" });
+            AddProduto(new Item { Name = "Heineken 350ml Sleek Lager", Id = 7896045506880, Desc = "Cerveja Puro malte do tipo Lager", Foto = "heineken350.png" });
+            AddProduto(new Item { Name = "Heineken 350ml Sleek 0.0%", Id = 7896045506910, Desc = "Cerveja Puro malte do tipo Zero Alcool", Foto = "heinekenzero350.png" });
+            AddProduto(new Item { Name = "Heineken 600ml Lager", Id = 78905498, Desc = "Cerveja Puro malte do tipo Lager", Foto = "heineken600.png" });
+            AddProduto(new Item { Name = "Heineken 5L Chopp", Id = 7890322860009, Desc = "Cerveja Puro malte do tipo Lager", Foto = "heineken5000.png" });
         }
     }
 }

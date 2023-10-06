@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace AplicativoPromotor.Produtos.Economy
 {
-    public class Schin : Produtos
+    public class Glacial : Produtos
     {
-        public Schin()
+        public Glacial()
         {
-            AddProduto(new Item { Name = "Schin 350ml Puro Malte", Id = 78934115, Desc = "Cerveja do tipo Puro Malte", Foto = "schin350.png" });
+            AddProduto(new Item { Name = "Glacial 350ml Pilsen", Id = 78934115, Desc = "Cerveja do tipo Pilsen", Foto = "glacial350.png" });
 
         }
     }

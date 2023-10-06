@@ -6,9 +6,9 @@ namespace AplicativoPromotor.Pages.SubPages.Sovi.PropertiesItems
 {
     public class Craft : Properties
     {
-        private List<Produto> items; // Alteramos para uma propriedade privada
+        private List<Item> items; // Alteramos para uma propriedade privada
 
-        public List<Produto> Items // Propriedade pública para acessar a lista
+        public List<Item> Items // Propriedade pública para acessar a lista
         {
             get { return items; }
             set
@@ -24,12 +24,12 @@ namespace AplicativoPromotor.Pages.SubPages.Sovi.PropertiesItems
         public Craft()
         {
 
-            Items = new List<Produto>();
+            Items = new List<Item>();
 
             // Atribua os itens diretamente à propriedade Items
-            Items.AddRange(new Badden().items);
-            Items.AddRange(new Lagunitas().items);
-            Items.AddRange(new Bluemoon().items);
+            Items.AddRange(new Badden().GetProdutos());
+            Items.AddRange(new Lagunitas().GetProdutos());
+            Items.AddRange(new Bluemoon().GetProdutos());
         }
     }
 }

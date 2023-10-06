@@ -6,15 +6,14 @@ using System.Threading.Tasks;
 
 namespace AplicativoPromotor.Produtos.Premium
 {
-    public class Eisenbahn
+    public class Eisenbahn : Produtos
     {
-        public List<Produto> items = new List<Produto>();
         public Eisenbahn()
         {
-            items.Add(new Produto { name = "Eisenbahn 350ml Pilsen", id = 7898367983790, desc = "Cerveja Puro malte do tipo Pilsen", foto = "eisenbahn350.png" });
-            items.Add(new Produto { name = "Eisenbahn 355ml Pilsen", id = 7898367980010, desc = "Cerveja Puro malte do tipo Pilsen", foto = "eisenbahn355.png" });
-            items.Add(new Produto { name = "Eisenbahn Unfiltered 350ml Pilsen", id = 7898367984377, desc = "Cerveja Puro malte do tipo Pilsen", foto = "eisenbahnunfiltered350.png" });
-            items.Add(new Produto { name = "Eisenbahn Unfiltered 355ml Pilsen", id = 7898367984346, desc = "Cerveja Puro malte do tipo Pilsen", foto = "eisenbahnunfiltered355.png" });
+            AddProduto(new Item { Name = "Eisenbahn 350ml Pilsen", Id = 7898367983790, Desc = "Cerveja Puro malte do tipo Pilsen", Foto = "eisenbahn350.png" });
+            AddProduto(new Item { Name = "Eisenbahn 355ml Pilsen", Id = 7898367980010, Desc = "Cerveja Puro malte do tipo Pilsen", Foto = "eisenbahn355.png" });
+            AddProduto(new Item { Name = "Eisenbahn Unfiltered 350ml Pilsen", Id = 7898367984377, Desc = "Cerveja Puro malte do tipo Pilsen", Foto = "eisenbahnunfiltered350.png" });
+            AddProduto(new Item { Name = "Eisenbahn Unfiltered 355ml Pilsen", Id = 7898367984346, Desc = "Cerveja Puro malte do tipo Pilsen", Foto = "eisenbahnunfiltered355.png" });
         }
     }
 }

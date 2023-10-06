@@ -6,13 +6,12 @@ using System.Threading.Tasks;
 
 namespace AplicativoPromotor.Produtos.MainStream
 {
-    public class Amstel
+    public class Amstel : Produtos
     {
-        public List<Produto> items = new List<Produto>();
         public Amstel()
         {
-            items.Add(new Produto { name = "Amstel 269ml Puro Malte", id = 7896045505319, desc = "Cerveja do tipo Puro Malte", foto = "amstel269.png" });
-            items.Add(new Produto { name = "Amstel 350ml Puro Malte", id = 7896045506941, desc = "Cerveja do tipo Puro Malte", foto = "amstel350.png" });
+            AddProduto(new Item { Name = "Amstel 269ml Puro Malte", Id = 7896045505319, Desc = "Cerveja do tipo Puro Malte", Foto = "amstel269.png" });
+            AddProduto(new Item { Name = "Amstel 350ml Puro Malte", Id = 7896045506941, Desc = "Cerveja do tipo Puro Malte", Foto = "amstel350.png" });
 
         }
     }

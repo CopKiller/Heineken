@@ -6,9 +6,9 @@ namespace AplicativoPromotor.Pages.SubPages.Sovi.PropertiesItems
 {
     public class Refrigerante : Properties
     {
-        private List<Produto> items; // Alteramos para uma propriedade privada
+        private List<Item> items; // Alteramos para uma propriedade privada
 
-        public List<Produto> Items // Propriedade pública para acessar a lista
+        public List<Item> Items // Propriedade pública para acessar a lista
         {
             get { return items; }
             set
@@ -24,10 +24,10 @@ namespace AplicativoPromotor.Pages.SubPages.Sovi.PropertiesItems
         public Refrigerante()
         {
 
-            Items = new List<Produto>();
+            Items = new List<Item>();
 
             // Atribua os itens diretamente à propriedade Items
-            Items.AddRange(new Fys().items);
+            Items.AddRange(new Fys().GetProdutos());
         }
     }
 }

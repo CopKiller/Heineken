@@ -19,7 +19,7 @@ public partial class PremiumPage : ContentPage
         Desc
     }
 
-    private List<Produto> premiumPageItems; // Substitua com o seu tipo de item
+    private List<Item> premiumPageItems; // Substitua com o seu tipo de item
     private int searchType = (int)SearchTypes.Nome;
 
     public PremiumPage()
@@ -61,23 +61,23 @@ public partial class PremiumPage : ContentPage
         if (searchTerm == currentSearchTerm && currentSearchTerm != null)
         {
             // Realize a pesquisa com base no tipo selecionado
-            List<Produto> searchResults = new List<Produto>();
+            List<Item> searchResults = new List<Item>();
 
             switch (searchType)
             {
                 case (int)SearchTypes.Nome:
                     searchResults = premiumPageItems
-                        .Where(item => item.name.Contains(searchTerm, StringComparison.OrdinalIgnoreCase))
+                        .Where(item => item.Name.Contains(searchTerm, StringComparison.OrdinalIgnoreCase))
                         .ToList();
                     break;
                 case (int)SearchTypes.EAN:
                     searchResults = premiumPageItems
-                        .Where(item => item.id.ToString().Contains(searchTerm, StringComparison.OrdinalIgnoreCase))
+                        .Where(item => item.Id.ToString().Contains(searchTerm, StringComparison.OrdinalIgnoreCase))
                         .ToList();
                     break;
                 case (int)SearchTypes.Desc:
                     searchResults = premiumPageItems
-                        .Where(item => item.desc.Contains(searchTerm, StringComparison.OrdinalIgnoreCase))
+                        .Where(item => item.Desc.Contains(searchTerm, StringComparison.OrdinalIgnoreCase))
                         .ToList();
                     break;
                 default:

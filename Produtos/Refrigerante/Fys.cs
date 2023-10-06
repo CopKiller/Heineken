@@ -6,15 +6,14 @@ using System.Threading.Tasks;
 
 namespace AplicativoPromotor.Produtos.Refrigerante
 {
-    public class Fys
+    public class Fys : Produtos
     {
-        public List<Produto> items = new List<Produto>();
         public Fys()
         {
-            items.Add(new Produto { name = "Fys 350ml Laranja", id = 7896052607129, desc = "Refrigerante sem conservantes sabor Laranja", foto = "devassa269.png" });
-            items.Add(new Produto { name = "Fys 350ml Guarana", id = 7896052607044, desc = "Refrigerante sem conservantes sabor Guarana", foto = "devassa269.png" });
-            items.Add(new Produto { name = "Fys 350ml Tônica", id = 7896052607228, desc = "Agua tônica sabor limão siciliano", foto = "devassa269.png" });
-            items.Add(new Produto { name = "Fys 350ml Tônica Zero", id = 7896052607587, desc = "Agua tônica sabor limão siciliano sem açucar", foto = "devassa269.png" });
+            AddProduto(new Item { Name = "Fys 350ml Laranja", Id = 7896052607129, Desc = "Refrigerante sem conservantes sabor Laranja", Foto = "devassa269.png" });
+            AddProduto(new Item { Name = "Fys 350ml Guarana", Id = 7896052607044, Desc = "Refrigerante sem conservantes sabor Guarana", Foto = "devassa269.png" });
+            AddProduto(new Item { Name = "Fys 350ml Tônica", Id = 7896052607228, Desc = "Agua tônica sabor limão siciliano", Foto = "devassa269.png" });
+            AddProduto(new Item { Name = "Fys 350ml Tônica Zero", Id = 7896052607587, Desc = "Agua tônica sabor limão siciliano sem açucar", Foto = "devassa269.png" });
         }
     }
 }
