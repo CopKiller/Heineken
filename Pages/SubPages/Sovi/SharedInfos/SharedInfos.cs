@@ -1,18 +1,20 @@
-﻿
-
-using System;
-using System.ComponentModel;
-using System.Text.Json;
+﻿using System.Text.Json;
 
 namespace AplicativoPromotor.Pages.SubPages.Sovi
 {
-    public enum ProdutosSovi
+    public enum CraftProdutos
     {
         Badden,
         Bluemoon,
         Lagunitas,
+    }
+    public enum PremiumProdutos
+    {
         Heineken,
         Heineken00,
+    }
+    public enum MainStreamProdutos
+    {
         Amstel,
         Devassa
     }
@@ -49,21 +51,21 @@ namespace AplicativoPromotor.Pages.SubPages.Sovi
             {
                 new InfosProdutos
                 {
-                    produtosSovi = ProdutosSovi.Badden,
-                    ProdutoSovi = 0,
-                    ProdutoCentimetros = new int[9]
+                    produtoType = (int)CraftProdutos.Badden,
+                    produtoSovi = 0,
+                    produtoCentimetro = new int[9]
                 },
                 new InfosProdutos
                 {
-                    produtosSovi = ProdutosSovi.Bluemoon,
-                    ProdutoSovi = 0,
-                    ProdutoCentimetros = new int[9]
+                    produtoType = (int)CraftProdutos.Bluemoon,
+                    produtoSovi = 0,
+                    produtoCentimetro = new int[9]
                 },
                 new InfosProdutos
                 {
-                    produtosSovi = ProdutosSovi.Lagunitas,
-                    ProdutoSovi = 0,
-                    ProdutoCentimetros = new int[9]
+                    produtoType = (int) CraftProdutos.Lagunitas,
+                    produtoSovi = 0,
+                    produtoCentimetro = new int[9]
                 }
             }
             };
@@ -80,15 +82,15 @@ namespace AplicativoPromotor.Pages.SubPages.Sovi
                 Produtos = new List<InfosProdutos>
                 {new InfosProdutos
                 {
-                    produtosSovi = ProdutosSovi.Heineken,
-                    ProdutoSovi = 0,
-                    ProdutoCentimetros = new int[9]
+                    produtoType = (int) PremiumProdutos.Heineken,
+                    produtoSovi = 0,
+                    produtoCentimetro = new int[9]
                 },
                 new InfosProdutos
                 {
-                    produtosSovi = ProdutosSovi.Heineken00,
-                    ProdutoSovi = 0,
-                    ProdutoCentimetros = new int[9]
+                    produtoType = (int) PremiumProdutos.Heineken00,
+                    produtoSovi = 0,
+                    produtoCentimetro = new int[9]
                 }
                 }
             };
@@ -105,22 +107,22 @@ namespace AplicativoPromotor.Pages.SubPages.Sovi
                 Produtos = new List<InfosProdutos>
                 {new InfosProdutos
                 {
-                    produtosSovi = ProdutosSovi.Amstel,
-                    ProdutoSovi = 0,
-                    ProdutoCentimetros = new int[9]
+                    produtoType = (int) MainStreamProdutos.Amstel,
+                    produtoSovi = 0,
+                    produtoCentimetro = new int[9]
                 },
                 new InfosProdutos
                 {
-                    produtosSovi = ProdutosSovi.Devassa,
-                    ProdutoSovi = 0,
-                    ProdutoCentimetros = new int[9]
+                    produtoType = (int) MainStreamProdutos.Devassa,
+                    produtoSovi = 0,
+                    produtoCentimetro = new int[9]
                 }
                 }
             };
 
             Pages.Add(mainStreamPage);
         }
-        public static int GetEspacoCategoria(PagesSovi pagina, ProdutosSovi produto)
+        public static int GetEspacoCategoria(PagesSovi pagina, CraftProdutos produto)
         {
             int espacoTotal = 0;
 
@@ -129,7 +131,37 @@ namespace AplicativoPromotor.Pages.SubPages.Sovi
             {
                 var indiceReal = i;
 
-                int espacoIndividual = Pages[(int)pagina].Produtos[(int)produto].ProdutoCentimetros[i];
+                int espacoIndividual = Pages[(int)pagina].Produtos[(int)produto].produtoCentimetro[i];
+                espacoTotal += espacoIndividual;
+            }
+
+            return espacoTotal;
+        }
+        public static int GetEspacoCategoria(PagesSovi pagina, PremiumProdutos produto)
+        {
+            int espacoTotal = 0;
+
+            // Itera através dos espaços ocupados pelo produto em 9 posições
+            for (int i = 0; i < 9; i++)
+            {
+                var indiceReal = i;
+
+                int espacoIndividual = Pages[(int)pagina].Produtos[(int)produto].produtoCentimetro[i];
+                espacoTotal += espacoIndividual;
+            }
+
+            return espacoTotal;
+        }
+        public static int GetEspacoCategoria(PagesSovi pagina, MainStreamProdutos produto)
+        {
+            int espacoTotal = 0;
+
+            // Itera através dos espaços ocupados pelo produto em 9 posições
+            for (int i = 0; i < 9; i++)
+            {
+                var indiceReal = i;
+
+                int espacoIndividual = Pages[(int)pagina].Produtos[(int)produto].produtoCentimetro[i];
                 espacoTotal += espacoIndividual;
             }
 
@@ -174,8 +206,11 @@ namespace AplicativoPromotor.Pages.SubPages.Sovi
 
     public class InfosProdutos
     {
-        public ProdutosSovi produtosSovi { get; set; }
-        public byte ProdutoSovi { get; set; }
-        public int[] ProdutoCentimetros { get; set; }
+        // Tipo, usado com enum
+        public int produtoType { get; set; }
+        // Numerico, recebido pela Entry
+        public byte produtoSovi { get; set; }
+        // Centimetros de cada box em array
+        public int[] produtoCentimetro { get; set; }
     }
 }

@@ -107,11 +107,21 @@
                     Margin="20,0,0,0"
                     Clicked="OnButtonClicked" />
             </HorizontalStackLayout>
-            <Label
-                Text="Espaço de Amstel"
-                HorizontalOptions="CenterAndExpand"
-                VerticalOptions="Center"
-                TextColor="White" />
+            <HorizontalStackLayout
+                HorizontalOptions="CenterAndExpand">
+                <Label
+                    Text="Espaço de Amstel"
+                    Margin="0,5,0,10"
+                    VerticalOptions="Center"
+                    TextColor="White" />
+                <Label
+                    x:Name="EspacoAmstel"
+                    FontAttributes="Bold"
+                    Margin="20,5,0,10"
+                    Text="0"
+                    VerticalOptions="Center"
+                    TextColor="Green" />
+            </HorizontalStackLayout>
             <Grid
                 HorizontalOptions="Center"
                 ColumnSpacing="20"
@@ -165,104 +175,56 @@
                     TextChanged="OnEntryTextChanged"
                     Keyboard="Numeric"
                     ClassId="EntryAmstel3" />
+                <!-- Linha 2 -->
                 <Entry
                     x:Name="EntryAmstel4"
-                    Grid.Row="0"
-                    Grid.Column="6"
+                    Grid.Row="1"
+                    Grid.Column="0"
                     Placeholder="cm"
                     TextChanged="OnEntryTextChanged"
                     Keyboard="Numeric"
                     ClassId="EntryAmstel4" />
                 <Entry
                     x:Name="EntryAmstel5"
-                    Grid.Row="0"
-                    Grid.Column="8"
+                    Grid.Row="1"
+                    Grid.Column="2"
                     Placeholder="cm"
                     TextChanged="OnEntryTextChanged"
                     Keyboard="Numeric"
                     ClassId="EntryAmstel5" />
-                <!-- Linha 2 -->
                 <Entry
                     x:Name="EntryAmstel6"
                     Grid.Row="1"
-                    Grid.Column="0"
+                    Grid.Column="4"
                     Placeholder="cm"
                     TextChanged="OnEntryTextChanged"
                     Keyboard="Numeric"
                     ClassId="EntryAmstel6" />
+                <!-- Linha 3 -->
                 <Entry
                     x:Name="EntryAmstel7"
-                    Grid.Row="1"
-                    Grid.Column="2"
+                    Grid.Row="2"
+                    Grid.Column="0"
                     Placeholder="cm"
                     TextChanged="OnEntryTextChanged"
                     Keyboard="Numeric"
                     ClassId="EntryAmstel7" />
                 <Entry
                     x:Name="EntryAmstel8"
-                    Grid.Row="1"
-                    Grid.Column="4"
+                    Grid.Row="2"
+                    Grid.Column="2"
                     Placeholder="cm"
                     TextChanged="OnEntryTextChanged"
                     Keyboard="Numeric"
                     ClassId="EntryAmstel8" />
                 <Entry
                     x:Name="EntryAmstel9"
-                    Grid.Row="1"
-                    Grid.Column="6"
-                    Placeholder="cm"
-                    TextChanged="OnEntryTextChanged"
-                    Keyboard="Numeric"
-                    ClassId="EntryAmstel9" />
-                <Entry
-                    x:Name="EntryAmstel10"
-                    Grid.Row="1"
-                    Grid.Column="8"
-                    Placeholder="cm"
-                    TextChanged="OnEntryTextChanged"
-                    Keyboard="Numeric"
-                    ClassId="EntryAmstel10" />
-                <!-- Linha 3 -->
-                <Entry
-                    x:Name="EntryAmstel11"
-                    Grid.Row="2"
-                    Grid.Column="0"
-                    Placeholder="cm"
-                    TextChanged="OnEntryTextChanged"
-                    Keyboard="Numeric"
-                    ClassId="EntryAmstel11" />
-                <Entry
-                    x:Name="EntryAmstel12"
-                    Grid.Row="2"
-                    Grid.Column="2"
-                    Placeholder="cm"
-                    TextChanged="OnEntryTextChanged"
-                    Keyboard="Numeric"
-                    ClassId="EntryAmstel12" />
-                <Entry
-                    x:Name="EntryAmstel13"
                     Grid.Row="2"
                     Grid.Column="4"
                     Placeholder="cm"
                     TextChanged="OnEntryTextChanged"
                     Keyboard="Numeric"
-                    ClassId="EntryAmstel13" />
-                <Entry
-                    x:Name="EntryAmstel14"
-                    Grid.Row="2"
-                    Grid.Column="6"
-                    Placeholder="cm"
-                    TextChanged="OnEntryTextChanged"
-                    Keyboard="Numeric"
-                    ClassId="EntryAmstel14" />
-                <Entry
-                    x:Name="EntryAmstel15"
-                    Grid.Row="2"
-                    Grid.Column="8"
-                    Placeholder="cm"
-                    TextChanged="OnEntryTextChanged"
-                    Keyboard="Numeric"
-                    ClassId="EntryAmstel15" />
+                    ClassId="EntryAmstel9" />
             </Grid>
 
             <!-- Seção Devassa-->
@@ -301,11 +263,21 @@
                     Margin="20,0,0,0"
                     Clicked="OnButtonClicked" />
             </HorizontalStackLayout>
-            <Label
-                Text="Espaço de Devassa"
-                HorizontalOptions="CenterAndExpand"
-                VerticalOptions="Center"
-                TextColor="White" />
+            <HorizontalStackLayout
+                HorizontalOptions="CenterAndExpand">
+                <Label
+                    Text="Espaço de Devassa"
+                    Margin="0,5,0,10"
+                    VerticalOptions="Center"
+                    TextColor="White" />
+                <Label
+                    x:Name="EspacoDevassa"
+                    FontAttributes="Bold"
+                    Margin="20,5,0,10"
+                    Text="0"
+                    VerticalOptions="Center"
+                    TextColor="Green" />
+            </HorizontalStackLayout>
             <Grid
                 HorizontalOptions="Center"
                 ColumnSpacing="20"
@@ -359,104 +331,56 @@
                     TextChanged="OnEntryTextChanged"
                     Keyboard="Numeric"
                     ClassId="EntryDevassa3" />
+                <!-- Linha 2 -->
                 <Entry
                     x:Name="EntryDevassa4"
-                    Grid.Row="0"
-                    Grid.Column="6"
+                    Grid.Row="1"
+                    Grid.Column="0"
                     Placeholder="cm"
                     TextChanged="OnEntryTextChanged"
                     Keyboard="Numeric"
                     ClassId="EntryDevassa4" />
                 <Entry
                     x:Name="EntryDevassa5"
-                    Grid.Row="0"
-                    Grid.Column="8"
+                    Grid.Row="1"
+                    Grid.Column="2"
                     Placeholder="cm"
                     TextChanged="OnEntryTextChanged"
                     Keyboard="Numeric"
                     ClassId="EntryDevassa5" />
-                <!-- Linha 2 -->
                 <Entry
                     x:Name="EntryDevassa6"
                     Grid.Row="1"
-                    Grid.Column="0"
+                    Grid.Column="4"
                     Placeholder="cm"
                     TextChanged="OnEntryTextChanged"
                     Keyboard="Numeric"
                     ClassId="EntryDevassa6" />
+                <!-- Linha 3 -->
                 <Entry
                     x:Name="EntryDevassa7"
-                    Grid.Row="1"
-                    Grid.Column="2"
+                    Grid.Row="2"
+                    Grid.Column="0"
                     Placeholder="cm"
                     TextChanged="OnEntryTextChanged"
                     Keyboard="Numeric"
                     ClassId="EntryDevassa7" />
                 <Entry
                     x:Name="EntryDevassa8"
-                    Grid.Row="1"
-                    Grid.Column="4"
+                    Grid.Row="2"
+                    Grid.Column="2"
                     Placeholder="cm"
                     TextChanged="OnEntryTextChanged"
                     Keyboard="Numeric"
                     ClassId="EntryDevassa8" />
                 <Entry
                     x:Name="EntryDevassa9"
-                    Grid.Row="1"
-                    Grid.Column="6"
-                    Placeholder="cm"
-                    TextChanged="OnEntryTextChanged"
-                    Keyboard="Numeric"
-                    ClassId="EntryDevassa9" />
-                <Entry
-                    x:Name="EntryDevassa10"
-                    Grid.Row="1"
-                    Grid.Column="8"
-                    Placeholder="cm"
-                    TextChanged="OnEntryTextChanged"
-                    Keyboard="Numeric"
-                    ClassId="EntryDevassa10" />
-                <!-- Linha 3 -->
-                <Entry
-                    x:Name="EntryDevassa11"
-                    Grid.Row="2"
-                    Grid.Column="0"
-                    Placeholder="cm"
-                    TextChanged="OnEntryTextChanged"
-                    Keyboard="Numeric"
-                    ClassId="EntryDevassa11" />
-                <Entry
-                    x:Name="EntryDevassa12"
-                    Grid.Row="2"
-                    Grid.Column="2"
-                    Placeholder="cm"
-                    TextChanged="OnEntryTextChanged"
-                    Keyboard="Numeric"
-                    ClassId="EntryDevassa12" />
-                <Entry
-                    x:Name="EntryDevassa13"
                     Grid.Row="2"
                     Grid.Column="4"
                     Placeholder="cm"
                     TextChanged="OnEntryTextChanged"
                     Keyboard="Numeric"
-                    ClassId="EntryDevassa13" />
-                <Entry
-                    x:Name="EntryDevassa14"
-                    Grid.Row="2"
-                    Grid.Column="6"
-                    Placeholder="cm"
-                    TextChanged="OnEntryTextChanged"
-                    Keyboard="Numeric"
-                    ClassId="EntryDevassa14" />
-                <Entry
-                    x:Name="EntryDevassa15"
-                    Grid.Row="2"
-                    Grid.Column="8"
-                    Placeholder="cm"
-                    TextChanged="OnEntryTextChanged"
-                    Keyboard="Numeric"
-                    ClassId="EntryDevassa15" />
+                    ClassId="EntryDevassa9" />
             </Grid>
         </StackLayout>
     </ScrollView>
