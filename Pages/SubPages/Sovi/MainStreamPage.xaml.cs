@@ -1,9 +1,9 @@
 using AplicativoPromotor.Pages.ToolsPages;
 
 namespace AplicativoPromotor.Pages.SubPages.Sovi;
-public partial class PremiumPage : ContentPage
+public partial class MainStreamPage : ContentPage
 {
-    public PremiumPage()
+    public MainStreamPage()
     {
         InitializeComponent();
 

@@ -7,41 +7,32 @@
 
     <!-- Conteúdo da página -->
     <StackLayout
-        Padding="30,0">
+        Padding="5,0">
 
-        <!-- Campo de Pesquisa -->
-        <Grid>
-            <Grid.RowDefinitions>
-                <!-- Espaço vertical flexível para o cabeçalho -->
-                <RowDefinition Height="Auto" />
+        <!-- Conteúdo flexível (caixa de pesquisa e Picker) -->
+        <StackLayout Orientation="Horizontal">
+            <!-- Caixa de pesquisa -->
+            <Entry x:Name="SearchEntry"
+       Placeholder="Pesquisar..."
+       TextChanged="OnSearchTextChanged"
+       TextColor="WhiteSmoke"
+       PlaceholderColor="WhiteSmoke"
+       HorizontalOptions="FillAndExpand" />
 
-                <!-- Espaço vertical flexível para a caixa de pesquisa e a Picker -->
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
-
-            <!-- Conteúdo flexível (caixa de pesquisa e Picker) -->
-            <StackLayout Orientation="Horizontal">
-                <!-- Caixa de pesquisa -->
-                <Entry x:Name="SearchEntry"
-               Placeholder="Pesquisar..."
-               TextChanged="OnSearchTextChanged"
-               HorizontalOptions="FillAndExpand" />
-
-                <!-- Selecione o tipo de pesquisa -->
-                <Picker x:Name="SearchTypePicker"
-                Title="Selecione o tipo de pesquisa"
-                SelectedIndexChanged="OnSearchTypeSelectedIndexChanged"
-                HorizontalOptions="End">
-                    <Picker.ItemsSource>
-                        <x:Array Type="{x:Type x:String}">
-                            <x:String>Nome</x:String>
-                            <x:String>EAN</x:String>
-                            <x:String>Descrição</x:String>
-                        </x:Array>
-                    </Picker.ItemsSource>
-                </Picker>
-            </StackLayout>
-        </Grid>
+            <!-- Selecione o tipo de pesquisa -->
+            <Picker x:Name="SearchTypePicker"
+        Title="Selecione o tipo de pesquisa"
+        SelectedIndexChanged="OnSearchTypeSelectedIndexChanged"
+        HorizontalOptions="End">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Nome</x:String>
+                        <x:String>EAN</x:String>
+                        <x:String>Descrição</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+        </StackLayout>
 
         <!-- ListView existente -->
         <ListView x:Name="ItensListView" RowHeight="90">

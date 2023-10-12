@@ -1,7 +1,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AplicativoPromotor.Pages.SubPages.Sovi.PremiumPage"
-             Title="Sovi Premium"
+             x:Class="AplicativoPromotor.Pages.SubPages.Sovi.MainStreamPage"
+             Title="Sovi MainStream"
              BackgroundColor="#121B1A">
 
     <!-- Conteúdo da página -->
@@ -10,7 +10,7 @@
             Spacing="15"
             Padding="30,0">
 
-            <!-- Total Premium -->
+            <!-- Total MainStream -->
             <Label
                 Text="Total espaço PREMIUM"
                 HorizontalOptions="CenterAndExpand"
@@ -19,28 +19,28 @@
                 TextColor="White"
                 Margin="0,40,0,0" />
 
-            <!-- Seção espaço Premium total -->
+            <!-- Seção espaço MainStream total -->
             <HorizontalStackLayout
                 HorizontalOptions="CenterAndExpand">
 
                 <Entry
-                    x:Name="EntryAllPremium"
+                    x:Name="EntryAllMainStream"
                     Keyboard="Numeric"
                     TextChanged="OnEntryTextChanged"
-                    Placeholder="Total Premium..."
-                    ClassId="EntryAllPremium" />
+                    Placeholder="Total MainStream..."
+                    ClassId="EntryAllMainStream" />
                 <Label
                     Text="cm"
                     VerticalOptions="Center"
                     TextColor="White" />
             </HorizontalStackLayout>
 
-            <!-- Seção espaço Premium portfólio Heineken-->
+            <!-- Seção espaço MainStream portfólio Heineken-->
             <HorizontalStackLayout
                 HorizontalOptions="CenterAndExpand"
                 Spacing="5">
                 <Label
-                    Text="Total PREMIUM do portfólio"
+                    Text="Total MainStream do portfólio"
                     HorizontalOptions="CenterAndExpand"
                     FontAttributes="Bold"
                     FontSize="Subtitle"
@@ -55,36 +55,36 @@
                     Margin="0,20,0,0" />
             </HorizontalStackLayout>
 
-            <!-- Seção espaço Premium Heineken -->
+            <!-- Seção espaço MainStream Heineken -->
             <HorizontalStackLayout
                 HorizontalOptions="CenterAndExpand">
 
                 <Entry
-                    x:Name="EntryPremium"
+                    x:Name="EntryMainStream"
                     Keyboard="Numeric"
                     TextChanged="OnEntryTextChanged"
-                    Placeholder="Premium portfólio..."
-                    ClassId="EntryPremium" />
+                    Placeholder="MainStream portfólio..."
+                    ClassId="EntryMainStream" />
                 <Label
                     Text="cm"
                     VerticalOptions="Center"
                     TextColor="White" />
             </HorizontalStackLayout>
 
-            <!-- Seção Heineken-->
+            <!-- Seção Amstel-->
             <VerticalStackLayout>
                 <Label
-                    Text="Heineken"
+                    Text="Amstel"
                     HorizontalOptions="CenterAndExpand"
                     FontAttributes="Bold"
                     FontSize="Subtitle"
                     TextColor="White"
                     Margin="0,40,0,0" />
                 <Image
-                    Source="heinekenlogo.png"
+                    Source="amstellogo.png"
                     WidthRequest="130" />
                 <Label
-                    Text="SOVI Heineken"
+                    Text="SOVI Amstel"
                     HorizontalOptions="CenterAndExpand"
                     VerticalOptions="Center"
                     TextColor="White"
@@ -93,11 +93,11 @@
             <HorizontalStackLayout
                 HorizontalOptions="CenterAndExpand">
                 <Entry
-                    x:Name="EntrySoviHeineken"
+                    x:Name="EntrySoviAmstel"
                     Keyboard="Numeric"
                     TextChanged="OnEntryTextChanged"
                     Placeholder="Digite aqui o SOVI..."
-                    ClassId="EntrySoviHeineken" />
+                    ClassId="EntrySoviAmstel" />
                 <Label
                     Text="%"
                     VerticalOptions="Center"
@@ -108,7 +108,7 @@
                     Clicked="OnButtonClicked" />
             </HorizontalStackLayout>
             <Label
-                Text="Espaço de Heineken"
+                Text="Espaço de Amstel"
                 HorizontalOptions="CenterAndExpand"
                 VerticalOptions="Center"
                 TextColor="White" />
@@ -142,143 +142,143 @@
                 </Grid.ColumnDefinitions>
                 <!-- Linha 1 -->
                 <Entry
-                    x:Name="EntryHeineken1"
+                    x:Name="EntryAmstel1"
                     Grid.Row="0"
                     Grid.Column="0"
                     Placeholder="cm"
                     TextChanged="OnEntryTextChanged"
                     Keyboard="Numeric"
-                    ClassId="EntryHeineken1" />
+                    ClassId="EntryAmstel1" />
                 <Entry
-                    x:Name="EntryHeineken2"
+                    x:Name="EntryAmstel2"
                     Grid.Row="0"
                     Grid.Column="2"
                     Placeholder="cm"
                     TextChanged="OnEntryTextChanged"
                     Keyboard="Numeric"
-                    ClassId="EntryHeineken2" />
+                    ClassId="EntryAmstel2" />
                 <Entry
-                    x:Name="EntryHeineken3"
+                    x:Name="EntryAmstel3"
                     Grid.Row="0"
                     Grid.Column="4"
                     Placeholder="cm"
                     TextChanged="OnEntryTextChanged"
                     Keyboard="Numeric"
-                    ClassId="EntryHeineken3" />
+                    ClassId="EntryAmstel3" />
                 <Entry
-                    x:Name="EntryHeineken4"
+                    x:Name="EntryAmstel4"
                     Grid.Row="0"
                     Grid.Column="6"
                     Placeholder="cm"
                     TextChanged="OnEntryTextChanged"
                     Keyboard="Numeric"
-                    ClassId="EntryHeineken4" />
+                    ClassId="EntryAmstel4" />
                 <Entry
-                    x:Name="EntryHeineken5"
+                    x:Name="EntryAmstel5"
                     Grid.Row="0"
                     Grid.Column="8"
                     Placeholder="cm"
                     TextChanged="OnEntryTextChanged"
                     Keyboard="Numeric"
-                    ClassId="EntryHeineken5" />
+                    ClassId="EntryAmstel5" />
                 <!-- Linha 2 -->
                 <Entry
-                    x:Name="EntryHeineken6"
+                    x:Name="EntryAmstel6"
                     Grid.Row="1"
                     Grid.Column="0"
                     Placeholder="cm"
                     TextChanged="OnEntryTextChanged"
                     Keyboard="Numeric"
-                    ClassId="EntryHeineken6" />
+                    ClassId="EntryAmstel6" />
                 <Entry
-                    x:Name="EntryHeineken7"
+                    x:Name="EntryAmstel7"
                     Grid.Row="1"
                     Grid.Column="2"
                     Placeholder="cm"
                     TextChanged="OnEntryTextChanged"
                     Keyboard="Numeric"
-                    ClassId="EntryHeineken7" />
+                    ClassId="EntryAmstel7" />
                 <Entry
-                    x:Name="EntryHeineken8"
+                    x:Name="EntryAmstel8"
                     Grid.Row="1"
                     Grid.Column="4"
                     Placeholder="cm"
                     TextChanged="OnEntryTextChanged"
                     Keyboard="Numeric"
-                    ClassId="EntryHeineken8" />
+                    ClassId="EntryAmstel8" />
                 <Entry
-                    x:Name="EntryHeineken9"
+                    x:Name="EntryAmstel9"
                     Grid.Row="1"
                     Grid.Column="6"
                     Placeholder="cm"
                     TextChanged="OnEntryTextChanged"
                     Keyboard="Numeric"
-                    ClassId="EntryHeineken9" />
+                    ClassId="EntryAmstel9" />
                 <Entry
-                    x:Name="EntryHeineken10"
+                    x:Name="EntryAmstel10"
                     Grid.Row="1"
                     Grid.Column="8"
                     Placeholder="cm"
                     TextChanged="OnEntryTextChanged"
                     Keyboard="Numeric"
-                    ClassId="EntryHeineken10" />
+                    ClassId="EntryAmstel10" />
                 <!-- Linha 3 -->
                 <Entry
-                    x:Name="EntryHeineken11"
+                    x:Name="EntryAmstel11"
                     Grid.Row="2"
                     Grid.Column="0"
                     Placeholder="cm"
                     TextChanged="OnEntryTextChanged"
                     Keyboard="Numeric"
-                    ClassId="EntryHeineken11" />
+                    ClassId="EntryAmstel11" />
                 <Entry
-                    x:Name="EntryHeineken12"
+                    x:Name="EntryAmstel12"
                     Grid.Row="2"
                     Grid.Column="2"
                     Placeholder="cm"
                     TextChanged="OnEntryTextChanged"
                     Keyboard="Numeric"
-                    ClassId="EntryHeineken12" />
+                    ClassId="EntryAmstel12" />
                 <Entry
-                    x:Name="EntryHeineken13"
+                    x:Name="EntryAmstel13"
                     Grid.Row="2"
                     Grid.Column="4"
                     Placeholder="cm"
                     TextChanged="OnEntryTextChanged"
                     Keyboard="Numeric"
-                    ClassId="EntryHeineken13" />
+                    ClassId="EntryAmstel13" />
                 <Entry
-                    x:Name="EntryHeineken14"
+                    x:Name="EntryAmstel14"
                     Grid.Row="2"
                     Grid.Column="6"
                     Placeholder="cm"
                     TextChanged="OnEntryTextChanged"
                     Keyboard="Numeric"
-                    ClassId="EntryHeineken14" />
+                    ClassId="EntryAmstel14" />
                 <Entry
-                    x:Name="EntryHeineken15"
+                    x:Name="EntryAmstel15"
                     Grid.Row="2"
                     Grid.Column="8"
                     Placeholder="cm"
                     TextChanged="OnEntryTextChanged"
                     Keyboard="Numeric"
-                    ClassId="EntryHeineken15" />
+                    ClassId="EntryAmstel15" />
             </Grid>
 
-            <!-- Seção Heineken 00-->
+            <!-- Seção Devassa-->
             <VerticalStackLayout>
                 <Label
-                    Text="Heineken 0.0"
+                    Text="Devassa"
                     HorizontalOptions="CenterAndExpand"
                     FontAttributes="Bold"
                     FontSize="Subtitle"
                     TextColor="White"
                     Margin="0,40,0,0" />
                 <Image
-                    Source="heineken00logo.png"
+                    Source="devassalogo.png"
                     WidthRequest="130" />
                 <Label
-                    Text="SOVI Heineken 0.0"
+                    Text="SOVI Devassa"
                     HorizontalOptions="CenterAndExpand"
                     VerticalOptions="Center"
                     TextColor="White"
@@ -287,11 +287,11 @@
             <HorizontalStackLayout
                 HorizontalOptions="CenterAndExpand">
                 <Entry
-                    x:Name="EntrySoviHeineken00"
+                    x:Name="EntrySoviDevassa"
                     Keyboard="Numeric"
                     TextChanged="OnEntryTextChanged"
                     Placeholder="Digite aqui o SOVI..."
-                    ClassId="EntrySoviHeineken00" />
+                    ClassId="EntrySoviDevassa" />
                 <Label
                     Text="%"
                     VerticalOptions="Center"
@@ -302,7 +302,7 @@
                     Clicked="OnButtonClicked" />
             </HorizontalStackLayout>
             <Label
-                Text="Espaço de Heineken 0.0"
+                Text="Espaço de Devassa"
                 HorizontalOptions="CenterAndExpand"
                 VerticalOptions="Center"
                 TextColor="White" />
@@ -336,127 +336,127 @@
                 </Grid.ColumnDefinitions>
                 <!-- Linha 1 -->
                 <Entry
-                    x:Name="EntryHeineken001"
+                    x:Name="EntryDevassa1"
                     Grid.Row="0"
                     Grid.Column="0"
                     Placeholder="cm"
                     TextChanged="OnEntryTextChanged"
                     Keyboard="Numeric"
-                    ClassId="EntryHeineken001" />
+                    ClassId="EntryDevassa1" />
                 <Entry
-                    x:Name="EntryHeineken002"
+                    x:Name="EntryDevassa2"
                     Grid.Row="0"
                     Grid.Column="2"
                     Placeholder="cm"
                     TextChanged="OnEntryTextChanged"
                     Keyboard="Numeric"
-                    ClassId="EntryHeineken002" />
+                    ClassId="EntryDevassa2" />
                 <Entry
-                    x:Name="EntryHeineken003"
+                    x:Name="EntryDevassa3"
                     Grid.Row="0"
                     Grid.Column="4"
                     Placeholder="cm"
                     TextChanged="OnEntryTextChanged"
                     Keyboard="Numeric"
-                    ClassId="EntryHeineken003" />
+                    ClassId="EntryDevassa3" />
                 <Entry
-                    x:Name="EntryHeineken004"
+                    x:Name="EntryDevassa4"
                     Grid.Row="0"
                     Grid.Column="6"
                     Placeholder="cm"
                     TextChanged="OnEntryTextChanged"
                     Keyboard="Numeric"
-                    ClassId="EntryHeineken004" />
+                    ClassId="EntryDevassa4" />
                 <Entry
-                    x:Name="EntryHeineken005"
+                    x:Name="EntryDevassa5"
                     Grid.Row="0"
                     Grid.Column="8"
                     Placeholder="cm"
                     TextChanged="OnEntryTextChanged"
                     Keyboard="Numeric"
-                    ClassId="EntryHeineken005" />
+                    ClassId="EntryDevassa5" />
                 <!-- Linha 2 -->
                 <Entry
-                    x:Name="EntryHeineken006"
+                    x:Name="EntryDevassa6"
                     Grid.Row="1"
                     Grid.Column="0"
                     Placeholder="cm"
                     TextChanged="OnEntryTextChanged"
                     Keyboard="Numeric"
-                    ClassId="EntryHeineken006" />
+                    ClassId="EntryDevassa6" />
                 <Entry
-                    x:Name="EntryHeineken007"
+                    x:Name="EntryDevassa7"
                     Grid.Row="1"
                     Grid.Column="2"
                     Placeholder="cm"
                     TextChanged="OnEntryTextChanged"
                     Keyboard="Numeric"
-                    ClassId="EntryHeineken007" />
+                    ClassId="EntryDevassa7" />
                 <Entry
-                    x:Name="EntryHeineken008"
+                    x:Name="EntryDevassa8"
                     Grid.Row="1"
                     Grid.Column="4"
                     Placeholder="cm"
                     TextChanged="OnEntryTextChanged"
                     Keyboard="Numeric"
-                    ClassId="EntryHeineken008" />
+                    ClassId="EntryDevassa8" />
                 <Entry
-                    x:Name="EntryHeineken009"
+                    x:Name="EntryDevassa9"
                     Grid.Row="1"
                     Grid.Column="6"
                     Placeholder="cm"
                     TextChanged="OnEntryTextChanged"
                     Keyboard="Numeric"
-                    ClassId="EntryHeineken009" />
+                    ClassId="EntryDevassa9" />
                 <Entry
-                    x:Name="EntryHeineken0010"
+                    x:Name="EntryDevassa10"
                     Grid.Row="1"
                     Grid.Column="8"
                     Placeholder="cm"
                     TextChanged="OnEntryTextChanged"
                     Keyboard="Numeric"
-                    ClassId="EntryHeineken0010" />
+                    ClassId="EntryDevassa10" />
                 <!-- Linha 3 -->
                 <Entry
-                    x:Name="EntryHeineken0011"
+                    x:Name="EntryDevassa11"
                     Grid.Row="2"
                     Grid.Column="0"
                     Placeholder="cm"
                     TextChanged="OnEntryTextChanged"
                     Keyboard="Numeric"
-                    ClassId="EntryHeineken0011" />
+                    ClassId="EntryDevassa11" />
                 <Entry
-                    x:Name="EntryHeineken0012"
+                    x:Name="EntryDevassa12"
                     Grid.Row="2"
                     Grid.Column="2"
                     Placeholder="cm"
                     TextChanged="OnEntryTextChanged"
                     Keyboard="Numeric"
-                    ClassId="EntryHeineken0012" />
+                    ClassId="EntryDevassa12" />
                 <Entry
-                    x:Name="EntryHeineken0013"
+                    x:Name="EntryDevassa13"
                     Grid.Row="2"
                     Grid.Column="4"
                     Placeholder="cm"
                     TextChanged="OnEntryTextChanged"
                     Keyboard="Numeric"
-                    ClassId="EntryHeineken0013" />
+                    ClassId="EntryDevassa13" />
                 <Entry
-                    x:Name="EntryHeineken0014"
+                    x:Name="EntryDevassa14"
                     Grid.Row="2"
                     Grid.Column="6"
                     Placeholder="cm"
                     TextChanged="OnEntryTextChanged"
                     Keyboard="Numeric"
-                    ClassId="EntryHeineken0014" />
+                    ClassId="EntryDevassa14" />
                 <Entry
-                    x:Name="EntryHeineken0015"
+                    x:Name="EntryDevassa15"
                     Grid.Row="2"
                     Grid.Column="8"
                     Placeholder="cm"
                     TextChanged="OnEntryTextChanged"
                     Keyboard="Numeric"
-                    ClassId="EntryHeineken0015" />
+                    ClassId="EntryDevassa15" />
             </Grid>
         </StackLayout>
     </ScrollView>

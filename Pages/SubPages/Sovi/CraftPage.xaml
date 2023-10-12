@@ -1,8 +1,9 @@
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AplicativoPromotor.Pages.SubPages.Sovi.CraftPage"
-             Title="Sovi Craft"
-             BackgroundColor="#121B1A">
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="AplicativoPromotor.Pages.SubPages.Sovi.CraftPage"
+    Title="Sovi Craft"
+    BackgroundColor="#121B1A">
 
     <!-- Conteúdo da página -->
     <ScrollView>
@@ -10,150 +11,543 @@
             Spacing="15"
             Padding="30,0">
 
-            <Label Text="Total espaço CRAFT" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" FontSize="Subtitle" TextColor="White" Margin="0,40,0,0"/>
+            <!-- Total Craft -->
+            <Label
+                Text="Total espaço CRAFT"
+                HorizontalOptions="CenterAndExpand"
+                FontAttributes="Bold"
+                FontSize="Subtitle"
+                TextColor="White"
+                Margin="0,40,0,0" />
 
             <!-- Seção espaço Craft total -->
-            <HorizontalStackLayout
-                HorizontalOptions="CenterAndExpand">
+            <StackLayout>
+                <HorizontalStackLayout
+                    HorizontalOptions="CenterAndExpand">
 
-                <Entry x:Name="EntryAllCraft"
-                    Keyboard="Numeric"
-                    TextChanged="OnEntryTextChanged"
-                    Placeholder="Espaço total craft em Centímetros..." 
-                    ClassId="EntryAllCraft"/>
-                <Label Text="cm" VerticalOptions="Center" TextColor="White" />
-            </HorizontalStackLayout>
+                    <Entry
+                        x:Name="EntryAllCraft"
+                        Keyboard="Numeric"
+                        TextChanged="OnEntryTextChanged"
+                        Placeholder="Total Craft..."
+                        ClassId="EntryAllCraft" />
+                    <Label
+                        Text="cm"
+                        VerticalOptions="Center"
+                        TextColor="White" />
+                </HorizontalStackLayout>
+            </StackLayout>
 
-            <HorizontalStackLayout
-            HorizontalOptions="CenterAndExpand"
+            <!-- Seção espaço Craft portfólio Heineken-->
+            <StackLayout>
+                <HorizontalStackLayout
+                HorizontalOptions="CenterAndExpand"
                 Spacing="5">
-                <Label Text="Total CRAFT do portfólio" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" FontSize="Subtitle" TextColor="White" Margin="0,20,0,0" />
-                <Label Text="HEINEKEN" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" FontSize="Subtitle" TextColor="Green" Margin="0,20,0,0" />
+                <Label
+                    Text="Total CRAFT do portfólio"
+                    HorizontalOptions="CenterAndExpand"
+                    FontAttributes="Bold"
+                    FontSize="Subtitle"
+                    TextColor="White"
+                    Margin="0,20,0,0" />
+                <Label
+                    Text="HEINEKEN"
+                    HorizontalOptions="CenterAndExpand"
+                    FontAttributes="Bold"
+                    FontSize="Subtitle"
+                    TextColor="Green"
+                    Margin="0,20,0,0" />
             </HorizontalStackLayout>
-            
-            <!-- Seção espaço Craft Heineken -->
-            <HorizontalStackLayout
+                <HorizontalStackLayout
                 HorizontalOptions="CenterAndExpand">
 
-                <Entry x:Name="EntryCraft"
+                <Entry
+                    x:Name="EntryCraft"
                     Keyboard="Numeric"
                     TextChanged="OnEntryTextChanged"
-                    Placeholder="Espaço craft em Centímetros..."
-                    ClassId="EntryCraft"/>
-                <Label Text="cm" VerticalOptions="Center" TextColor="White"/>
+                    Placeholder="Craft portfólio..."
+                    ClassId="EntryCraft" />
+                <Label
+                    Text="cm"
+                    VerticalOptions="Center"
+                    TextColor="White" />
             </HorizontalStackLayout>
-            <VerticalStackLayout>
-                <!-- Seção Badden Badden-->
-                <Label Text="Badden Badden" 
-                       HorizontalOptions="CenterAndExpand" 
-                       FontAttributes="Bold" 
-                       FontSize="Subtitle" 
-                       TextColor="White"
-                       Margin="0,40,0,0"/>
-                <Image
-                       Source="baddenipa350.png"
-                       WidthRequest="30" />
-                <Label Text="SOVI Badden" 
-                       HorizontalOptions="CenterAndExpand"
-                       VerticalOptions="Center" 
-                       TextColor="White"
-                       Margin="0,0,0,-15"/>
-            </VerticalStackLayout>
-            <HorizontalStackLayout
-                HorizontalOptions="CenterAndExpand">
-                <Entry x:Name="EntrySoviBadden"
-                       Keyboard="Numeric"
-                       TextChanged="OnEntryTextChanged"
-                       Placeholder="Digite aqui o SOVI..." 
-                       ClassId="EntrySoviBadden"/>
-                <Label Text="%" 
-                       VerticalOptions="Center"
-                       TextColor="White"/>
-            </HorizontalStackLayout>
-            <Label Text="Espaço de Badden" 
-                   HorizontalOptions="CenterAndExpand"
-                   VerticalOptions="Center"
-                   TextColor="White"/>
+            </StackLayout>
 
-            <Grid
+            <!-- Seção Badden Badden-->
+            <StackLayout>
+                <VerticalStackLayout>
+                <Label
+                    Text="Badden Badden"
+                    HorizontalOptions="CenterAndExpand"
+                    FontAttributes="Bold"
+                    FontSize="Subtitle"
+                    TextColor="White"
+                    Margin="0,40,0,0" />
+                <Image
+                    Source="baddenlogo.png"
+                    WidthRequest="130" />
+                <Label
+                    Text="SOVI Badden"
+                    HorizontalOptions="CenterAndExpand"
+                    VerticalOptions="Center"
+                    TextColor="White"
+                    Margin="0,0,0,-5" />
+            </VerticalStackLayout>
+                <HorizontalStackLayout
+                HorizontalOptions="CenterAndExpand">
+                <Entry
+                    x:Name="EntrySoviBadden"
+                    Keyboard="Numeric"
+                    TextChanged="OnEntryTextChanged"
+                    Placeholder="Digite aqui o SOVI..."
+                    ClassId="EntrySoviBadden" />
+                <Label
+                    Text="%"
+                    VerticalOptions="Center"
+                    TextColor="White" />
+                <Button
+                    
+                    Text="Ver Sovi"
+                        Margin="20,10,0,0"
+                        Clicked="OnButtonClicked" />
+            </HorizontalStackLayout>
+                <HorizontalStackLayout
+                    HorizontalOptions="CenterAndExpand">
+                    <Label
+                Text="Espaço de Badden"
+                Margin="0,5,0,10"
+                VerticalOptions="Center"
+                TextColor="White" />
+                    <Label
+                    x:Name="EspacoBadden"
+                    FontAttributes="Bold"
+                    Margin="20,5,0,10"
+                    Text="0"
+                    VerticalOptions="Center"
+                    TextColor="Green" />
+                </HorizontalStackLayout>
+                <Grid
                 HorizontalOptions="Center"
                 ColumnSpacing="20"
                 RowSpacing="20">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
+                    <RowDefinition
+                        Height="Auto" />
+                    <RowDefinition
+                        Height="Auto" />
+                    <RowDefinition
+                        Height="Auto" />
+                    <RowDefinition
+                        Height="Auto" />
+                    <RowDefinition
+                        Height="Auto" />
                 </Grid.RowDefinitions>
-
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition
+                        Width="Auto" />
+                    <ColumnDefinition
+                        Width="Auto" />
+                    <ColumnDefinition
+                        Width="Auto" />
+                    <ColumnDefinition
+                        Width="Auto" />
+                    <ColumnDefinition
+                        Width="Auto" />
                 </Grid.ColumnDefinitions>
+                    <!-- Linha 1 -->
+                    <Entry
+                    x:Name="EntryBadden1"
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Placeholder="cm"
+                    TextChanged="OnEntryTextChanged"
+                    Keyboard="Numeric"
+                    ClassId="EntryBadden1" />
+                    <Entry
+                    x:Name="EntryBadden2"
+                    Grid.Row="0"
+                    Grid.Column="2"
+                    Placeholder="cm"
+                    TextChanged="OnEntryTextChanged"
+                    Keyboard="Numeric"
+                    ClassId="EntryBadden2" />
+                    <Entry
+                        x:Name="EntryBadden3"
+                        Grid.Row="0"
+                        Grid.Column="4"
+                        Placeholder="cm"
+                        TextChanged="OnEntryTextChanged"
+                        Keyboard="Numeric"
+                        ClassId="EntryBadden3" />
+                    <!-- Linha 2 -->
+                    <Entry
+                    x:Name="EntryBadden4"
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Placeholder="cm"
+                    TextChanged="OnEntryTextChanged"
+                    Keyboard="Numeric"
+                    ClassId="EntryBadden4" />
+                    <Entry
+                    x:Name="EntryBadden5"
+                    Grid.Row="1"
+                    Grid.Column="2"
+                    Placeholder="cm"
+                    TextChanged="OnEntryTextChanged"
+                    Keyboard="Numeric"
+                    ClassId="EntryBadden5" />
+                    <Entry
+                        x:Name="EntryBadden6"
+                        Grid.Row="1"
+                        Grid.Column="4"
+                        Placeholder="cm"
+                        TextChanged="OnEntryTextChanged"
+                        Keyboard="Numeric"
+                        ClassId="EntryBadden6" />
+                    <!-- Linha 3 -->
+                    <Entry
+                    x:Name="EntryBadden7"
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    Placeholder="cm"
+                    TextChanged="OnEntryTextChanged"
+                    Keyboard="Numeric"
+                    ClassId="EntryBadden7" />
+                    <Entry
+                    x:Name="EntryBadden8"
+                    Grid.Row="2"
+                    Grid.Column="2"
+                    Placeholder="cm"
+                    TextChanged="OnEntryTextChanged"
+                    Keyboard="Numeric"
+                    ClassId="EntryBadden8" />
+                    <Entry
+                        x:Name="EntryBadden9"
+                        Grid.Row="2"
+                        Grid.Column="4"
+                        Placeholder="cm"
+                        TextChanged="OnEntryTextChanged"
+                        Keyboard="Numeric"
+                        ClassId="EntryBadden9" />
+                </Grid>
+            </StackLayout>
 
-                <!-- Linha 1 -->
-                <Entry Grid.Row="0" Grid.Column="0" Placeholder="cm" />
-                <Entry Grid.Row="0" Grid.Column="2" Placeholder="cm" />
-                <Entry Grid.Row="0" Grid.Column="4" Placeholder="cm" />
-                <Entry Grid.Row="0" Grid.Column="6" Placeholder="cm" />
-                <Entry Grid.Row="0" Grid.Column="8" Placeholder="cm" />
+            <!-- Seção Bluemoon-->
+            <StackLayout>
+                <VerticalStackLayout>
+                    <Label
+                        Text="Bluemoon"
+                        HorizontalOptions="CenterAndExpand"
+                        FontAttributes="Bold"
+                        FontSize="Subtitle"
+                        TextColor="White"
+                        Margin="0,40,0,0" />
+                    <Image
+                        Source="bluemoonlogo.png"
+                        WidthRequest="130" />
+                    <Label
+                        Text="SOVI Bluemoon"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="Center"
+                        TextColor="White"
+                        Margin="0,0,0,-5" />
+                </VerticalStackLayout>
+                <HorizontalStackLayout
+                    HorizontalOptions="CenterAndExpand">
+                    <Entry
+                        x:Name="EntrySoviBluemoon"
+                        Keyboard="Numeric"
+                        TextChanged="OnEntryTextChanged"
+                        Placeholder="Digite aqui o SOVI..."
+                        ClassId="EntrySoviBluemoon" />
+                    <Label
+                        Text="%"
+                        VerticalOptions="Center"
+                        TextColor="White" />
+                    <Button
+                        Text="Ver Sovi"
+                        Margin="20,10,0,0"
+                        Clicked="OnButtonClicked" />
+                </HorizontalStackLayout>
+                <HorizontalStackLayout
+                    HorizontalOptions="CenterAndExpand">
+                    <Label
+                        Text="Espaço de Bluemoon"
+                        Margin="0,5,0,10"
+                        VerticalOptions="Center"
+                        TextColor="White" />
+                    <Label
+                        x:Name="EspacoBluemoon"
+                        FontAttributes="Bold"
+                        Margin="20,5,0,10"
+                        Text="0"
+                        VerticalOptions="Center"
+                        TextColor="Green" />
+                </HorizontalStackLayout>
+                <Grid
+                    HorizontalOptions="Center"
+                    ColumnSpacing="20"
+                    RowSpacing="20">
+                    <Grid.RowDefinitions>
+                        <RowDefinition
+                            Height="Auto" />
+                        <RowDefinition
+                            Height="Auto" />
+                        <RowDefinition
+                            Height="Auto" />
+                        <RowDefinition
+                            Height="Auto" />
+                        <RowDefinition
+                            Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition
+                            Width="Auto" />
+                        <ColumnDefinition
+                            Width="Auto" />
+                        <ColumnDefinition
+                            Width="Auto" />
+                        <ColumnDefinition
+                            Width="Auto" />
+                        <ColumnDefinition
+                            Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <!-- Linha 1 -->
+                    <Entry
+                        x:Name="EntryBluemoon1"
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Placeholder="cm"
+                        TextChanged="OnEntryTextChanged"
+                        Keyboard="Numeric"
+                        ClassId="EntryBluemoon1" />
+                    <Entry
+                        x:Name="EntryBluemoon2"
+                        Grid.Row="0"
+                        Grid.Column="2"
+                        Placeholder="cm"
+                        TextChanged="OnEntryTextChanged"
+                        Keyboard="Numeric"
+                        ClassId="EntryBluemoon2" />
+                    <Entry
+                        x:Name="EntryBluemoon3"
+                        Grid.Row="0"
+                        Grid.Column="4"
+                        Placeholder="cm"
+                        TextChanged="OnEntryTextChanged"
+                        Keyboard="Numeric"
+                        ClassId="EntryBluemoon3" />
+                    <!-- Linha 2 -->
+                    <Entry
+                        x:Name="EntryBluemoon4"
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Placeholder="cm"
+                        TextChanged="OnEntryTextChanged"
+                        Keyboard="Numeric"
+                        ClassId="EntryBluemoon4" />
+                    <Entry
+                        x:Name="EntryBluemoon5"
+                        Grid.Row="1"
+                        Grid.Column="2"
+                        Placeholder="cm"
+                        TextChanged="OnEntryTextChanged"
+                        Keyboard="Numeric"
+                        ClassId="EntryBluemoon5" />
+                    <Entry
+                        x:Name="EntryBluemoon6"
+                        Grid.Row="1"
+                        Grid.Column="4"
+                        Placeholder="cm"
+                        TextChanged="OnEntryTextChanged"
+                        Keyboard="Numeric"
+                        ClassId="EntryBluemoon6" />
+                    <!-- Linha 3 -->
+                    <Entry
+                        x:Name="EntryBluemoon7"
+                        Grid.Row="2"
+                        Grid.Column="0"
+                        Placeholder="cm"
+                        TextChanged="OnEntryTextChanged"
+                        Keyboard="Numeric"
+                        ClassId="EntryBluemoon7" />
+                    <Entry
+                        x:Name="EntryBluemoon8"
+                        Grid.Row="2"
+                        Grid.Column="2"
+                        Placeholder="cm"
+                        TextChanged="OnEntryTextChanged"
+                        Keyboard="Numeric"
+                        ClassId="EntryBluemoon8" />
+                    <Entry
+                        x:Name="EntryBluemoon9"
+                        Grid.Row="2"
+                        Grid.Column="4"
+                        Placeholder="cm"
+                        TextChanged="OnEntryTextChanged"
+                        Keyboard="Numeric"
+                        ClassId="EntryBluemoon9" />
+                </Grid>
+            </StackLayout>
 
-                <!-- Linha 2 -->
-                <Entry Grid.Row="1" Grid.Column="0" Placeholder="cm" />
-                <Entry Grid.Row="1" Grid.Column="2" Placeholder="cm" />
-                <Entry Grid.Row="1" Grid.Column="4" Placeholder="cm" />
-                <Entry Grid.Row="1" Grid.Column="6" Placeholder="cm" />
-                <Entry Grid.Row="1" Grid.Column="8" Placeholder="cm" />
-
-                <!-- Linha 3 -->
-                <Entry Grid.Row="2" Grid.Column="0" Placeholder="cm" />
-                <Entry Grid.Row="2" Grid.Column="2" Placeholder="cm" />
-                <Entry Grid.Row="2" Grid.Column="4" Placeholder="cm" />
-                <Entry Grid.Row="2" Grid.Column="6" Placeholder="cm" />
-                <Entry Grid.Row="2" Grid.Column="8" Placeholder="cm" />
-                <!-- Adicione mais linhas e entradas conforme necessário -->
-
-            </Grid>
-            <!-- <Image
-                    Source="baddengolden350.png"
-                    WidthRequest="30" />
-                <Image
-                    Source="baddenwitbier350.png"
-                    WidthRequest="30" />
-                <Image
-                    Source="baddencrystal350.png"
-                    WidthRequest="30" />
-                <Image
-                    Source="bluemoon350.png"
-                    WidthRequest="30" />
-                <Image
-                    Source="lagunitasipa350.png"
-                    WidthRequest="30" />
-            </HorizontalStackLayout> -->
-            <!-- Label 1
-            <Label
-            Text="Bem-vindo à ferramenta do promotor!"
-            SemanticProperties.HeadingLevel="Level1"
-            FontSize="30"
-            HorizontalOptions="Center" />
-
-            <Label
-            Text="Você terá uma experiência incrível ao obter os resultados desta ferramenta no seu dia-a-dia."
-            SemanticProperties.HeadingLevel="Level2"
-            SemanticProperties.Description="resumo"
-            FontSize="18"
-            HorizontalOptions="Center" />
-            <Label
-            Text="CHEERS!!!"
-            TextColor="Green"
-            SemanticProperties.HeadingLevel="Level3"
-            SemanticProperties.Description="Cheers"
-            FontSize="25"
-            HorizontalOptions="Center" /> -->
+            <!-- Seção Lagunitas-->
+            <StackLayout>
+                <VerticalStackLayout>
+                    <Label
+                        Text="Lagunitas"
+                        HorizontalOptions="CenterAndExpand"
+                        FontAttributes="Bold"
+                        FontSize="Subtitle"
+                        TextColor="White"
+                        Margin="0,40,0,0" />
+                    <Image
+                        Source="lagunitaslogo.png"
+                        WidthRequest="130" />
+                    <Label
+                        Text="SOVI Lagunitas"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="Center"
+                        TextColor="White"
+                        Margin="0,0,0,-5" />
+                </VerticalStackLayout>
+                <HorizontalStackLayout
+                    HorizontalOptions="CenterAndExpand">
+                    <Entry
+                        x:Name="EntrySoviLagunitas"
+                        Keyboard="Numeric"
+                        TextChanged="OnEntryTextChanged"
+                        Placeholder="Digite aqui o SOVI..."
+                        ClassId="EntrySoviLagunitas" />
+                    <Label
+                        Text="%"
+                        VerticalOptions="Center"
+                        TextColor="White" />
+                    <Button
+                        Text="Ver Sovi"
+                        Margin="20,10,0,0"
+                        Clicked="OnButtonClicked" />
+                </HorizontalStackLayout>
+                <HorizontalStackLayout
+                    HorizontalOptions="CenterAndExpand">
+                    <Label
+                        Text="Espaço de Lagunitas"
+                        Margin="0,5,0,10"
+                        VerticalOptions="Center"
+                        TextColor="White" />
+                    <Label
+                        x:Name="EspacoLagunitas"
+                        FontAttributes="Bold"
+                        Margin="20,5,0,10"
+                        Text="0"
+                        VerticalOptions="Center"
+                        TextColor="Green" />
+                </HorizontalStackLayout>
+                <Grid
+                    HorizontalOptions="Center"
+                    ColumnSpacing="20"
+                    RowSpacing="20">
+                    <Grid.RowDefinitions>
+                        <RowDefinition
+                            Height="Auto" />
+                        <RowDefinition
+                            Height="Auto" />
+                        <RowDefinition
+                            Height="Auto" />
+                        <RowDefinition
+                            Height="Auto" />
+                        <RowDefinition
+                            Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition
+                            Width="Auto" />
+                        <ColumnDefinition
+                            Width="Auto" />
+                        <ColumnDefinition
+                            Width="Auto" />
+                        <ColumnDefinition
+                            Width="Auto" />
+                        <ColumnDefinition
+                            Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <!-- Linha 1 -->
+                    <Entry
+                        x:Name="EntryLagunitas1"
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Placeholder="cm"
+                        TextChanged="OnEntryTextChanged"
+                        Keyboard="Numeric"
+                        ClassId="EntryLagunitas1" />
+                    <Entry
+                        x:Name="EntryLagunitas2"
+                        Grid.Row="0"
+                        Grid.Column="2"
+                        Placeholder="cm"
+                        TextChanged="OnEntryTextChanged"
+                        Keyboard="Numeric"
+                        ClassId="EntryLagunitas2" />
+                    <Entry
+                        x:Name="EntryLagunitas3"
+                        Grid.Row="0"
+                        Grid.Column="4"
+                        Placeholder="cm"
+                        TextChanged="OnEntryTextChanged"
+                        Keyboard="Numeric"
+                        ClassId="EntryLagunitas3" />
+                    <!-- Linha 2 -->
+                    <Entry
+                        x:Name="EntryLagunitas4"
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Placeholder="cm"
+                        TextChanged="OnEntryTextChanged"
+                        Keyboard="Numeric"
+                        ClassId="EntryLagunitas4" />
+                    <Entry
+                        x:Name="EntryLagunitas5"
+                        Grid.Row="1"
+                        Grid.Column="2"
+                        Placeholder="cm"
+                        TextChanged="OnEntryTextChanged"
+                        Keyboard="Numeric"
+                        ClassId="EntryLagunitas5" />
+                    <Entry
+                        x:Name="EntryLagunitas6"
+                        Grid.Row="1"
+                        Grid.Column="4"
+                        Placeholder="cm"
+                        TextChanged="OnEntryTextChanged"
+                        Keyboard="Numeric"
+                        ClassId="EntryLagunitas6" />
+                    <!-- Linha 3 -->
+                    <Entry
+                        x:Name="EntryLagunitas7"
+                        Grid.Row="2"
+                        Grid.Column="0"
+                        Placeholder="cm"
+                        TextChanged="OnEntryTextChanged"
+                        Keyboard="Numeric"
+                        ClassId="EntryLagunitas7" />
+                    <Entry
+                        x:Name="EntryLagunitas8"
+                        Grid.Row="2"
+                        Grid.Column="2"
+                        Placeholder="cm"
+                        TextChanged="OnEntryTextChanged"
+                        Keyboard="Numeric"
+                        ClassId="EntryLagunitas8" />
+                    <Entry
+                        x:Name="EntryLagunitas9"
+                        Grid.Row="2"
+                        Grid.Column="4"
+                        Placeholder="cm"
+                        TextChanged="OnEntryTextChanged"
+                        Keyboard="Numeric"
+                        ClassId="EntryLagunitas9" />
+                </Grid>
+            </StackLayout>
         </StackLayout>
     </ScrollView>
 </ContentPage>

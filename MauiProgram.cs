@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using AplicativoPromotor.Pages.SubPages.Sovi;
+using Microsoft.Extensions.Logging;
+using Syncfusion.Maui.Core.Hosting;
 
 namespace AplicativoPromotor
 {
@@ -15,8 +17,11 @@ namespace AplicativoPromotor
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
+            // --> PDF Viewer
+            builder.ConfigureSyncfusionCore();
+
 #if DEBUG
-		builder.Logging.AddDebug();
+            builder.Logging.AddDebug();
 #endif
 
             return builder.Build();

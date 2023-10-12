@@ -9,34 +9,61 @@
     FlyoutBackgroundColor="Gray">
 
     <Shell.FlyoutHeader>
-        <Grid HeightRequest="100" BackgroundColor="WhiteSmoke">
-            <Image Source="heinekenlogo.png"/>
+        <Grid
+            HeightRequest="100"
+            BackgroundColor="WhiteSmoke">
+            <Image
+                Source="heinekenlogo.png" />
         </Grid>
     </Shell.FlyoutHeader>
 
-    <FlyoutItem Title="Introdução" Icon="introducao.png">
+    <FlyoutItem
+        Title="Introdução"
+        Icon="introducao.png">
         <ShellContent
-            ContentTemplate="{DataTemplate local:IntroducaoPage}"/>
+            ContentTemplate="{DataTemplate local:IntroducaoPage}" />
     </FlyoutItem>
 
-    <FlyoutItem Title="Produtos" Icon="iconprodutos.png">
-        <ShellContent Title="Craft" Icon="craft.png"
+    <FlyoutItem
+        Title="Produtos"
+        Icon="iconprodutos.png">
+        <ShellContent
+            Title="Craft"
+            Icon="craft.png"
             ContentTemplate="{DataTemplate local2:CraftPage}" />
-        <ShellContent Title="Premium" Icon="premium.png"
+        <ShellContent
+            Title="Premium"
+            Icon="premium.png"
             ContentTemplate="{DataTemplate local2:PremiumPage}" />
-        <ShellContent Title="MainStream" Icon="mainstream.png"
+        <ShellContent
+            Title="MainStream"
+            Icon="mainstream.png"
             ContentTemplate="{DataTemplate local2:MainStreamPage}" />
-        <ShellContent Title="Economy" Icon="economy.png"
+        <ShellContent
+            Title="Economy"
+            Icon="economy.png"
             ContentTemplate="{DataTemplate local2:EconomyPage}" />
-        <ShellContent Title="Refrigerante" Icon="refrigerante.png"
+        <ShellContent
+            Title="Refrigerante"
+            Icon="refrigerante.png"
             ContentTemplate="{DataTemplate local2:RefrigerantePage}" />
     </FlyoutItem>
 
-    <FlyoutItem Title="Sovi" Icon="iconsovi.png">
-        <ShellContent Title="Craft" Icon="craft.png"
-        ContentTemplate="{DataTemplate local3:CraftPage}" />
-        <ShellContent Title="Premium" Icon="premium.png"
-        ContentTemplate="{DataTemplate local3:PremiumPage}" />
+    <FlyoutItem
+        Title="Sovi"
+        Icon="iconsovi.png">
+        <ShellContent
+            Title="Craft"
+            Icon="craft.png"
+            ContentTemplate="{DataTemplate local3:CraftPage}" />
+        <ShellContent
+            Title="Premium"
+            Icon="premium.png"
+            ContentTemplate="{DataTemplate local3:PremiumPage}" />
+        <ShellContent
+            Title="MainStream"
+            Icon="mainstream.png"
+            ContentTemplate="{DataTemplate local3:MainStreamPage}" />
     </FlyoutItem>
 
 </Shell>

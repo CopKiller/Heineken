@@ -83,6 +83,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Assets\sovimetas.pdf" />
 	  <None Remove="Resources\Images\cadastrarprodutos.png" />
 	  <None Remove="Resources\Images\heinekenlogo.png" />
 		<None Remove="Resources\Images\baddenlogo.png" />
@@ -98,7 +99,13 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <EmbeddedResource Include="Resources\Assets\sovimetas.pdf" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
+		<PackageReference Include="PdfSharp.Maui" Version="1.0.2" />
+		<PackageReference Include="Syncfusion.Maui.PdfViewer" Version="23.1.39" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -123,10 +130,16 @@
 	  <MauiXaml Update="Pages\MainPages\SoviPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Pages\SubPages\Sovi\MainStreamPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Pages\SubPages\Sovi\PremiumPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\SubPages\Sovi\CraftPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\ToolsPages\PdfViewerPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>
@@ -147,15 +160,22 @@
 	  <Compile Update="Pages\SubPages\Produtos\CraftPage.xaml.cs">
 	    <DependentUpon>CraftPage.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="Pages\SubPages\Sovi\MainStreamPage.xaml.cs">
+	    <DependentUpon>MainStreamPage.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="Pages\SubPages\Sovi\PremiumPage.xaml.cs">
 	    <DependentUpon>PremiumPage.xaml</DependentUpon>
 	  </Compile>
 	  <Compile Update="Pages\SubPages\Sovi\CraftPage.xaml.cs">
 	    <DependentUpon>CraftPage.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="Pages\ToolsPages\PdfViewerPage.xaml.cs">
+	    <DependentUpon>PdfViewerPage.xaml</DependentUpon>
+	  </Compile>
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Folder Include="Database\" />
 	  <Folder Include="Pages\MainPages\Properties\" />
 	</ItemGroup>
 
