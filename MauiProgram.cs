@@ -1,5 +1,4 @@
-﻿using AplicativoPromotor.Pages.SubPages.Sovi;
-using Microsoft.Extensions.Logging;
+﻿using Microsoft.Extensions.Logging;
 using Syncfusion.Maui.Core.Hosting;
 
 namespace AplicativoPromotor

@@ -31,6 +31,8 @@ namespace AplicativoPromotor.Pages.SubPages.Sovi
         {
             Pages = new List<InfosPages>();
 
+
+
             // Inicialize as páginas chamando métodos separados
             await InitializeCraftPageAsync();
             await InitializePremiumPageAsync();
@@ -134,44 +136,32 @@ namespace AplicativoPromotor.Pages.SubPages.Sovi
             return espacoTotal;
         }
 
-        public static void Save()
+        public static async Task SavePagesToFile()
         {
-            try
-            {
-                // Serializa o objeto para JSON
-                string dadosJson = JsonSerializer.Serialize(Pages);
-                // Caminho do arquivo
-                string caminho = Path.Combine(FileSystem.AppDataDirectory, "dados.json");
-                // Salva os dados no arquivo
-                File.WriteAllText(caminho, dadosJson);
-            }
-            catch (Exception ex)
-            {
-                // Lidar com exceções, como falha na escrita do arquivo
-                Console.WriteLine("Erro ao salvar dados: " + ex.Message);
-            }
-        }
-        public static List<InfosPages> Load()
-        {
-            // Caminho do arquivo
-            string caminho = Path.Combine(FileSystem.AppDataDirectory, "dados.json");
-            if (File.Exists(caminho))
-            {
-                try
-                {
-                    // Lê os dados do arquivo
-                    string dadosJson = File.ReadAllText(caminho);
+            string mainDir = FileSystem.AppDataDirectory;
+            string filePath = Path.Combine(mainDir, "dadosaqui.json");
 
-                    // Desserializa os dados de JSON para um objeto
-                    return JsonSerializer.Deserialize<List<InfosPages>>(dadosJson) ?? new List<InfosPages>();
-                }
-                catch (Exception ex)
-                {
-                    // Lidar com exceções, como falha na leitura ou desserialização
-                    Console.WriteLine("Erro ao carregar dados: " + ex.Message);
-                }
+            var json = JsonSerializer.Serialize(Pages);
+            await File.WriteAllTextAsync(filePath, json);
+        }
+
+        public async static Task<List<InfosPages>> ReadPagesFromFile()
+        {
+            string mainDir = FileSystem.AppDataDirectory;
+            string filePath = Path.Combine(mainDir, "dadosaqui.json");
+
+            if (File.Exists(filePath))
+            {
+                var json = await File.ReadAllTextAsync(filePath);
+                return JsonSerializer.Deserialize<List<InfosPages>>(json);
             }
-            return new List<InfosPages>();
+            else
+            {
+                await SavePagesToFile();
+
+                var json = await File.ReadAllTextAsync(filePath);
+                return JsonSerializer.Deserialize<List<InfosPages>>(json);
+            }
         }
     }
 

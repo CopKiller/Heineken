@@ -122,7 +122,7 @@ public partial class CraftPage : ContentPage
                     break;
                 }
             }
-            SharedSoviInfos.Save();
+            SharedSoviInfos.SavePagesToFile();
         }, TaskScheduler.FromCurrentSynchronizationContext());
     }
 
@@ -138,48 +138,52 @@ public partial class CraftPage : ContentPage
 
     private async Task RefreshCraftData()
     {
-        SharedSoviInfos.Pages = SharedSoviInfos.Load();
+        SharedSoviInfos.Pages = await SharedSoviInfos.ReadPagesFromFile();
 
-        EntryAllCraft.Text = SharedSoviInfos.Pages[PageID].TotalCentimetros.ToString();
-        EntryCraft.Text = SharedSoviInfos.Pages[PageID].PortfolioCentimetros.ToString();
+        // Lista de controles e propriedades para verificar
+        var controlsToCheck = new List<(Entry entry, Func<int> getValue, Func<string> format)>()
+{
+    (EntryAllCraft, () => SharedSoviInfos.Pages[PageID].TotalCentimetros, () => ""),
+    (EntryCraft, () => SharedSoviInfos.Pages[PageID].PortfolioCentimetros, () => ""),
+    (EntrySoviBadden, () => SharedSoviInfos.Pages[PageID].Produtos[(int)ProdutosSovi.Badden].ProdutoSovi, () => ""),
+    (EntrySoviBluemoon, () => SharedSoviInfos.Pages[PageID].Produtos[(int)ProdutosSovi.Bluemoon].ProdutoSovi, () => ""),
+    (EntrySoviLagunitas, () => SharedSoviInfos.Pages[PageID].Produtos[(int)ProdutosSovi.Lagunitas].ProdutoSovi, () => "")
+};
 
-        EntrySoviBadden.Text = SharedSoviInfos.Pages[PageID].Produtos[(int)ProdutosSovi.Badden].ProdutoSovi.ToString();
-        EntrySoviBluemoon.Text = SharedSoviInfos.Pages[PageID].Produtos[(int)ProdutosSovi.Bluemoon].ProdutoSovi.ToString();
-        EntrySoviLagunitas.Text = SharedSoviInfos.Pages[PageID].Produtos[(int)ProdutosSovi.Lagunitas].ProdutoSovi.ToString();
-
-
-
-        // BADDEN BADDEN
-        Entry[] entry = { EntryBadden1, EntryBadden2, EntryBadden3, EntryBadden4, EntryBadden5, EntryBadden6,
-                                EntryBadden7, EntryBadden8, EntryBadden9 };
-
-        for (int i = 0; i < entry.Length; i++)
+        foreach (var (Entry, getValue, format) in controlsToCheck)
         {
-            Entry entry2 = entry[i];
-            entry2.Text = SharedSoviInfos.Pages[PageID].Produtos[(int)ProdutosSovi.Badden].ProdutoCentimetros[i].ToString();
-            // Faça algo com o objeto Entry na posição i
+            int value = getValue();
+            if (value > 0)
+            {
+                Entry.Text = value.ToString();
+            }
+            else
+            {
+                Entry.Text = format();
+            }
         }
 
-        // BLUE MOON
-        entry = new Entry[] { EntryBluemoon1, EntryBluemoon2, EntryBluemoon3, EntryBluemoon4, EntryBluemoon5, EntryBluemoon6,
-                                EntryBluemoon7, EntryBluemoon8, EntryBluemoon9 };
 
-        for (int i = 0; i < entry.Length; i++)
+        // Crie uma lista de controle para cada produto com suas respectivas lambda expressions
+        var productControls = new List<(ProdutosSovi produto, Entry[] entries)>()
+{
+    (ProdutosSovi.Badden, new Entry[] { EntryBadden1, EntryBadden2, EntryBadden3, EntryBadden4, EntryBadden5, EntryBadden6, EntryBadden7, EntryBadden8, EntryBadden9 }),
+    (ProdutosSovi.Bluemoon, new Entry[] { EntryBluemoon1, EntryBluemoon2, EntryBluemoon3, EntryBluemoon4, EntryBluemoon5, EntryBluemoon6, EntryBluemoon7, EntryBluemoon8, EntryBluemoon9 }),
+    (ProdutosSovi.Lagunitas, new Entry[] { EntryLagunitas1, EntryLagunitas2, EntryLagunitas3, EntryLagunitas4, EntryLagunitas5, EntryLagunitas6, EntryLagunitas7, EntryLagunitas8, EntryLagunitas9 })
+};
+
+        foreach (var (produto, entries) in productControls)
         {
-            Entry entry2 = entry[i];
-            entry2.Text = SharedSoviInfos.Pages[PageID].Produtos[(int)ProdutosSovi.Bluemoon].ProdutoCentimetros[i].ToString();
-            // Faça algo com o objeto Entry na posição i
+            for (int i = 0; i < entries.Length; i++)
+            {
+                Entry entry = entries[i];
+                int value = SharedSoviInfos.Pages[PageID].Produtos[(int)produto].ProdutoCentimetros[i];
+
+                // Verifique se o valor é maior que 0 antes de atribuir
+                entry.Text = (value > 0) ? value.ToString() : "";
+            }
         }
 
-        // LAGUNITAS
-        entry = new Entry[] { EntryLagunitas1, EntryLagunitas2, EntryLagunitas3, EntryLagunitas4, EntryLagunitas5, EntryLagunitas6,
-                                EntryLagunitas7, EntryLagunitas8, EntryLagunitas9 };
-
-        for (int i = 0; i < entry.Length; i++)
-        {
-            Entry entry2 = entry[i];
-            entry2.Text = SharedSoviInfos.Pages[PageID].Produtos[(int)ProdutosSovi.Lagunitas].ProdutoCentimetros[i].ToString();
-            // Faça algo com o objeto Entry na posição i
-        }
+        return;
     }
 }
