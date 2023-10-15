@@ -8,26 +8,28 @@ public partial class CraftPage : ContentPage
     // --> Obtem o ID da página
     private int PageID = (int)PagesSovi.Craft;
     // --> Obtem o status da página
-    private bool PageLoading;
+    private bool PageLoading = false;
 
     // --> Contrutor padrão da página
     public CraftPage()
     {
         InitializeComponent();
 
-        _ = InitializePageAsync();
+        _ = InitializePage();
     }
 
-    private async Task InitializePageAsync()
+    private Task InitializePage()
     {
         // Informa que a página está em carregamento
         PageLoading = true;
 
         // --> Inicializa informações compartilhadas das páginas do SOVI
-        await SharedSoviInfos.InitPages();
+        _ = SharedSoviInfos.InitPages();
 
         // --> Faz o carregamento dos ultimos dados salvos
-        await RefreshCraftData();
+        _ = RefreshCraftData();
+
+        return Task.CompletedTask;
     }
 
     private CancellationTokenSource textChangeTokenSource = new CancellationTokenSource();

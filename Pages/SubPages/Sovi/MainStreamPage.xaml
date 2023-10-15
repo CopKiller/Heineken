@@ -23,7 +23,7 @@
             <HorizontalStackLayout
                 HorizontalOptions="CenterAndExpand">
 
-                <Entry
+                <Entry TextColor="WhiteSmoke"
                     x:Name="EntryAllMainStream"
                     Keyboard="Numeric"
                     TextChanged="OnEntryTextChanged"
@@ -59,7 +59,7 @@
             <HorizontalStackLayout
                 HorizontalOptions="CenterAndExpand">
 
-                <Entry
+                <Entry TextColor="WhiteSmoke"
                     x:Name="EntryMainStream"
                     Keyboard="Numeric"
                     TextChanged="OnEntryTextChanged"
@@ -92,7 +92,7 @@
             </VerticalStackLayout>
             <HorizontalStackLayout
                 HorizontalOptions="CenterAndExpand">
-                <Entry
+                <Entry TextColor="WhiteSmoke"
                     x:Name="EntrySoviAmstel"
                     Keyboard="Numeric"
                     TextChanged="OnEntryTextChanged"
@@ -151,7 +151,7 @@
                         Width="Auto" />
                 </Grid.ColumnDefinitions>
                 <!-- Linha 1 -->
-                <Entry
+                <Entry TextColor="WhiteSmoke"
                     x:Name="EntryAmstel1"
                     Grid.Row="0"
                     Grid.Column="0"
@@ -159,7 +159,7 @@
                     TextChanged="OnEntryTextChanged"
                     Keyboard="Numeric"
                     ClassId="EntryAmstel1" />
-                <Entry
+                <Entry TextColor="WhiteSmoke"
                     x:Name="EntryAmstel2"
                     Grid.Row="0"
                     Grid.Column="2"
@@ -167,7 +167,7 @@
                     TextChanged="OnEntryTextChanged"
                     Keyboard="Numeric"
                     ClassId="EntryAmstel2" />
-                <Entry
+                <Entry TextColor="WhiteSmoke"
                     x:Name="EntryAmstel3"
                     Grid.Row="0"
                     Grid.Column="4"
@@ -176,7 +176,7 @@
                     Keyboard="Numeric"
                     ClassId="EntryAmstel3" />
                 <!-- Linha 2 -->
-                <Entry
+                <Entry TextColor="WhiteSmoke"
                     x:Name="EntryAmstel4"
                     Grid.Row="1"
                     Grid.Column="0"
@@ -184,7 +184,7 @@
                     TextChanged="OnEntryTextChanged"
                     Keyboard="Numeric"
                     ClassId="EntryAmstel4" />
-                <Entry
+                <Entry TextColor="WhiteSmoke"
                     x:Name="EntryAmstel5"
                     Grid.Row="1"
                     Grid.Column="2"
@@ -192,7 +192,7 @@
                     TextChanged="OnEntryTextChanged"
                     Keyboard="Numeric"
                     ClassId="EntryAmstel5" />
-                <Entry
+                <Entry TextColor="WhiteSmoke"
                     x:Name="EntryAmstel6"
                     Grid.Row="1"
                     Grid.Column="4"
@@ -201,7 +201,7 @@
                     Keyboard="Numeric"
                     ClassId="EntryAmstel6" />
                 <!-- Linha 3 -->
-                <Entry
+                <Entry TextColor="WhiteSmoke"
                     x:Name="EntryAmstel7"
                     Grid.Row="2"
                     Grid.Column="0"
@@ -209,7 +209,7 @@
                     TextChanged="OnEntryTextChanged"
                     Keyboard="Numeric"
                     ClassId="EntryAmstel7" />
-                <Entry
+                <Entry TextColor="WhiteSmoke"
                     x:Name="EntryAmstel8"
                     Grid.Row="2"
                     Grid.Column="2"
@@ -217,7 +217,7 @@
                     TextChanged="OnEntryTextChanged"
                     Keyboard="Numeric"
                     ClassId="EntryAmstel8" />
-                <Entry
+                <Entry TextColor="WhiteSmoke"
                     x:Name="EntryAmstel9"
                     Grid.Row="2"
                     Grid.Column="4"
@@ -248,7 +248,7 @@
             </VerticalStackLayout>
             <HorizontalStackLayout
                 HorizontalOptions="CenterAndExpand">
-                <Entry
+                <Entry TextColor="WhiteSmoke"
                     x:Name="EntrySoviDevassa"
                     Keyboard="Numeric"
                     TextChanged="OnEntryTextChanged"
@@ -307,7 +307,7 @@
                         Width="Auto" />
                 </Grid.ColumnDefinitions>
                 <!-- Linha 1 -->
-                <Entry
+                <Entry TextColor="WhiteSmoke"
                     x:Name="EntryDevassa1"
                     Grid.Row="0"
                     Grid.Column="0"
@@ -315,7 +315,7 @@
                     TextChanged="OnEntryTextChanged"
                     Keyboard="Numeric"
                     ClassId="EntryDevassa1" />
-                <Entry
+                <Entry TextColor="WhiteSmoke"
                     x:Name="EntryDevassa2"
                     Grid.Row="0"
                     Grid.Column="2"
@@ -323,7 +323,7 @@
                     TextChanged="OnEntryTextChanged"
                     Keyboard="Numeric"
                     ClassId="EntryDevassa2" />
-                <Entry
+                <Entry TextColor="WhiteSmoke"
                     x:Name="EntryDevassa3"
                     Grid.Row="0"
                     Grid.Column="4"
@@ -332,7 +332,7 @@
                     Keyboard="Numeric"
                     ClassId="EntryDevassa3" />
                 <!-- Linha 2 -->
-                <Entry
+                <Entry TextColor="WhiteSmoke"
                     x:Name="EntryDevassa4"
                     Grid.Row="1"
                     Grid.Column="0"
@@ -340,7 +340,7 @@
                     TextChanged="OnEntryTextChanged"
                     Keyboard="Numeric"
                     ClassId="EntryDevassa4" />
-                <Entry
+                <Entry TextColor="WhiteSmoke"
                     x:Name="EntryDevassa5"
                     Grid.Row="1"
                     Grid.Column="2"
@@ -348,7 +348,7 @@
                     TextChanged="OnEntryTextChanged"
                     Keyboard="Numeric"
                     ClassId="EntryDevassa5" />
-                <Entry
+                <Entry TextColor="WhiteSmoke"
                     x:Name="EntryDevassa6"
                     Grid.Row="1"
                     Grid.Column="4"
@@ -357,7 +357,7 @@
                     Keyboard="Numeric"
                     ClassId="EntryDevassa6" />
                 <!-- Linha 3 -->
-                <Entry
+                <Entry TextColor="WhiteSmoke"
                     x:Name="EntryDevassa7"
                     Grid.Row="2"
                     Grid.Column="0"
@@ -365,7 +365,7 @@
                     TextChanged="OnEntryTextChanged"
                     Keyboard="Numeric"
                     ClassId="EntryDevassa7" />
-                <Entry
+                <Entry TextColor="WhiteSmoke"
                     x:Name="EntryDevassa8"
                     Grid.Row="2"
                     Grid.Column="2"
@@ -373,7 +373,7 @@
                     TextChanged="OnEntryTextChanged"
                     Keyboard="Numeric"
                     ClassId="EntryDevassa8" />
-                <Entry
+                <Entry TextColor="WhiteSmoke"
                     x:Name="EntryDevassa9"
                     Grid.Row="2"
                     Grid.Column="4"

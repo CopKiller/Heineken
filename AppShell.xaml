@@ -64,6 +64,10 @@
             Title="MainStream"
             Icon="mainstream.png"
             ContentTemplate="{DataTemplate local3:MainStreamPage}" />
+        <ShellContent
+            Title="Resumo"
+            Icon="resumo.png"
+            ContentTemplate="{DataTemplate local3:ResumoPage}" />
     </FlyoutItem>
 
 </Shell>

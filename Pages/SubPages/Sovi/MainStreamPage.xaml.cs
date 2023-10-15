@@ -118,7 +118,7 @@ public partial class MainStreamPage : ContentPage
         await Shell.Current.Navigation.PushAsync(novaPagina);
     }
 
-    private async Task RefreshMainStreamData()
+    private Task RefreshMainStreamData()
     {
         // Lista de controles e propriedades para verificar
         var controlsToCheck = new List<(Entry entry, Func<int> getValue, Func<string> format)>()
@@ -162,6 +162,6 @@ public partial class MainStreamPage : ContentPage
             }
         }
 
-        return;
+        return Task.CompletedTask;
     }
 }

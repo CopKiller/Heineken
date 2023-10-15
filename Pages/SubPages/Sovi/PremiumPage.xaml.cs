@@ -118,7 +118,7 @@ public partial class PremiumPage : ContentPage
         await Shell.Current.Navigation.PushAsync(novaPagina);
     }
 
-    private async Task RefreshPremiumData()
+    private Task RefreshPremiumData()
     {
         // Lista de controles e propriedades para verificar
         var controlsToCheck = new List<(Entry entry, Func<int> getValue, Func<string> format)>()
@@ -162,6 +162,6 @@ public partial class PremiumPage : ContentPage
             }
         }
 
-        return;
+        return Task.CompletedTask;
     }
 }

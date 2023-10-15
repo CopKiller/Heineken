@@ -27,101 +27,112 @@ namespace AplicativoPromotor.Pages.SubPages.Sovi
 
     public static class SharedSoviInfos
     {
-        public static List<InfosPages> Pages;
+        public static List<PagesData> Pages;
 
         public static async Task InitPages()
         {
-            Pages = new List<InfosPages>();
+            Pages = new List<PagesData>();
 
 
 
             // Inicialize as páginas chamando métodos separados
-            await InitializeCraftPageAsync();
-            await InitializePremiumPageAsync();
-            await InitializeMainStreamPageAsync();
+            await InitializeCraftPage();
+            await InitializePremiumPage();
+            await InitializeMainStreamPage();
+
+            return;
         }
 
-        private static async Task InitializeCraftPageAsync()
+        private static Task InitializeCraftPage()
         {
-            var craftPage = new InfosPages
+            var craftPage = new PagesData
             {
                 TotalCentimetros = 0,
                 PortfolioCentimetros = 0,
-                Produtos = new List<InfosProdutos>
+                Produtos = new ProdutosData[]
+                {
+            new ProdutosData
             {
-                new InfosProdutos
-                {
-                    produtoType = (int)CraftProdutos.Badden,
-                    produtoSovi = 0,
-                    produtoCentimetro = new int[9]
-                },
-                new InfosProdutos
-                {
-                    produtoType = (int)CraftProdutos.Bluemoon,
-                    produtoSovi = 0,
-                    produtoCentimetro = new int[9]
-                },
-                new InfosProdutos
-                {
-                    produtoType = (int) CraftProdutos.Lagunitas,
-                    produtoSovi = 0,
-                    produtoCentimetro = new int[9]
-                }
+                produtoType = (int)CraftProdutos.Badden,
+                produtoSovi = 0,
+                produtoCentimetro = new int[9]
+            },
+            new ProdutosData
+            {
+                produtoType = (int)CraftProdutos.Bluemoon,
+                produtoSovi = 0,
+                produtoCentimetro = new int[9]
+            },
+            new ProdutosData
+            {
+                produtoType = (int) CraftProdutos.Lagunitas,
+                produtoSovi = 0,
+                produtoCentimetro = new int[9]
             }
+                }
             };
 
             Pages.Add(craftPage);
+
+            return Task.CompletedTask;
         }
 
-        private static async Task InitializePremiumPageAsync()
+        private static Task InitializePremiumPage()
         {
-            var premiumPage = new InfosPages
+            var premiumPage = new PagesData
             {
                 TotalCentimetros = 0,
                 PortfolioCentimetros = 0,
-                Produtos = new List<InfosProdutos>
-                {new InfosProdutos
+                Produtos = new ProdutosData[]
                 {
-                    produtoType = (int) PremiumProdutos.Heineken,
-                    produtoSovi = 0,
-                    produtoCentimetro = new int[9]
-                },
-                new InfosProdutos
-                {
-                    produtoType = (int) PremiumProdutos.Heineken00,
-                    produtoSovi = 0,
-                    produtoCentimetro = new int[9]
-                }
+            new ProdutosData
+            {
+                produtoType = (int) PremiumProdutos.Heineken,
+                produtoSovi = 0,
+                produtoCentimetro = new int[9]
+            },
+            new ProdutosData
+            {
+                produtoType = (int) PremiumProdutos.Heineken00,
+                produtoSovi = 0,
+                produtoCentimetro = new int[9]
+            }
                 }
             };
 
             Pages.Add(premiumPage);
+
+            return Task.CompletedTask;
         }
 
-        private static async Task InitializeMainStreamPageAsync()
+        private static Task InitializeMainStreamPage()
         {
-            var mainStreamPage = new InfosPages
+            var mainStreamPage = new PagesData
             {
                 TotalCentimetros = 0,
                 PortfolioCentimetros = 0,
-                Produtos = new List<InfosProdutos>
-                {new InfosProdutos
+                Produtos = new ProdutosData[]
                 {
-                    produtoType = (int) MainStreamProdutos.Amstel,
-                    produtoSovi = 0,
-                    produtoCentimetro = new int[9]
-                },
-                new InfosProdutos
-                {
-                    produtoType = (int) MainStreamProdutos.Devassa,
-                    produtoSovi = 0,
-                    produtoCentimetro = new int[9]
-                }
+            new ProdutosData
+            {
+                produtoType = (int) MainStreamProdutos.Amstel,
+                produtoSovi = 0,
+                produtoCentimetro = new int[9]
+            },
+            new ProdutosData
+            {
+                produtoType = (int) MainStreamProdutos.Devassa,
+                produtoSovi = 0,
+                produtoCentimetro = new int[9]
+            }
                 }
             };
 
             Pages.Add(mainStreamPage);
+
+            return Task.CompletedTask;
         }
+
         public static int GetEspacoCategoria(PagesSovi pagina, CraftProdutos produto)
         {
             int espacoTotal = 0;
@@ -171,40 +182,40 @@ namespace AplicativoPromotor.Pages.SubPages.Sovi
         public static async Task SavePagesToFile()
         {
             string mainDir = FileSystem.AppDataDirectory;
-            string filePath = Path.Combine(mainDir, "dadosaqui.json");
+            string filePath = Path.Combine(mainDir, "dadosapp.json");
 
             var json = JsonSerializer.Serialize(Pages);
             await File.WriteAllTextAsync(filePath, json);
         }
 
-        public async static Task<List<InfosPages>> ReadPagesFromFile()
+        public async static Task<List<PagesData>> ReadPagesFromFile()
         {
             string mainDir = FileSystem.AppDataDirectory;
-            string filePath = Path.Combine(mainDir, "dadosaqui.json");
+            string filePath = Path.Combine(mainDir, "dadosapp.json");
 
             if (File.Exists(filePath))
             {
                 var json = await File.ReadAllTextAsync(filePath);
-                return JsonSerializer.Deserialize<List<InfosPages>>(json);
+                return JsonSerializer.Deserialize<List<PagesData>>(json);
             }
             else
             {
                 await SavePagesToFile();
 
                 var json = await File.ReadAllTextAsync(filePath);
-                return JsonSerializer.Deserialize<List<InfosPages>>(json);
+                return JsonSerializer.Deserialize<List<PagesData>>(json);
             }
         }
     }
 
-    public class InfosPages
+    public class PagesData
     {
         public int TotalCentimetros { get; set; }
         public int PortfolioCentimetros { get; set; }
-        public List<InfosProdutos> Produtos { get; set; }
+        public ProdutosData[] Produtos { get; set; }
     }
 
-    public class InfosProdutos
+    public class ProdutosData
     {
         // Tipo, usado com enum
         public int produtoType { get; set; }

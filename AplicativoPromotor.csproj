@@ -130,6 +130,9 @@
 	  <MauiXaml Update="Pages\MainPages\SoviPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Pages\SubPages\Sovi\ResumoPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Pages\SubPages\Sovi\MainStreamPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -159,6 +162,9 @@
 	  </Compile>
 	  <Compile Update="Pages\SubPages\Produtos\CraftPage.xaml.cs">
 	    <DependentUpon>CraftPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Pages\SubPages\Sovi\ResumoPage.xaml.cs">
+	    <DependentUpon>ResumoPage.xaml</DependentUpon>
 	  </Compile>
 	  <Compile Update="Pages\SubPages\Sovi\MainStreamPage.xaml.cs">
 	    <DependentUpon>MainStreamPage.xaml</DependentUpon>
