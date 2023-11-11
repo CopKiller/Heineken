@@ -130,7 +130,7 @@
 	  <MauiXaml Update="Pages\MainPages\SoviPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Pages\SubPages\Sovi\ResumoPage.xaml">
+	  <MauiXaml Update="Pages\SubPages\Sovi\Resumo\ResumoPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\SubPages\Sovi\MainStreamPage.xaml">
@@ -163,7 +163,7 @@
 	  <Compile Update="Pages\SubPages\Produtos\CraftPage.xaml.cs">
 	    <DependentUpon>CraftPage.xaml</DependentUpon>
 	  </Compile>
-	  <Compile Update="Pages\SubPages\Sovi\ResumoPage.xaml.cs">
+	  <Compile Update="Pages\SubPages\Sovi\Resumo\ResumoPage.xaml.cs">
 	    <DependentUpon>ResumoPage.xaml</DependentUpon>
 	  </Compile>
 	  <Compile Update="Pages\SubPages\Sovi\MainStreamPage.xaml.cs">
@@ -181,7 +181,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Database\" />
+	  <Folder Include="View\" />
 	  <Folder Include="Pages\MainPages\Properties\" />
 	</ItemGroup>
 

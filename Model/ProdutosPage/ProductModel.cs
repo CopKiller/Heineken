@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AplicativoPromotor.Produtos
+namespace AplicativoPromotor.Model
 {
-    public struct Item
+    public struct ProductModel
     {
         public ulong Id { get; set; } //EAN do produto
         public string Name { get; set; } //Nome do produto
         public string Desc { get; set; } //Descrição do produto
-        public string Foto {  get; set; } //Nome do arquivo de imagem + extensão do produto
+        public string Foto { get; set; } //Nome do arquivo de imagem + extensão do produto
     }
 }

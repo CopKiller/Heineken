@@ -1,10 +1,10 @@
+using AplicativoPromotor.Model;
 using AplicativoPromotor.Pages.SubPages.Produtos.PropertiesItems;
-using AplicativoPromotor.Produtos;
 using Microsoft.Maui.Controls;
 using System.ComponentModel.DataAnnotations;
 
 namespace AplicativoPromotor.Pages.SubPages.Produtos;
-    public partial class EconomyPage : ContentPage
+public partial class EconomyPage : ContentPage
     {
     private enum SearchTypes
         {
@@ -18,7 +18,7 @@ namespace AplicativoPromotor.Pages.SubPages.Produtos;
             Desc
         }
 
-        private List<Item> economyPageItems; // Substitua com o seu tipo de item
+        private List<ProductModel> economyPageItems; // Substitua com o seu tipo de item
         private int searchType = (int)SearchTypes.Nome;
 
         public EconomyPage()
@@ -60,7 +60,7 @@ namespace AplicativoPromotor.Pages.SubPages.Produtos;
             if (searchTerm == currentSearchTerm && currentSearchTerm != null)
             {
                 // Realize a pesquisa com base no tipo selecionado
-                List<Item> searchResults = new List<Item>();
+                List<ProductModel> searchResults = new List<ProductModel>();
 
                 switch (searchType)
                 {

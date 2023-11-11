@@ -1,30 +1,35 @@
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="AplicativoPromotor.Pages.SubPages.Produtos.CraftPage"
-             Title="Craft's"
-             BackgroundColor="#121B1A">
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="AplicativoPromotor.Pages.SubPages.Produtos.CraftPage"
+    Title="Craft's"
+    BackgroundColor="#121B1A">
 
     <!-- Conteúdo da página -->
     <StackLayout
         Padding="5,0">
 
         <!-- Conteúdo flexível (caixa de pesquisa e Picker) -->
-        <StackLayout Orientation="Horizontal">
+        <StackLayout
+            Orientation="Horizontal">
             <!-- Caixa de pesquisa -->
-            <Entry x:Name="SearchEntry"
-               Placeholder="Pesquisar..."
-               TextChanged="OnSearchTextChanged"
-               TextColor="WhiteSmoke"
-               PlaceholderColor="WhiteSmoke"
-               HorizontalOptions="FillAndExpand" />
+            <Entry
+                x:Name="SearchEntry"
+                Placeholder="Pesquisar..."
+                TextChanged="OnSearchTextChanged"
+                TextColor="WhiteSmoke"
+                PlaceholderColor="WhiteSmoke"
+                HorizontalOptions="FillAndExpand" />
 
             <!-- Selecione o tipo de pesquisa -->
-            <Picker x:Name="SearchTypePicker"
+            <Picker
+                x:Name="SearchTypePicker"
                 Title="Selecione o tipo de pesquisa"
                 SelectedIndexChanged="OnSearchTypeSelectedIndexChanged"
                 HorizontalOptions="End">
                 <Picker.ItemsSource>
-                    <x:Array Type="{x:Type x:String}">
+                    <x:Array
+                        Type="{x:Type x:String}">
                         <x:String>Nome</x:String>
                         <x:String>EAN</x:String>
                         <x:String>Descrição</x:String>
@@ -34,17 +39,36 @@
         </StackLayout>
 
         <!-- ListView existente -->
-        <ListView x:Name="ItensListView" RowHeight="90">
+        <ListView
+            x:Name="ItensListView"
+            RowHeight="90">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <StackLayout Orientation="Horizontal" Padding="10">
-                            <Image Source="{Binding Foto}" HeightRequest="70" WidthRequest="70" Aspect="AspectFit" />
+                        <StackLayout
+                            Orientation="Horizontal"
+                            Padding="10">
+                            <Image
+                                Source="{Binding Foto}"
+                                HeightRequest="70"
+                                WidthRequest="70"
+                                Aspect="AspectFit" />
                             <StackLayout>
                                 <!-- Adicione um espaço vertical de 5 unidades após o nome -->
-                                <Label Text="{Binding Name}" Margin="0,0,0,5" FontAttributes="Bold" FontSize="Medium" TextColor="White" />
-                                <Label Text="{Binding Id, StringFormat='EAN: {0}'}" Margin="0,0,0,5" TextColor="White" />
-                                <Label Text="{Binding Desc}" Margin="0,0,0,5" TextColor="White" />
+                                <Label
+                                    Text="{Binding Name}"
+                                    Margin="0,0,0,5"
+                                    FontAttributes="Bold"
+                                    FontSize="Medium"
+                                    TextColor="White" />
+                                <Label
+                                    Text="{Binding Id, StringFormat='EAN: {0}'}"
+                                    Margin="0,0,0,5"
+                                    TextColor="White" />
+                                <Label
+                                    Text="{Binding Desc}"
+                                    Margin="0,0,0,5"
+                                    TextColor="White" />
                             </StackLayout>
                         </StackLayout>
                     </ViewCell>

@@ -2,18 +2,18 @@
 
 namespace AplicativoPromotor.Pages.SubPages.Sovi
 {
-    public enum CraftProdutos
+    public enum CraftProducts
     {
         Badden,
         Bluemoon,
         Lagunitas,
     }
-    public enum PremiumProdutos
+    public enum PremiumProducts
     {
         Heineken,
         Heineken00,
     }
-    public enum MainStreamProdutos
+    public enum MainStreamProducts
     {
         Amstel,
         Devassa
@@ -27,11 +27,60 @@ namespace AplicativoPromotor.Pages.SubPages.Sovi
 
     public static class SharedSoviInfos
     {
-        public static List<PagesData> Pages;
+        // Como a interface do XAML não recebe retorno de métodos diretamente
+        // Adicionei aqui no topo os dados que serão utilizados na página Resumo do XAML
+        public static int GetAllCraftSpace()
+        {
+            return PagesData[(int)PagesSovi.Craft].TotalCentimetros;
+        } // Total
+        public static int GetAllPremiumSpace()
+        {
+            return PagesData[(int)PagesSovi.Premium].TotalCentimetros;
+        } // Total
+        public static int GetAllMainStreamSpace()
+        {
+            return PagesData[(int)PagesSovi.MainStream].TotalCentimetros;
+        } // Total
+
+        public static int GetAllCraftPortfolioSpace()
+        {
+            int soma = 0;
+
+            for (int i = 0; i < Enum.GetValues(typeof(CraftProducts)).Length; i++) {
+                soma += GetProductSpace(PagesSovi.Craft, (CraftProducts)i);
+            }
+
+            return soma;
+        } // Portfólio
+        public static int GetAllPremiumPortfolioSpace()
+        {
+            int soma = 0;
+
+            for (int i = 0; i < Enum.GetValues(typeof(PremiumProducts)).Length; i++)
+            {
+                soma += GetProductSpace(PagesSovi.Premium, (PremiumProducts)i);
+            }
+
+            return soma;
+        } // Portfólio
+        public static int GetAllMainStreamPortfolioSpace()
+        {
+            int soma = 0;
+
+            for (int i = 0; i < Enum.GetValues(typeof(MainStreamProducts)).Length; i++)
+            {
+                soma += GetProductSpace(PagesSovi.MainStream, (MainStreamProducts)i);
+            }
+
+            return soma;
+        } // Portfólio
+
+
+        public static List<PagesData> PagesData;
 
         public static async Task InitPages()
         {
-            Pages = new List<PagesData>();
+            PagesData = new List<PagesData>();
 
 
 
@@ -53,26 +102,26 @@ namespace AplicativoPromotor.Pages.SubPages.Sovi
                 {
             new ProdutosData
             {
-                produtoType = (int)CraftProdutos.Badden,
+                produtoType = (int)CraftProducts.Badden,
                 produtoSovi = 0,
                 produtoCentimetro = new int[9]
             },
             new ProdutosData
             {
-                produtoType = (int)CraftProdutos.Bluemoon,
+                produtoType = (int)CraftProducts.Bluemoon,
                 produtoSovi = 0,
                 produtoCentimetro = new int[9]
             },
             new ProdutosData
             {
-                produtoType = (int) CraftProdutos.Lagunitas,
+                produtoType = (int) CraftProducts.Lagunitas,
                 produtoSovi = 0,
                 produtoCentimetro = new int[9]
             }
                 }
             };
 
-            Pages.Add(craftPage);
+            PagesData.Add(craftPage);
 
             return Task.CompletedTask;
         }
@@ -87,20 +136,20 @@ namespace AplicativoPromotor.Pages.SubPages.Sovi
                 {
             new ProdutosData
             {
-                produtoType = (int) PremiumProdutos.Heineken,
+                produtoType = (int) PremiumProducts.Heineken,
                 produtoSovi = 0,
                 produtoCentimetro = new int[9]
             },
             new ProdutosData
             {
-                produtoType = (int) PremiumProdutos.Heineken00,
+                produtoType = (int) PremiumProducts.Heineken00,
                 produtoSovi = 0,
                 produtoCentimetro = new int[9]
             }
                 }
             };
 
-            Pages.Add(premiumPage);
+            PagesData.Add(premiumPage);
 
             return Task.CompletedTask;
         }
@@ -115,25 +164,38 @@ namespace AplicativoPromotor.Pages.SubPages.Sovi
                 {
             new ProdutosData
             {
-                produtoType = (int) MainStreamProdutos.Amstel,
+                produtoType = (int) MainStreamProducts.Amstel,
                 produtoSovi = 0,
                 produtoCentimetro = new int[9]
             },
             new ProdutosData
             {
-                produtoType = (int) MainStreamProdutos.Devassa,
+                produtoType = (int) MainStreamProducts.Devassa,
                 produtoSovi = 0,
                 produtoCentimetro = new int[9]
             }
                 }
             };
 
-            Pages.Add(mainStreamPage);
+            PagesData.Add(mainStreamPage);
 
             return Task.CompletedTask;
         }
 
-        public static int GetEspacoCategoria(PagesSovi pagina, CraftProdutos produto)
+        public static int GetProductSpace(PagesSovi pagina, CraftProducts produto)
+        {
+            int espacoTotal = 0;
+            // Itera através dos espaços ocupados pelo produto em 9 posições
+            for (int i = 0; i < 9; i++)
+            {
+                var indiceReal = i;
+
+                int espacoIndividual = PagesData[(int)pagina].Produtos[(int)produto].produtoCentimetro[i];
+                espacoTotal += espacoIndividual;
+            }
+            return espacoTotal;
+        }
+        public static int GetProductSpace(PagesSovi pagina, PremiumProducts produto)
         {
             int espacoTotal = 0;
 
@@ -142,13 +204,13 @@ namespace AplicativoPromotor.Pages.SubPages.Sovi
             {
                 var indiceReal = i;
 
-                int espacoIndividual = Pages[(int)pagina].Produtos[(int)produto].produtoCentimetro[i];
+                int espacoIndividual = PagesData[(int)pagina].Produtos[(int)produto].produtoCentimetro[i];
                 espacoTotal += espacoIndividual;
             }
 
             return espacoTotal;
         }
-        public static int GetEspacoCategoria(PagesSovi pagina, PremiumProdutos produto)
+        public static int GetProductSpace(PagesSovi pagina, MainStreamProducts produto)
         {
             int espacoTotal = 0;
 
@@ -157,22 +219,7 @@ namespace AplicativoPromotor.Pages.SubPages.Sovi
             {
                 var indiceReal = i;
 
-                int espacoIndividual = Pages[(int)pagina].Produtos[(int)produto].produtoCentimetro[i];
-                espacoTotal += espacoIndividual;
-            }
-
-            return espacoTotal;
-        }
-        public static int GetEspacoCategoria(PagesSovi pagina, MainStreamProdutos produto)
-        {
-            int espacoTotal = 0;
-
-            // Itera através dos espaços ocupados pelo produto em 9 posições
-            for (int i = 0; i < 9; i++)
-            {
-                var indiceReal = i;
-
-                int espacoIndividual = Pages[(int)pagina].Produtos[(int)produto].produtoCentimetro[i];
+                int espacoIndividual = PagesData[(int)pagina].Produtos[(int)produto].produtoCentimetro[i];
                 espacoTotal += espacoIndividual;
             }
 
@@ -184,7 +231,7 @@ namespace AplicativoPromotor.Pages.SubPages.Sovi
             string mainDir = FileSystem.AppDataDirectory;
             string filePath = Path.Combine(mainDir, "dadosapp.json");
 
-            var json = JsonSerializer.Serialize(Pages);
+            var json = JsonSerializer.Serialize(PagesData);
             await File.WriteAllTextAsync(filePath, json);
         }
 

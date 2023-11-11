@@ -11,21 +11,19 @@
             Spacing="15"
             Padding="30,0">
 
-            <!-- Total Craft -->
-            <Label
-                Text="Total espaço CRAFT"
-                HorizontalOptions="CenterAndExpand"
-                FontAttributes="Bold"
-                FontSize="Subtitle"
-                TextColor="White"
-                Margin="0,40,0,0" />
-
             <!-- Seção espaço Craft total -->
-            <StackLayout>
+            <StackLayout
+                Margin="20">
+                <Label
+                    Text="Total espaço CRAFT"
+                    HorizontalOptions="Center"
+                    FontAttributes="Bold"
+                    FontSize="Subtitle"
+                    TextColor="White" />
                 <HorizontalStackLayout
                     HorizontalOptions="CenterAndExpand">
-
-                    <Entry TextColor="WhiteSmoke"
+                    <Entry
+                        TextColor="WhiteSmoke"
                         x:Name="EntryAllCraft"
                         Keyboard="Numeric"
                         TextChanged="OnEntryTextChanged"
@@ -41,138 +39,142 @@
             <!-- Seção espaço Craft portfólio Heineken-->
             <StackLayout>
                 <HorizontalStackLayout
-                HorizontalOptions="CenterAndExpand"
-                Spacing="5">
-                <Label
-                    Text="Total CRAFT do portfólio"
                     HorizontalOptions="CenterAndExpand"
-                    FontAttributes="Bold"
-                    FontSize="Subtitle"
-                    TextColor="White"
-                    Margin="0,20,0,0" />
-                <Label
-                    Text="HEINEKEN"
-                    HorizontalOptions="CenterAndExpand"
-                    FontAttributes="Bold"
-                    FontSize="Subtitle"
-                    TextColor="Green"
-                    Margin="0,20,0,0" />
-            </HorizontalStackLayout>
+                    Spacing="5">
+                    <Label
+                        Text="Total CRAFT do portfólio"
+                        HorizontalOptions="CenterAndExpand"
+                        FontAttributes="Bold"
+                        FontSize="Subtitle"
+                        TextColor="White"
+                        Margin="0,20,0,0" />
+                    <Label
+                        Text="HEINEKEN"
+                        HorizontalOptions="CenterAndExpand"
+                        FontAttributes="Bold"
+                        FontSize="Subtitle"
+                        TextColor="Green"
+                        Margin="0,20,0,0" />
+                </HorizontalStackLayout>
                 <HorizontalStackLayout
-                HorizontalOptions="CenterAndExpand">
+                    HorizontalOptions="CenterAndExpand">
 
-                <Entry TextColor="WhiteSmoke"
-                    x:Name="EntryCraft"
-                    Keyboard="Numeric"
-                    TextChanged="OnEntryTextChanged"
-                    Placeholder="Craft portfólio..."
-                    ClassId="EntryCraft" />
-                <Label
-                    Text="cm"
-                    VerticalOptions="Center"
-                    TextColor="White" />
-            </HorizontalStackLayout>
+                    <Entry
+                        TextColor="WhiteSmoke"
+                        x:Name="EntryCraft"
+                        Keyboard="Numeric"
+                        TextChanged="OnEntryTextChanged"
+                        Placeholder="Craft portfólio..."
+                        ClassId="EntryCraft" />
+                    <Label
+                        Text="cm"
+                        VerticalOptions="Center"
+                        TextColor="White" />
+                </HorizontalStackLayout>
             </StackLayout>
 
             <!-- Seção Badden Badden-->
             <StackLayout>
                 <VerticalStackLayout>
-                <Label
-                    Text="Badden Badden"
-                    HorizontalOptions="CenterAndExpand"
-                    FontAttributes="Bold"
-                    FontSize="Subtitle"
-                    TextColor="White"
-                    Margin="0,40,0,0" />
-                <Image
-                    Source="baddenlogo.png"
-                    WidthRequest="130" />
-                <Label
-                    Text="SOVI Badden"
-                    HorizontalOptions="CenterAndExpand"
-                    VerticalOptions="Center"
-                    TextColor="White"
-                    Margin="0,0,0,-5" />
-            </VerticalStackLayout>
+                    <Label
+                        Text="Badden Badden"
+                        HorizontalOptions="CenterAndExpand"
+                        FontAttributes="Bold"
+                        FontSize="Subtitle"
+                        TextColor="White"
+                        Margin="0,40,0,0" />
+                    <Image
+                        Source="baddenlogo.png"
+                        WidthRequest="130" />
+                    <Label
+                        Text="SOVI Badden"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="Center"
+                        TextColor="White"
+                        Margin="0,0,0,-5" />
+                </VerticalStackLayout>
                 <HorizontalStackLayout
-                HorizontalOptions="CenterAndExpand">
-                <Entry TextColor="WhiteSmoke"
-                    x:Name="EntrySoviBadden"
-                    Keyboard="Numeric"
-                    TextChanged="OnEntryTextChanged"
-                    Placeholder="Digite aqui o SOVI..."
-                    ClassId="EntrySoviBadden" />
-                <Label
-                    Text="%"
-                    VerticalOptions="Center"
-                    TextColor="White" />
-                <Button
-                    
-                    Text="Ver Sovi"
+                    HorizontalOptions="CenterAndExpand">
+                    <Entry
+                        TextColor="WhiteSmoke"
+                        x:Name="EntrySoviBadden"
+                        Keyboard="Numeric"
+                        TextChanged="OnEntryTextChanged"
+                        Placeholder="Digite aqui o SOVI..."
+                        ClassId="EntrySoviBadden" />
+                    <Label
+                        Text="%"
+                        VerticalOptions="Center"
+                        TextColor="White" />
+                    <Button
+                        Text="Ver Sovi"
                         Margin="20,10,0,0"
                         Clicked="OnButtonClicked" />
-            </HorizontalStackLayout>
+                </HorizontalStackLayout>
                 <HorizontalStackLayout
                     HorizontalOptions="CenterAndExpand">
                     <Label
-                Text="Espaço de Badden"
-                Margin="0,5,0,10"
-                VerticalOptions="Center"
-                TextColor="White" />
+                        Text="Espaço de Badden"
+                        Margin="0,5,0,10"
+                        VerticalOptions="Center"
+                        TextColor="White" />
                     <Label
-                    x:Name="EspacoBadden"
-                    FontAttributes="Bold"
-                    Margin="20,5,0,10"
-                    Text="0"
-                    VerticalOptions="Center"
-                    TextColor="Green" />
+                        x:Name="EspacoBadden"
+                        FontAttributes="Bold"
+                        Margin="20,5,0,10"
+                        Text="0"
+                        VerticalOptions="Center"
+                        TextColor="Green" />
                 </HorizontalStackLayout>
                 <Grid
-                HorizontalOptions="Center"
-                ColumnSpacing="20"
-                RowSpacing="20">
-                <Grid.RowDefinitions>
-                    <RowDefinition
-                        Height="Auto" />
-                    <RowDefinition
-                        Height="Auto" />
-                    <RowDefinition
-                        Height="Auto" />
-                    <RowDefinition
-                        Height="Auto" />
-                    <RowDefinition
-                        Height="Auto" />
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition
-                        Width="Auto" />
-                    <ColumnDefinition
-                        Width="Auto" />
-                    <ColumnDefinition
-                        Width="Auto" />
-                    <ColumnDefinition
-                        Width="Auto" />
-                    <ColumnDefinition
-                        Width="Auto" />
-                </Grid.ColumnDefinitions>
+                    HorizontalOptions="Center"
+                    ColumnSpacing="20"
+                    RowSpacing="20">
+                    <Grid.RowDefinitions>
+                        <RowDefinition
+                            Height="Auto" />
+                        <RowDefinition
+                            Height="Auto" />
+                        <RowDefinition
+                            Height="Auto" />
+                        <RowDefinition
+                            Height="Auto" />
+                        <RowDefinition
+                            Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition
+                            Width="Auto" />
+                        <ColumnDefinition
+                            Width="Auto" />
+                        <ColumnDefinition
+                            Width="Auto" />
+                        <ColumnDefinition
+                            Width="Auto" />
+                        <ColumnDefinition
+                            Width="Auto" />
+                    </Grid.ColumnDefinitions>
                     <!-- Linha 1 -->
-                    <Entry TextColor="WhiteSmoke"
-                    x:Name="EntryBadden1"
-                    Grid.Row="0"
-                    Grid.Column="0"
-                    Placeholder="cm"
-                    TextChanged="OnEntryTextChanged"
-                    Keyboard="Numeric"
-                    ClassId="EntryBadden1" />
-                    <Entry TextColor="WhiteSmoke"
-                    x:Name="EntryBadden2"
-                    Grid.Row="0"
-                    Grid.Column="2"
-                    Placeholder="cm"
-                    TextChanged="OnEntryTextChanged"
-                    Keyboard="Numeric"
-                    ClassId="EntryBadden2" />
-                    <Entry TextColor="WhiteSmoke"
+                    <Entry
+                        TextColor="WhiteSmoke"
+                        x:Name="EntryBadden1"
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Placeholder="cm"
+                        TextChanged="OnEntryTextChanged"
+                        Keyboard="Numeric"
+                        ClassId="EntryBadden1" />
+                    <Entry
+                        TextColor="WhiteSmoke"
+                        x:Name="EntryBadden2"
+                        Grid.Row="0"
+                        Grid.Column="2"
+                        Placeholder="cm"
+                        TextChanged="OnEntryTextChanged"
+                        Keyboard="Numeric"
+                        ClassId="EntryBadden2" />
+                    <Entry
+                        TextColor="WhiteSmoke"
                         x:Name="EntryBadden3"
                         Grid.Row="0"
                         Grid.Column="4"
@@ -181,23 +183,26 @@
                         Keyboard="Numeric"
                         ClassId="EntryBadden3" />
                     <!-- Linha 2 -->
-                    <Entry TextColor="WhiteSmoke"
-                    x:Name="EntryBadden4"
-                    Grid.Row="1"
-                    Grid.Column="0"
-                    Placeholder="cm"
-                    TextChanged="OnEntryTextChanged"
-                    Keyboard="Numeric"
-                    ClassId="EntryBadden4" />
-                    <Entry TextColor="WhiteSmoke"
-                    x:Name="EntryBadden5"
-                    Grid.Row="1"
-                    Grid.Column="2"
-                    Placeholder="cm"
-                    TextChanged="OnEntryTextChanged"
-                    Keyboard="Numeric"
-                    ClassId="EntryBadden5" />
-                    <Entry TextColor="WhiteSmoke"
+                    <Entry
+                        TextColor="WhiteSmoke"
+                        x:Name="EntryBadden4"
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Placeholder="cm"
+                        TextChanged="OnEntryTextChanged"
+                        Keyboard="Numeric"
+                        ClassId="EntryBadden4" />
+                    <Entry
+                        TextColor="WhiteSmoke"
+                        x:Name="EntryBadden5"
+                        Grid.Row="1"
+                        Grid.Column="2"
+                        Placeholder="cm"
+                        TextChanged="OnEntryTextChanged"
+                        Keyboard="Numeric"
+                        ClassId="EntryBadden5" />
+                    <Entry
+                        TextColor="WhiteSmoke"
                         x:Name="EntryBadden6"
                         Grid.Row="1"
                         Grid.Column="4"
@@ -206,23 +211,26 @@
                         Keyboard="Numeric"
                         ClassId="EntryBadden6" />
                     <!-- Linha 3 -->
-                    <Entry TextColor="WhiteSmoke"
-                    x:Name="EntryBadden7"
-                    Grid.Row="2"
-                    Grid.Column="0"
-                    Placeholder="cm"
-                    TextChanged="OnEntryTextChanged"
-                    Keyboard="Numeric"
-                    ClassId="EntryBadden7" />
-                    <Entry TextColor="WhiteSmoke"
-                    x:Name="EntryBadden8"
-                    Grid.Row="2"
-                    Grid.Column="2"
-                    Placeholder="cm"
-                    TextChanged="OnEntryTextChanged"
-                    Keyboard="Numeric"
-                    ClassId="EntryBadden8" />
-                    <Entry TextColor="WhiteSmoke"
+                    <Entry
+                        TextColor="WhiteSmoke"
+                        x:Name="EntryBadden7"
+                        Grid.Row="2"
+                        Grid.Column="0"
+                        Placeholder="cm"
+                        TextChanged="OnEntryTextChanged"
+                        Keyboard="Numeric"
+                        ClassId="EntryBadden7" />
+                    <Entry
+                        TextColor="WhiteSmoke"
+                        x:Name="EntryBadden8"
+                        Grid.Row="2"
+                        Grid.Column="2"
+                        Placeholder="cm"
+                        TextChanged="OnEntryTextChanged"
+                        Keyboard="Numeric"
+                        ClassId="EntryBadden8" />
+                    <Entry
+                        TextColor="WhiteSmoke"
                         x:Name="EntryBadden9"
                         Grid.Row="2"
                         Grid.Column="4"
@@ -255,7 +263,8 @@
                 </VerticalStackLayout>
                 <HorizontalStackLayout
                     HorizontalOptions="CenterAndExpand">
-                    <Entry TextColor="WhiteSmoke"
+                    <Entry
+                        TextColor="WhiteSmoke"
                         x:Name="EntrySoviBluemoon"
                         Keyboard="Numeric"
                         TextChanged="OnEntryTextChanged"
@@ -314,7 +323,8 @@
                             Width="Auto" />
                     </Grid.ColumnDefinitions>
                     <!-- Linha 1 -->
-                    <Entry TextColor="WhiteSmoke"
+                    <Entry
+                        TextColor="WhiteSmoke"
                         x:Name="EntryBluemoon1"
                         Grid.Row="0"
                         Grid.Column="0"
@@ -322,7 +332,8 @@
                         TextChanged="OnEntryTextChanged"
                         Keyboard="Numeric"
                         ClassId="EntryBluemoon1" />
-                    <Entry TextColor="WhiteSmoke"
+                    <Entry
+                        TextColor="WhiteSmoke"
                         x:Name="EntryBluemoon2"
                         Grid.Row="0"
                         Grid.Column="2"
@@ -330,7 +341,8 @@
                         TextChanged="OnEntryTextChanged"
                         Keyboard="Numeric"
                         ClassId="EntryBluemoon2" />
-                    <Entry TextColor="WhiteSmoke"
+                    <Entry
+                        TextColor="WhiteSmoke"
                         x:Name="EntryBluemoon3"
                         Grid.Row="0"
                         Grid.Column="4"
@@ -339,7 +351,8 @@
                         Keyboard="Numeric"
                         ClassId="EntryBluemoon3" />
                     <!-- Linha 2 -->
-                    <Entry TextColor="WhiteSmoke"
+                    <Entry
+                        TextColor="WhiteSmoke"
                         x:Name="EntryBluemoon4"
                         Grid.Row="1"
                         Grid.Column="0"
@@ -347,7 +360,8 @@
                         TextChanged="OnEntryTextChanged"
                         Keyboard="Numeric"
                         ClassId="EntryBluemoon4" />
-                    <Entry TextColor="WhiteSmoke"
+                    <Entry
+                        TextColor="WhiteSmoke"
                         x:Name="EntryBluemoon5"
                         Grid.Row="1"
                         Grid.Column="2"
@@ -355,7 +369,8 @@
                         TextChanged="OnEntryTextChanged"
                         Keyboard="Numeric"
                         ClassId="EntryBluemoon5" />
-                    <Entry TextColor="WhiteSmoke"
+                    <Entry
+                        TextColor="WhiteSmoke"
                         x:Name="EntryBluemoon6"
                         Grid.Row="1"
                         Grid.Column="4"
@@ -364,7 +379,8 @@
                         Keyboard="Numeric"
                         ClassId="EntryBluemoon6" />
                     <!-- Linha 3 -->
-                    <Entry TextColor="WhiteSmoke"
+                    <Entry
+                        TextColor="WhiteSmoke"
                         x:Name="EntryBluemoon7"
                         Grid.Row="2"
                         Grid.Column="0"
@@ -372,7 +388,8 @@
                         TextChanged="OnEntryTextChanged"
                         Keyboard="Numeric"
                         ClassId="EntryBluemoon7" />
-                    <Entry TextColor="WhiteSmoke"
+                    <Entry
+                        TextColor="WhiteSmoke"
                         x:Name="EntryBluemoon8"
                         Grid.Row="2"
                         Grid.Column="2"
@@ -380,7 +397,8 @@
                         TextChanged="OnEntryTextChanged"
                         Keyboard="Numeric"
                         ClassId="EntryBluemoon8" />
-                    <Entry TextColor="WhiteSmoke"
+                    <Entry
+                        TextColor="WhiteSmoke"
                         x:Name="EntryBluemoon9"
                         Grid.Row="2"
                         Grid.Column="4"
@@ -413,7 +431,8 @@
                 </VerticalStackLayout>
                 <HorizontalStackLayout
                     HorizontalOptions="CenterAndExpand">
-                    <Entry TextColor="WhiteSmoke"
+                    <Entry
+                        TextColor="WhiteSmoke"
                         x:Name="EntrySoviLagunitas"
                         Keyboard="Numeric"
                         TextChanged="OnEntryTextChanged"
@@ -472,7 +491,8 @@
                             Width="Auto" />
                     </Grid.ColumnDefinitions>
                     <!-- Linha 1 -->
-                    <Entry TextColor="WhiteSmoke"
+                    <Entry
+                        TextColor="WhiteSmoke"
                         x:Name="EntryLagunitas1"
                         Grid.Row="0"
                         Grid.Column="0"
@@ -480,7 +500,8 @@
                         TextChanged="OnEntryTextChanged"
                         Keyboard="Numeric"
                         ClassId="EntryLagunitas1" />
-                    <Entry TextColor="WhiteSmoke"
+                    <Entry
+                        TextColor="WhiteSmoke"
                         x:Name="EntryLagunitas2"
                         Grid.Row="0"
                         Grid.Column="2"
@@ -488,7 +509,8 @@
                         TextChanged="OnEntryTextChanged"
                         Keyboard="Numeric"
                         ClassId="EntryLagunitas2" />
-                    <Entry TextColor="WhiteSmoke"
+                    <Entry
+                        TextColor="WhiteSmoke"
                         x:Name="EntryLagunitas3"
                         Grid.Row="0"
                         Grid.Column="4"
@@ -497,7 +519,8 @@
                         Keyboard="Numeric"
                         ClassId="EntryLagunitas3" />
                     <!-- Linha 2 -->
-                    <Entry TextColor="WhiteSmoke"
+                    <Entry
+                        TextColor="WhiteSmoke"
                         x:Name="EntryLagunitas4"
                         Grid.Row="1"
                         Grid.Column="0"
@@ -505,7 +528,8 @@
                         TextChanged="OnEntryTextChanged"
                         Keyboard="Numeric"
                         ClassId="EntryLagunitas4" />
-                    <Entry TextColor="WhiteSmoke"
+                    <Entry
+                        TextColor="WhiteSmoke"
                         x:Name="EntryLagunitas5"
                         Grid.Row="1"
                         Grid.Column="2"
@@ -513,7 +537,8 @@
                         TextChanged="OnEntryTextChanged"
                         Keyboard="Numeric"
                         ClassId="EntryLagunitas5" />
-                    <Entry TextColor="WhiteSmoke"
+                    <Entry
+                        TextColor="WhiteSmoke"
                         x:Name="EntryLagunitas6"
                         Grid.Row="1"
                         Grid.Column="4"
@@ -522,7 +547,8 @@
                         Keyboard="Numeric"
                         ClassId="EntryLagunitas6" />
                     <!-- Linha 3 -->
-                    <Entry TextColor="WhiteSmoke"
+                    <Entry
+                        TextColor="WhiteSmoke"
                         x:Name="EntryLagunitas7"
                         Grid.Row="2"
                         Grid.Column="0"
@@ -530,7 +556,8 @@
                         TextChanged="OnEntryTextChanged"
                         Keyboard="Numeric"
                         ClassId="EntryLagunitas7" />
-                    <Entry TextColor="WhiteSmoke"
+                    <Entry
+                        TextColor="WhiteSmoke"
                         x:Name="EntryLagunitas8"
                         Grid.Row="2"
                         Grid.Column="2"
@@ -538,7 +565,8 @@
                         TextChanged="OnEntryTextChanged"
                         Keyboard="Numeric"
                         ClassId="EntryLagunitas8" />
-                    <Entry TextColor="WhiteSmoke"
+                    <Entry
+                        TextColor="WhiteSmoke"
                         x:Name="EntryLagunitas9"
                         Grid.Row="2"
                         Grid.Column="4"

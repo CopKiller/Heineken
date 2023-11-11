@@ -1,14 +1,14 @@
-﻿using AplicativoPromotor.Pages.PropertiesPages;
-using AplicativoPromotor.Produtos;
+﻿using AplicativoPromotor.Model;
+using AplicativoPromotor.Pages.PropertiesPages;
 using AplicativoPromotor.Produtos.MainStream;
 
 namespace AplicativoPromotor.Pages.SubPages.Produtos.PropertiesItems
 {
     public class MainStream : Properties
     {
-        private List<Item> items; // Alteramos para uma propriedade privada
+        private List<ProductModel> items; // Alteramos para uma propriedade privada
 
-        public List<Item> Items // Propriedade pública para acessar a lista
+        public List<ProductModel> Items // Propriedade pública para acessar a lista
         {
             get { return items; }
             set
@@ -24,7 +24,7 @@ namespace AplicativoPromotor.Pages.SubPages.Produtos.PropertiesItems
         public MainStream()
         {
 
-            Items = new List<Item>();
+            Items = new List<ProductModel>();
 
             // Atribua os itens diretamente à propriedade Items
             Items.AddRange(new Amstel().GetProdutos());

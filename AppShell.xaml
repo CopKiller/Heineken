@@ -6,6 +6,7 @@
     xmlns:local="clr-namespace:AplicativoPromotor.Pages.MainPages"
     xmlns:local2="clr-namespace:AplicativoPromotor.Pages.SubPages.Produtos"
     xmlns:local3="clr-namespace:AplicativoPromotor.Pages.SubPages.Sovi"
+    xmlns:local4="clr-namespace:AplicativoPromotor.Pages.SubPages.Sovi.Resumo"
     FlyoutBackgroundColor="Gray">
 
     <Shell.FlyoutHeader>
@@ -67,7 +68,7 @@
         <ShellContent
             Title="Resumo"
             Icon="resumo.png"
-            ContentTemplate="{DataTemplate local3:ResumoPage}" />
+            ContentTemplate="{DataTemplate local4:ResumoPage}" />
     </FlyoutItem>
 
 </Shell>

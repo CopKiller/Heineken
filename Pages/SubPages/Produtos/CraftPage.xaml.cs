@@ -1,5 +1,5 @@
+using AplicativoPromotor.Model;
 using AplicativoPromotor.Pages.SubPages.Produtos.PropertiesItems;
-using AplicativoPromotor.Produtos;
 using Microsoft.Maui.Controls;
 using System.ComponentModel.DataAnnotations;
 
@@ -18,7 +18,7 @@ public partial class CraftPage : ContentPage
         Desc
     }
 
-    private List<Item> craftPageItems; // Substitua com o seu tipo de item
+    private List<ProductModel> craftPageItems; // Substitua com o seu tipo de item
     private int searchType = (int)SearchTypes.Nome;
 
     public CraftPage()
@@ -60,7 +60,7 @@ public partial class CraftPage : ContentPage
         if (searchTerm == currentSearchTerm && currentSearchTerm != null)
         {
             // Realize a pesquisa com base no tipo selecionado
-            List<Item> searchResults = new List<Item>();
+            List<ProductModel> searchResults = new List<ProductModel>();
 
             switch (searchType)
             {

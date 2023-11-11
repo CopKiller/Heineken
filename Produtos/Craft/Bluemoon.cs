@@ -3,14 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AplicativoPromotor.Model;
+using AplicativoPromotor.ViewModel.ProdutosPage;
 
 namespace AplicativoPromotor.Produtos.Craft
 {
-    public class Bluemoon : Produtos
+    public class Bluemoon : ProductViewModel
     {
         public Bluemoon()
         {
-            AddProduto(new Item
+            AddProduto(new ProductModel
             {
                 Name = "Bluemoon 355ml Belgian White",
                 Id = 7898235981033,
@@ -18,7 +20,7 @@ namespace AplicativoPromotor.Produtos.Craft
                 Foto = "bluemoon355.png"
             });
 
-            AddProduto(new Item
+            AddProduto(new ProductModel
             {
                 Name = "Bluemoon 350ml Belgian White",
                 Id = 7896045506477,

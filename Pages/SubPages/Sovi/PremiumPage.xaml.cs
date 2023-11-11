@@ -55,20 +55,20 @@ public partial class PremiumPage : ContentPage
             switch (nomeDoInvocador)
             {
                 case "EntryAllPremium":
-                    SharedSoviInfos.Pages[PageID].TotalCentimetros = num;
+                    SharedSoviInfos.PagesData[PageID].TotalCentimetros = num;
                     break;
                 case "EntryPremium":
-                    SharedSoviInfos.Pages[PageID].PortfolioCentimetros = num;
+                    SharedSoviInfos.PagesData[PageID].PortfolioCentimetros = num;
                     break;
                 case "EntrySoviHeineken":
                     num = Math.Max(0, Math.Min(num, 100));
                     ((Entry)sender).Text = num.ToString();
-                    SharedSoviInfos.Pages[PageID].Produtos[(int)PremiumProdutos.Heineken].produtoSovi = (byte)num;
+                    SharedSoviInfos.PagesData[PageID].Produtos[(int)PremiumProducts.Heineken].produtoSovi = (byte)num;
                     break;
                 case "EntrySoviHeineken00":
                     num = Math.Max(0, Math.Min(num, 100));
                     ((Entry)sender).Text = num.ToString();
-                    SharedSoviInfos.Pages[PageID].Produtos[(int)PremiumProdutos.Heineken00].produtoSovi = (byte)num;
+                    SharedSoviInfos.PagesData[PageID].Produtos[(int)PremiumProducts.Heineken00].produtoSovi = (byte)num;
                     break;
             }
 
@@ -79,13 +79,13 @@ public partial class PremiumPage : ContentPage
 
                 if (nomeDoInvocador == ("EntryHeineken" + indiceReal.ToString()))
                 {
-                    SharedSoviInfos.Pages[PageID].Produtos[(int)PremiumProdutos.Heineken].produtoCentimetro[i] = num;
+                    SharedSoviInfos.PagesData[PageID].Produtos[(int)PremiumProducts.Heineken].produtoCentimetro[i] = num;
 
                     break;
                 }
                 else if (nomeDoInvocador == ("EntryHeineken00" + indiceReal.ToString()))
                 {
-                    SharedSoviInfos.Pages[PageID].Produtos[(int)PremiumProdutos.Heineken00].produtoCentimetro[i] = num;
+                    SharedSoviInfos.PagesData[PageID].Produtos[(int)PremiumProducts.Heineken00].produtoCentimetro[i] = num;
 
                     break;
                 }
@@ -93,8 +93,8 @@ public partial class PremiumPage : ContentPage
             // Atualize a UI, se necessário
             MainThread.BeginInvokeOnMainThread(() =>
             {
-                EspacoHeineken.Text = SharedSoviInfos.GetEspacoCategoria(PagesSovi.Premium, PremiumProdutos.Heineken).ToString();
-                EspacoHeineken00.Text = SharedSoviInfos.GetEspacoCategoria(PagesSovi.Premium, PremiumProdutos.Heineken00).ToString();
+                EspacoHeineken.Text = SharedSoviInfos.GetProductSpace(PagesSovi.Premium, PremiumProducts.Heineken).ToString();
+                EspacoHeineken00.Text = SharedSoviInfos.GetProductSpace(PagesSovi.Premium, PremiumProducts.Heineken00).ToString();
             });
 
             // Fix: Só realizará salvamentos se a página já estiver carregada
@@ -123,10 +123,10 @@ public partial class PremiumPage : ContentPage
         // Lista de controles e propriedades para verificar
         var controlsToCheck = new List<(Entry entry, Func<int> getValue, Func<string> format)>()
 {
-    (EntryAllPremium, () => SharedSoviInfos.Pages[PageID].TotalCentimetros, () => ""),
-    (EntryPremium, () => SharedSoviInfos.Pages[PageID].PortfolioCentimetros, () => ""),
-    (EntrySoviHeineken, () => SharedSoviInfos.Pages[PageID].Produtos[(int)PremiumProdutos.Heineken].produtoSovi, () => ""),
-    (EntrySoviHeineken00, () => SharedSoviInfos.Pages[PageID].Produtos[(int)PremiumProdutos.Heineken00].produtoSovi, () => ""),
+    (EntryAllPremium, () => SharedSoviInfos.PagesData[PageID].TotalCentimetros, () => ""),
+    (EntryPremium, () => SharedSoviInfos.PagesData[PageID].PortfolioCentimetros, () => ""),
+    (EntrySoviHeineken, () => SharedSoviInfos.PagesData[PageID].Produtos[(int)PremiumProducts.Heineken].produtoSovi, () => ""),
+    (EntrySoviHeineken00, () => SharedSoviInfos.PagesData[PageID].Produtos[(int)PremiumProducts.Heineken00].produtoSovi, () => ""),
 };
 
         foreach (var (Entry, getValue, format) in controlsToCheck)
@@ -144,10 +144,10 @@ public partial class PremiumPage : ContentPage
 
 
         // Crie uma lista de controle para cada produto com suas respectivas lambda expressions
-        var productControls = new List<(PremiumProdutos produto, Entry[] entries)>()
+        var productControls = new List<(PremiumProducts produto, Entry[] entries)>()
 {
-    (PremiumProdutos.Heineken, new Entry[] { EntryHeineken1, EntryHeineken2, EntryHeineken3, EntryHeineken4, EntryHeineken5, EntryHeineken6, EntryHeineken7, EntryHeineken8, EntryHeineken9 }),
-    (PremiumProdutos.Heineken00, new Entry[] { EntryHeineken001, EntryHeineken002, EntryHeineken003, EntryHeineken004, EntryHeineken005, EntryHeineken006, EntryHeineken007, EntryHeineken008, EntryHeineken009 })
+    (PremiumProducts.Heineken, new Entry[] { EntryHeineken1, EntryHeineken2, EntryHeineken3, EntryHeineken4, EntryHeineken5, EntryHeineken6, EntryHeineken7, EntryHeineken8, EntryHeineken9 }),
+    (PremiumProducts.Heineken00, new Entry[] { EntryHeineken001, EntryHeineken002, EntryHeineken003, EntryHeineken004, EntryHeineken005, EntryHeineken006, EntryHeineken007, EntryHeineken008, EntryHeineken009 })
 };
 
         foreach (var (produto, entries) in productControls)
@@ -155,7 +155,7 @@ public partial class PremiumPage : ContentPage
             for (int i = 0; i < entries.Length; i++)
             {
                 Entry entry = entries[i];
-                int value = SharedSoviInfos.Pages[PageID].Produtos[(int)produto].produtoCentimetro[i];
+                int value = SharedSoviInfos.PagesData[PageID].Produtos[(int)produto].produtoCentimetro[i];
 
                 // Verifique se o valor é maior que 0 antes de atribuir
                 entry.Text = (value > 0) ? value.ToString() : "";
