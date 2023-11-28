@@ -109,70 +109,70 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="MVVMC\View\IntroductionPage\IntroducaoPage.xaml">
+	  <MauiXaml Update="MVVM\View\IntroductionPage\IntroducaoPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="MVVMC\View\ProductsPage\RefrigerantePage.xaml">
+	  <MauiXaml Update="MVVM\View\ProductsPage\RefrigerantePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="MVVMC\View\ProductsPage\EconomyPage.xaml">
+	  <MauiXaml Update="MVVM\View\ProductsPage\EconomyPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="MVVMC\View\ProductsPage\MainStreamPage.xaml">
+	  <MauiXaml Update="MVVM\View\ProductsPage\MainStreamPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="MVVMC\View\ProductsPage\PremiumPage.xaml">
+	  <MauiXaml Update="MVVM\View\ProductsPage\PremiumPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="MVVMC\View\ProductsPage\CraftPage.xaml">
+	  <MauiXaml Update="MVVM\View\ProductsPage\CraftPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="MVVMC\View\SoviPage\ResumoPage.xaml">
+	  <MauiXaml Update="MVVM\View\SoviPage\ResumoPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="MVVMC\View\SoviPage\MainStreamPage.xaml">
+	  <MauiXaml Update="MVVM\View\SoviPage\MainStreamPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="MVVMC\View\SoviPage\PremiumPage.xaml">
+	  <MauiXaml Update="MVVM\View\SoviPage\PremiumPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="MVVMC\View\SoviPage\CraftPage.xaml">
+	  <MauiXaml Update="MVVM\View\SoviPage\CraftPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="MVVMC\View\ToolsPage\PdfViewerPage.xaml">
+	  <MauiXaml Update="MVVM\View\ToolsPage\PdfViewerPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Update="MVVMC\View\ProductsPage\RefrigerantePage.xaml.cs">
+	  <Compile Update="MVVM\View\ProductsPage\RefrigerantePage.xaml.cs">
 	    <DependentUpon>RefrigerantePage.xaml</DependentUpon>
 	  </Compile>
-	  <Compile Update="MVVMC\View\ProductsPage\EconomyPage.xaml.cs">
+	  <Compile Update="MVVM\View\ProductsPage\EconomyPage.xaml.cs">
 	    <DependentUpon>EconomyPage.xaml</DependentUpon>
 	  </Compile>
-	  <Compile Update="MVVMC\View\ProductsPage\MainStreamPage.xaml.cs">
+	  <Compile Update="MVVM\View\ProductsPage\MainStreamPage.xaml.cs">
 	    <DependentUpon>MainStreamPage.xaml</DependentUpon>
 	  </Compile>
-	  <Compile Update="MVVMC\View\ProductsPage\PremiumPage.xaml.cs">
+	  <Compile Update="MVVM\View\ProductsPage\PremiumPage.xaml.cs">
 	    <DependentUpon>PremiumPage.xaml</DependentUpon>
 	  </Compile>
-	  <Compile Update="MVVMC\View\ProductsPage\CraftPage.xaml.cs">
+	  <Compile Update="MVVM\View\ProductsPage\CraftPage.xaml.cs">
 	    <DependentUpon>CraftPage.xaml</DependentUpon>
 	  </Compile>
-	  <Compile Update="MVVMC\View\SoviPage\ResumoPage.xaml.cs">
+	  <Compile Update="MVVM\View\SoviPage\ResumoPage.xaml.cs">
 	    <DependentUpon>ResumoPage.xaml</DependentUpon>
 	  </Compile>
-	  <Compile Update="MVVMC\View\SoviPage\MainStreamPage.xaml.cs">
+	  <Compile Update="MVVM\View\SoviPage\MainStreamPage.xaml.cs">
 	    <DependentUpon>MainStreamPage.xaml</DependentUpon>
 	  </Compile>
-	  <Compile Update="MVVMC\View\SoviPage\PremiumPage.xaml.cs">
+	  <Compile Update="MVVM\View\SoviPage\PremiumPage.xaml.cs">
 	    <DependentUpon>PremiumPage.xaml</DependentUpon>
 	  </Compile>
-	  <Compile Update="MVVMC\View\SoviPage\CraftPage.xaml.cs">
+	  <Compile Update="MVVM\View\SoviPage\CraftPage.xaml.cs">
 	    <DependentUpon>CraftPage.xaml</DependentUpon>
 	  </Compile>
-	  <Compile Update="MVVMC\View\ToolsPage\PdfViewerPage.xaml.cs">
+	  <Compile Update="MVVM\View\ToolsPage\PdfViewerPage.xaml.cs">
 	    <DependentUpon>PdfViewerPage.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
