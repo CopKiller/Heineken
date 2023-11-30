@@ -187,7 +187,8 @@ namespace AplicativoPromotor.MVVM.Shared
             return Task.CompletedTask;
         }
 
-        public static int GetProductSpace(PagesSovi pagina, CraftProducts produto)
+        #region Obter Espaço Centimetros- GetProductSpace
+            public static int GetProductSpace(PagesSovi pagina, CraftProducts produto)
         {
             int espacoTotal = 0;
             // Itera através dos espaços ocupados pelo produto em 9 posições
@@ -200,22 +201,7 @@ namespace AplicativoPromotor.MVVM.Shared
             }
             return espacoTotal;
         }
-        public static int GetProductSpace(PagesSovi pagina, PremiumProducts produto)
-        {
-            int espacoTotal = 0;
-
-            // Itera através dos espaços ocupados pelo produto em 9 posições
-            for (int i = 0; i < 9; i++)
-            {
-                var indiceReal = i;
-
-                int espacoIndividual = PagesData[(int)pagina].Produtos[(int)produto].produtoCentimetro[i];
-                espacoTotal += espacoIndividual;
-            }
-
-            return espacoTotal;
-        }
-        public static int GetProductSpace(PagesSovi pagina, MainStreamProducts produto)
+            public static int GetProductSpace(PagesSovi pagina, PremiumProducts produto)
         {
             int espacoTotal = 0;
 
@@ -230,6 +216,75 @@ namespace AplicativoPromotor.MVVM.Shared
 
             return espacoTotal;
         }
+            public static int GetProductSpace(PagesSovi pagina, MainStreamProducts produto)
+        {
+            int espacoTotal = 0;
+
+            // Itera através dos espaços ocupados pelo produto em 9 posições
+            for (int i = 0; i < 9; i++)
+            {
+                var indiceReal = i;
+
+                int espacoIndividual = PagesData[(int)pagina].Produtos[(int)produto].produtoCentimetro[i];
+                espacoTotal += espacoIndividual;
+            }
+
+            return espacoTotal;
+        }
+        #endregion
+
+        #region Obter Meta Porcentagem - GetProductMetaPercentage
+            public static double GetProductMetaPercentage(PagesSovi pagina, CraftProducts produto)
+        {
+
+            double meta = PagesData[(int)pagina].Produtos[(int)produto].produtoSovi;
+            return meta;
+        }
+            public static double GetProductMetaPercentage(PagesSovi pagina, PremiumProducts produto)
+        {
+
+            double meta = PagesData[(int)pagina].Produtos[(int)produto].produtoSovi;
+            return meta;
+        }
+            public static double GetProductMetaPercentage(PagesSovi pagina, MainStreamProducts produto)
+        {
+
+            double meta = PagesData[(int)pagina].Produtos[(int)produto].produtoSovi;
+            return meta;
+        }
+        #endregion
+
+        #region Obter Meta Cent - GetProductMetaCentimeters
+        public static int GetProductMetaCentimeters(PagesSovi pagina, CraftProducts produto)
+        {
+
+            int meta = PagesData[(int)pagina].Produtos[(int)produto].produtoSovi;
+            int espaco = GetAllCraftSpace();
+            double result = Convert.ToDouble(meta > 0 && espaco > 0 ? (meta / 100f) * espaco : 0);
+
+            return Convert.ToInt32(result);
+        }
+
+        public static int GetProductMetaCentimeters(PagesSovi pagina, PremiumProducts produto)
+        {
+
+            int meta = PagesData[(int)pagina].Produtos[(int)produto].produtoSovi;
+            int espaco = GetAllPremiumSpace();
+            double result = Convert.ToDouble(meta > 0 && espaco > 0 ? (meta / 100f) * espaco : 0);
+
+            return Convert.ToInt32(result);
+        }
+
+        public static int GetProductMetaCentimeters(PagesSovi pagina, MainStreamProducts produto)
+        {
+
+            int meta = PagesData[(int)pagina].Produtos[(int)produto].produtoSovi;
+            int espaco = GetAllMainStreamSpace();
+            double result = Convert.ToDouble(meta > 0 && espaco > 0 ? (meta / 100f) * espaco : 0);
+
+            return Convert.ToInt32(result);
+        }
+        #endregion
 
         public static async Task SavePagesToFile()
         {

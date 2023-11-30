@@ -1,9 +1,4 @@
 using AplicativoPromotor.MVVM.Shared;
-using AplicativoPromotor.Pages.ToolsPages;
-using Syncfusion.Pdf;
-using Syncfusion.Pdf.Graphics;
-using System.ComponentModel;
-using System.Diagnostics;
 
 namespace AplicativoPromotor.Pages.SubPages.Sovi.Resumo;
 public partial class ResumoPage : ContentPage

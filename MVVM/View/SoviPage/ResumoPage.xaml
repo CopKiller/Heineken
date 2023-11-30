@@ -34,29 +34,88 @@
                                 VerticalOptions="Center"
                                 BackgroundColor="Black">
                                 <!-- Alterar a cor de fundo aqui -->
-                                <StackLayout>
-                                    <Label
-                                        Text="{Binding Name}"
-                                        FontAttributes="Bold"
-                                        FontSize="20"
-                                        HorizontalOptions="Center"
-                                        VerticalOptions="Center" />
-                                    <Image
-                                        Source="{Binding Picture}"
-                                        HeightRequest="150"
-                                        WidthRequest="150"
-                                        HorizontalOptions="Center" />
-                                    <Label
-                                        Text="{Binding Space.Centimeters, StringFormat='Espaco: {0} cm'}"
-                                        HorizontalOptions="Center"
-                                        TextColor="Green" />
-                                    <Label
-                                        Text="{Binding Space.Percentage, StringFormat='Porc: {0} %'}"
-                                        FontAttributes="Italic"
-                                        HorizontalOptions="Center"
-                                        MaxLines="5"
-                                        LineBreakMode="TailTruncation" />
-                                </StackLayout>
+                                <!-- Secoes a Esquerda e a Direita -->
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition
+                                            Width="Auto" />
+                                        <ColumnDefinition
+                                            Width="Auto" />
+                                        <ColumnDefinition
+                                            Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition
+                                            Height="Auto" />
+                                        <RowDefinition
+                                            Height="*" />
+                                    </Grid.RowDefinitions>
+
+                                    <VerticalStackLayout
+                                        Grid.Column="1"
+                                        Grid.Row="0"
+                                        Grid.ColumnSpan="2">
+                                        <Label
+                                            Text="{Binding Name}"
+                                            FontAttributes="Bold"
+                                            FontSize="20"
+                                            HorizontalOptions="Center"
+                                            VerticalOptions="Center" />
+                                        <Image
+                                            Source="{Binding Picture}"
+                                            HeightRequest="150"
+                                            WidthRequest="150"
+                                            HorizontalOptions="Center" />
+                                    </VerticalStackLayout>
+
+                                    <!-- Secao a Esquerda -->
+                                    <VerticalStackLayout
+                                        Grid.Column="0"
+                                        Grid.Row="1"
+                                        Grid.ColumnSpan="2"
+                                        HorizontalOptions="Center">
+                                        <Label
+                                            Text="- Atual -"
+                                            HorizontalOptions="Center"
+                                            TextColor="White"
+                                            FontAttributes="Bold" />
+                                        <Label
+                                            Text="{Binding Space.Centimeters, StringFormat='{0} cm'}"
+                                            HorizontalOptions="Center"
+                                            TextColor="Green" />
+                                        <Label
+                                            Text="{Binding Space.Percentage, StringFormat='{0} %'}"
+                                            FontAttributes="Italic"
+                                            TextColor="Green"
+                                            HorizontalOptions="Center"
+                                            MaxLines="5"
+                                            LineBreakMode="TailTruncation" />
+                                    </VerticalStackLayout>
+
+                                    <!-- Secao a Direita -->
+                                    <VerticalStackLayout
+                                        Grid.Column="2"
+                                        Grid.Row="1"
+                                        HorizontalOptions="End">
+                                        <Label
+                                            Text="- Meta -"
+                                            HorizontalOptions="End"
+                                            TextColor="White"
+                                            FontAttributes="Bold" />
+                                        <Label
+                                            Text="{Binding Space.MetaCentimeters, StringFormat='{0} cm'}"
+                                            HorizontalOptions="End"
+                                            TextColor="Green" />
+                                        <Label
+                                            Text="{Binding Space.MetaPercentage, StringFormat='{0} %'}"
+                                            FontAttributes="Italic"
+                                            TextColor="Green"
+                                            HorizontalOptions="End"
+                                            MaxLines="5"
+                                            LineBreakMode="TailTruncation" />
+                                    </VerticalStackLayout>
+                                </Grid>
                             </Frame>
                         </StackLayout>
                     </DataTemplate>
@@ -87,39 +146,100 @@
                                 BorderColor="DarkGray"
                                 CornerRadius="5"
                                 Margin="20"
-                                HeightRequest="300"
+                                HeightRequest="330"
                                 HorizontalOptions="Center"
                                 VerticalOptions="Center"
                                 BackgroundColor="Black">
                                 <!-- Alterar a cor de fundo aqui -->
-                                <StackLayout>
-                                    <Label
-                                        Text="{Binding Name}"
-                                        FontAttributes="Bold"
-                                        FontSize="20"
-                                        HorizontalOptions="Center"
-                                        VerticalOptions="Center" />
-                                    <Image
-                                        Source="{Binding Picture}"
-                                        HeightRequest="150"
-                                        WidthRequest="150"
-                                        HorizontalOptions="Center" />
-                                    <Label
-                                        Text="{Binding Space.Centimeters, StringFormat='Espaco: {0} cm'}"
-                                        HorizontalOptions="Center"
-                                        TextColor="Green" />
-                                    <Label
-                                        Text="{Binding Space.Percentage, StringFormat='Porc: {0} %'}"
-                                        FontAttributes="Italic"
-                                        HorizontalOptions="Center"
-                                        MaxLines="5"
-                                        LineBreakMode="TailTruncation" />
-                                </StackLayout>
+
+                                <!-- Secoes a Esquerda e a Direita -->
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition
+                                            Width="Auto" />
+                                        <ColumnDefinition
+                                            Width="Auto" />
+                                        <ColumnDefinition
+                                            Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition
+                                            Height="Auto" />
+                                        <RowDefinition
+                                            Height="*" />
+                                    </Grid.RowDefinitions>
+
+                                    <VerticalStackLayout
+                                        Grid.Column="1"
+                                        Grid.Row="0"
+                                        Grid.ColumnSpan="2">
+                                        <Label
+                                            Text="{Binding Name}"
+                                            FontAttributes="Bold"
+                                            FontSize="20"
+                                            HorizontalOptions="Center"
+                                            VerticalOptions="Center" />
+                                        <Image
+                                            Source="{Binding Picture}"
+                                            HeightRequest="150"
+                                            WidthRequest="150"
+                                            HorizontalOptions="Center" />
+                                    </VerticalStackLayout>
+                                    
+                                    <!-- Secao a Esquerda -->
+                                    <VerticalStackLayout
+                                        Grid.Column="0"
+                                        Grid.Row="1"
+                                        Grid.ColumnSpan="2"
+                                        HorizontalOptions="Center">
+                                        <Label
+                                            Text="- Atual -"
+                                            HorizontalOptions="Center"
+                                            TextColor="White"
+                                            FontAttributes="Bold" />
+                                        <Label
+                                            Text="{Binding Space.Centimeters, StringFormat='{0} cm'}"
+                                            HorizontalOptions="Center"
+                                            TextColor="Green" />
+                                        <Label
+                                            Text="{Binding Space.Percentage, StringFormat='{0} %'}"
+                                            FontAttributes="Italic"
+                                            TextColor="Green"
+                                            HorizontalOptions="Center"
+                                            MaxLines="5"
+                                            LineBreakMode="TailTruncation" />
+                                    </VerticalStackLayout>
+                                    
+                                    <!-- Secao a Direita -->
+                                    <VerticalStackLayout
+                                        Grid.Column="2"
+                                        Grid.Row="1"
+                                        HorizontalOptions="End">
+                                        <Label
+                                            Text="- Meta -"
+                                            HorizontalOptions="End"
+                                            TextColor="White"
+                                            FontAttributes="Bold" />
+                                        <Label
+                                            Text="{Binding Space.MetaCentimeters, StringFormat='{0} cm'}"
+                                            HorizontalOptions="End"
+                                            TextColor="Green" />
+                                        <Label
+                                            Text="{Binding Space.MetaPercentage, StringFormat='{0} %'}"
+                                            FontAttributes="Italic"
+                                            TextColor="Green"
+                                            HorizontalOptions="End"
+                                            MaxLines="5"
+                                            LineBreakMode="TailTruncation" />
+                                    </VerticalStackLayout>
+                                </Grid>
                             </Frame>
                         </StackLayout>
                     </DataTemplate>
                 </CarouselView.ItemTemplate>
             </CarouselView>
+
             <IndicatorView
                 x:Name="indicatorView2"
                 IndicatorsShape="Square"
@@ -150,29 +270,88 @@
                                 VerticalOptions="Center"
                                 BackgroundColor="Black">
                                 <!-- Alterar a cor de fundo aqui -->
-                                <StackLayout>
-                                    <Label
-                                        Text="{Binding Name}"
-                                        FontAttributes="Bold"
-                                        FontSize="20"
-                                        HorizontalOptions="Center"
-                                        VerticalOptions="Center" />
-                                    <Image
-                                        Source="{Binding Picture}"
-                                        HeightRequest="150"
-                                        WidthRequest="150"
-                                        HorizontalOptions="Center" />
-                                    <Label
-                                        Text="{Binding Space.Centimeters, StringFormat='Espaco: {0} cm'}"
-                                        HorizontalOptions="Center"
-                                        TextColor="Green" />
-                                    <Label
-                                        Text="{Binding Space.Percentage, StringFormat='Porc: {0} %'}"
-                                        FontAttributes="Italic"
-                                        HorizontalOptions="Center"
-                                        MaxLines="5"
-                                        LineBreakMode="TailTruncation" />
-                                </StackLayout>
+                                <!-- Secoes a Esquerda e a Direita -->
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition
+                                            Width="Auto" />
+                                        <ColumnDefinition
+                                            Width="Auto" />
+                                        <ColumnDefinition
+                                            Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition
+                                            Height="Auto" />
+                                        <RowDefinition
+                                            Height="*" />
+                                    </Grid.RowDefinitions>
+
+                                    <VerticalStackLayout
+                                        Grid.Column="1"
+                                        Grid.Row="0"
+                                        Grid.ColumnSpan="2">
+                                        <Label
+                                            Text="{Binding Name}"
+                                            FontAttributes="Bold"
+                                            FontSize="20"
+                                            HorizontalOptions="Center"
+                                            VerticalOptions="Center" />
+                                        <Image
+                                            Source="{Binding Picture}"
+                                            HeightRequest="150"
+                                            WidthRequest="150"
+                                            HorizontalOptions="Center" />
+                                    </VerticalStackLayout>
+
+                                    <!-- Secao a Esquerda -->
+                                    <VerticalStackLayout
+                                        Grid.Column="0"
+                                        Grid.Row="1"
+                                        Grid.ColumnSpan="2"
+                                        HorizontalOptions="Center">
+                                        <Label
+                                            Text="- Atual -"
+                                            HorizontalOptions="Center"
+                                            TextColor="White"
+                                            FontAttributes="Bold" />
+                                        <Label
+                                            Text="{Binding Space.Centimeters, StringFormat='{0} cm'}"
+                                            HorizontalOptions="Center"
+                                            TextColor="Green" />
+                                        <Label
+                                            Text="{Binding Space.Percentage, StringFormat='{0} %'}"
+                                            FontAttributes="Italic"
+                                            TextColor="Green"
+                                            HorizontalOptions="Center"
+                                            MaxLines="5"
+                                            LineBreakMode="TailTruncation" />
+                                    </VerticalStackLayout>
+
+                                    <!-- Secao a Direita -->
+                                    <VerticalStackLayout
+                                        Grid.Column="2"
+                                        Grid.Row="1"
+                                        HorizontalOptions="End">
+                                        <Label
+                                            Text="- Meta -"
+                                            HorizontalOptions="End"
+                                            TextColor="White"
+                                            FontAttributes="Bold" />
+                                        <Label
+                                            Text="{Binding Space.MetaCentimeters, StringFormat='{0} cm'}"
+                                            HorizontalOptions="End"
+                                            TextColor="Green" />
+                                        <Label
+                                            Text="{Binding Space.MetaPercentage, StringFormat='{0} %'}"
+                                            FontAttributes="Italic"
+                                            TextColor="Green"
+                                            HorizontalOptions="End"
+                                            MaxLines="5"
+                                            LineBreakMode="TailTruncation" />
+                                    </VerticalStackLayout>
+                                </Grid>
                             </Frame>
                         </StackLayout>
                     </DataTemplate>

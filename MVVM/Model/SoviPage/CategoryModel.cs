@@ -31,5 +31,8 @@ namespace AplicativoPromotor.MVVM.Model.SoviPage
     {
         public int Centimeters { get; set; }
         public double Percentage { get; set; }
+
+        public int MetaCentimeters { get; set; }
+        public double MetaPercentage { get; set; }
     }
 }

@@ -153,6 +153,8 @@ namespace AplicativoPromotor.MVVM.ViewModel.SoviPage
                 Products.Products[i].Name = GetValues.GetEnumName(productEnum);
                 Products.Products[i].Space.Centimeters = SharedSoviInfos.GetProductSpace(PagesSovi.Craft, productEnum);
                 Products.Products[i].Space.Percentage = totalSpace != 0 ? Math.Round(((Products.Products[i].Space.Centimeters / totalSpace) * 100), 2) : 0;
+                Products.Products[i].Space.MetaCentimeters = SharedSoviInfos.GetProductMetaCentimeters(PagesSovi.Craft, productEnum);
+                Products.Products[i].Space.MetaPercentage = SharedSoviInfos.GetProductMetaPercentage(PagesSovi.Craft, productEnum);
 
                 Products.Products[i].Picture = GetValues.GetEnumDescription(productEnum);
             }
@@ -171,6 +173,8 @@ namespace AplicativoPromotor.MVVM.ViewModel.SoviPage
                 Products.Products[i].Name = GetValues.GetEnumName(productEnum);
                 Products.Products[i].Space.Centimeters = SharedSoviInfos.GetProductSpace(PagesSovi.Premium, productEnum);
                 Products.Products[i].Space.Percentage = totalSpace != 0 ? Products.Products[i].Space.Centimeters / totalSpace * 100 : 0;
+                Products.Products[i].Space.MetaCentimeters = SharedSoviInfos.GetProductMetaCentimeters(PagesSovi.Premium, productEnum);
+                Products.Products[i].Space.MetaPercentage = SharedSoviInfos.GetProductMetaPercentage(PagesSovi.Premium, productEnum);
 
                 Products.Products[i].Picture = GetValues.GetEnumDescription(productEnum);
             }
@@ -189,6 +193,8 @@ namespace AplicativoPromotor.MVVM.ViewModel.SoviPage
                 Products.Products[i].Name = GetValues.GetEnumName(productEnum);
                 Products.Products[i].Space.Centimeters = SharedSoviInfos.GetProductSpace(PagesSovi.MainStream, productEnum);
                 Products.Products[i].Space.Percentage = totalSpace != 0 ? Products.Products[i].Space.Centimeters / totalSpace * 100 : 0;
+                Products.Products[i].Space.MetaCentimeters = SharedSoviInfos.GetProductMetaCentimeters(PagesSovi.MainStream, productEnum);
+                Products.Products[i].Space.MetaPercentage = SharedSoviInfos.GetProductMetaPercentage(PagesSovi.MainStream, productEnum);
 
                 Products.Products[i].Picture = GetValues.GetEnumDescription(productEnum);
             }
