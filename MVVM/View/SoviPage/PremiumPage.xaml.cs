@@ -1,7 +1,7 @@
 using AplicativoPromotor.MVVM.Shared;
 using AplicativoPromotor.Pages.ToolsPages;
 
-namespace AplicativoPromotor.Pages.SubPages.Sovi;
+namespace AplicativoPromotor.MVVM.View.SoviPage;
 public partial class PremiumPage : ContentPage
 {
     // --> Obtem o ID da página

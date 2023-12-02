@@ -1,82 +1,51 @@
-﻿using AplicativoPromotor.MVVM.Shared;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using AplicativoPromotor.MVVM.Shared;
 using AplicativoPromotor.MVVM.Model.SoviPage;
-using Syncfusion.Licensing;
-using System;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Diagnostics;
-using System.Runtime.CompilerServices;
-using System.Windows.Input;
 
 namespace AplicativoPromotor.MVVM.ViewModel.SoviPage
 {
-    public class CategoryViewModel : INotifyPropertyChanged
+    internal class CategoryViewModel
     {
+        public CategoryViewModel() { }
 
-        // --> Lista com todas as categorias
-        readonly IList<CategoryModel> source;
-
-        // --> Collection observável do componente
-        public ObservableCollection<ProductsModel> CraftProductsModels { get; private set; } //Craft
-        public ObservableCollection<ProductsModel> PremiumProductsModels { get; private set; } //Premium
-        public ObservableCollection<ProductsModel> MainStreamProductsModels { get; private set; } //Main Stream
-        public IList<ProductsModel> EmptyProductsModels { get; private set; }
-
-        public ProductsModel PreviousProductsModel { get; set; }
-        public ProductsModel CurrentProductsModel { get; set; }
-        public ProductsModel CurrentItem { get; set; }
-        public int PreviousPosition { get; set; }
-        public int CurrentPosition { get; set; }
-        public int Position { get; set; }
-
-        public ICommand FilterCommand => new Command<string>(FilterItems);
-        public ICommand ItemChangedCommand => new Command<ProductsModel>(ItemChanged);
-        public ICommand PositionChangedCommand => new Command<int>(PositionChanged);
-        public ICommand DeleteCommand => new Command<ProductsModel>(RemoveProductsModel);
-
-        //public ICommand FavoriteCommand => new Command<ProductsModel>(FavoriteCattegoryModel);
-
-        public CategoryViewModel()
+        public ObservableCollection<ProductsModel> CreateProductsModelCollection(PagesSovi pagesSovi)
         {
-            source = new List<CategoryModel>();
-            CreateProductsModelCollection();
+            CategoryModel productCategory = new CategoryModel();
 
-            CurrentItem = CraftProductsModels.Skip(3).FirstOrDefault();
-            OnPropertyChanged("CurrentItem");
-            Position = 3;
-            OnPropertyChanged("Position");
+            switch (pagesSovi)
+            {
+                case PagesSovi.Craft:
+                    // Criação de categoria Craft
+                    productCategory = CreateCraftProducts();
+                    // Adição de produtos à categoria acima
+                    PopulateCraftProducts(productCategory);
+                    break;
+                case PagesSovi.Premium:
+                    // Criação de categoria Premium
+                    productCategory = CreatePremiumProducts();
+                    // Adição de produtos à categoria acima
+                    PopulatePremiumProducts(productCategory);
+                    break;
+                case PagesSovi.MainStream:
+                    // Criação de categoria MainStream
+                    productCategory = CreateMainStreamProducts();
+                    // Adição de produtos à categoria acima
+                    PopulateMainStreamProducts(productCategory);
+                    break;
+            }
+
+            var products = productCategory.Products.ToList();
+
+            var result = new ObservableCollection<ProductsModel>(products);
+
+            return result;
         }
 
-        void CreateProductsModelCollection()
-        {
-            // Criação de categoria Craft
-            var craftProducts = CreateCraftProducts();
-            source.Add(craftProducts);
-            // Adição de produtos à categoria acima
-            PopulateCraftProducts(craftProducts);
-
-            // Criação de categoria Premium
-            var premiumProducts = CreatePremiumProducts();
-            source.Add(premiumProducts);
-            // Adição de produtos à categoria acima
-            PopulatePremiumProducts(premiumProducts);
-
-            // Criação de categoria MainStream
-            var mainStreamProducts = CreateMainStreamProducts();
-            source.Add(mainStreamProducts);
-            // Adição de produtos à categoria acima
-            PopulateMainStreamProducts(mainStreamProducts);
-
-            // Converte a lista de categorias para uma ObservableCollection
-            var productsModels = source[(int)PagesSovi.Craft].Products.ToList();
-            CraftProductsModels = new ObservableCollection<ProductsModel>(productsModels);
-
-            productsModels = source[(int)PagesSovi.Premium].Products.ToList();
-            PremiumProductsModels = new ObservableCollection<ProductsModel>(productsModels);
-
-            productsModels = source[(int)PagesSovi.MainStream].Products.ToList();
-            MainStreamProductsModels = new ObservableCollection<ProductsModel>(productsModels);
-        }
         private CategoryModel CreateCraftProducts()
         {
             var length = Enum.GetValues(typeof(CraftProducts)).Length;
@@ -147,12 +116,9 @@ namespace AplicativoPromotor.MVVM.ViewModel.SoviPage
             {
                 CraftProducts productEnum = (CraftProducts)i;
 
-                //Debug.Print(Enum.GetName(typeof(CraftProducts), productEnum));
-
-                //Products.Products[i].Name = Enum.GetName(typeof(CraftProducts), productEnum);
                 Products.Products[i].Name = GetValues.GetEnumName(productEnum);
                 Products.Products[i].Space.Centimeters = SharedSoviInfos.GetProductSpace(PagesSovi.Craft, productEnum);
-                Products.Products[i].Space.Percentage = totalSpace != 0 ? Math.Round(((Products.Products[i].Space.Centimeters / totalSpace) * 100), 2) : 0;
+                Products.Products[i].Space.Percentage = totalSpace != 0 ? Math.Round(Products.Products[i].Space.Centimeters / totalSpace * 100, 2) : 0;
                 Products.Products[i].Space.MetaCentimeters = SharedSoviInfos.GetProductMetaCentimeters(PagesSovi.Craft, productEnum);
                 Products.Products[i].Space.MetaPercentage = SharedSoviInfos.GetProductMetaPercentage(PagesSovi.Craft, productEnum);
 
@@ -199,63 +165,5 @@ namespace AplicativoPromotor.MVVM.ViewModel.SoviPage
                 Products.Products[i].Picture = GetValues.GetEnumDescription(productEnum);
             }
         }
-
-
-        void FilterItems(string filter)
-        {
-            var filteredItems = CraftProductsModels.Where(ProductsModel => ProductsModel.Name.ToLower().Contains(filter.ToLower())).ToList();
-            foreach (var ProductsModel in CraftProductsModels)
-            {
-                if (!filteredItems.Contains(ProductsModel))
-                {
-                    CraftProductsModels.Remove(ProductsModel);
-                }
-                else
-                {
-                    if (!CraftProductsModels.Contains(ProductsModel))
-                    {
-                        CraftProductsModels.Add(ProductsModel);
-                    }
-                }
-            }
-        }
-
-        void ItemChanged(ProductsModel item)
-        {
-            PreviousProductsModel = CurrentProductsModel;
-            CurrentProductsModel = item;
-            OnPropertyChanged("PreviousProductsModel");
-            OnPropertyChanged("CurrentProductsModel");
-        }
-
-        void PositionChanged(int position)
-        {
-            PreviousPosition = CurrentPosition;
-            CurrentPosition = position;
-            OnPropertyChanged("PreviousPosition");
-            OnPropertyChanged("CurrentPosition");
-        }
-
-        void RemoveProductsModel(ProductsModel ProductsModel)
-        {
-            if (CraftProductsModels.Contains(ProductsModel))
-            {
-                CraftProductsModels.Remove(ProductsModel);
-            }
-        }
-
-        //void FavoriteCattegoryModel(ProductsModel CattegoryModel)
-        //{
-        //    CattegoryModel.IsFavorite = !CattegoryModel.IsFavorite;
-        //}
-
-        #region INotifyPropertyChanged
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
-        #endregion
     }
 }

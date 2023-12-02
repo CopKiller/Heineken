@@ -3,7 +3,7 @@ using AplicativoPromotor.MVVM.ViewModel.ProdutosPage.PropertiesItems;
 using Microsoft.Maui.Controls;
 using System.ComponentModel.DataAnnotations;
 
-namespace AplicativoPromotor.Pages.SubPages.Produtos;
+namespace AplicativoPromotor.MVVM.View.ProductsPage;
 
 public partial class MainStreamPage : ContentPage
 {

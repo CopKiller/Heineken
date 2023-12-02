@@ -1,14 +1,9 @@
 <ContentPage
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:viewmodels="clr-namespace:AplicativoPromotor.MVVM.ViewModel.SoviPage"
-    x:Class="AplicativoPromotor.Pages.SubPages.Sovi.Resumo.ResumoPage"
+    x:Class="AplicativoPromotor.MVVM.View.SoviPage.ResumoPage"
     Title="Resumo"
     BackgroundColor="#121B1A">
-
-    <ContentPage.BindingContext>
-        <viewmodels:CategoryViewModel />
-    </ContentPage.BindingContext>
 
     <ScrollView>
         <VerticalStackLayout>
@@ -19,7 +14,6 @@
                 HorizontalTextAlignment="Center" />
             <CarouselView
                 x:Name="CarouselCraft"
-                ItemsSource="{Binding CraftProductsModels}"
                 IndicatorView="indicatorView">
                 <CarouselView.ItemTemplate>
                     <DataTemplate>
@@ -29,12 +23,10 @@
                                 BorderColor="DarkGray"
                                 CornerRadius="5"
                                 Margin="20"
-                                HeightRequest="300"
+                                HeightRequest="250"
                                 HorizontalOptions="Center"
                                 VerticalOptions="Center"
                                 BackgroundColor="Black">
-                                <!-- Alterar a cor de fundo aqui -->
-                                <!-- Secoes a Esquerda e a Direita -->
                                 <Grid>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition
@@ -56,12 +48,6 @@
                                         Grid.Column="1"
                                         Grid.Row="0"
                                         Grid.ColumnSpan="2">
-                                        <Label
-                                            Text="{Binding Name}"
-                                            FontAttributes="Bold"
-                                            FontSize="20"
-                                            HorizontalOptions="Center"
-                                            VerticalOptions="Center" />
                                         <Image
                                             Source="{Binding Picture}"
                                             HeightRequest="150"
@@ -69,7 +55,6 @@
                                             HorizontalOptions="Center" />
                                     </VerticalStackLayout>
 
-                                    <!-- Secao a Esquerda -->
                                     <VerticalStackLayout
                                         Grid.Column="0"
                                         Grid.Row="1"
@@ -93,7 +78,7 @@
                                             LineBreakMode="TailTruncation" />
                                     </VerticalStackLayout>
 
-                                    <!-- Secao a Direita -->
+                                    
                                     <VerticalStackLayout
                                         Grid.Column="2"
                                         Grid.Row="1"
@@ -136,7 +121,6 @@
                 HorizontalTextAlignment="Center"/>
             <CarouselView
                 x:Name="CarouselPremium"
-                ItemsSource="{Binding PremiumProductsModels}"
                 IndicatorView="indicatorView2">
                 <CarouselView.ItemTemplate>
                     <DataTemplate>
@@ -146,7 +130,7 @@
                                 BorderColor="DarkGray"
                                 CornerRadius="5"
                                 Margin="20"
-                                HeightRequest="330"
+                                HeightRequest="250"
                                 HorizontalOptions="Center"
                                 VerticalOptions="Center"
                                 BackgroundColor="Black">
@@ -174,12 +158,6 @@
                                         Grid.Column="1"
                                         Grid.Row="0"
                                         Grid.ColumnSpan="2">
-                                        <Label
-                                            Text="{Binding Name}"
-                                            FontAttributes="Bold"
-                                            FontSize="20"
-                                            HorizontalOptions="Center"
-                                            VerticalOptions="Center" />
                                         <Image
                                             Source="{Binding Picture}"
                                             HeightRequest="150"
@@ -255,7 +233,6 @@
                 HorizontalTextAlignment="Center" />
             <CarouselView
                 x:Name="CarouselMainStream"
-                ItemsSource="{Binding MainStreamProductsModels}"
                 IndicatorView="indicatorView3">
                 <CarouselView.ItemTemplate>
                     <DataTemplate>
@@ -265,7 +242,7 @@
                                 BorderColor="DarkGray"
                                 CornerRadius="5"
                                 Margin="20"
-                                HeightRequest="300"
+                                HeightRequest="250"
                                 HorizontalOptions="Center"
                                 VerticalOptions="Center"
                                 BackgroundColor="Black">
@@ -292,12 +269,6 @@
                                         Grid.Column="1"
                                         Grid.Row="0"
                                         Grid.ColumnSpan="2">
-                                        <Label
-                                            Text="{Binding Name}"
-                                            FontAttributes="Bold"
-                                            FontSize="20"
-                                            HorizontalOptions="Center"
-                                            VerticalOptions="Center" />
                                         <Image
                                             Source="{Binding Picture}"
                                             HeightRequest="150"

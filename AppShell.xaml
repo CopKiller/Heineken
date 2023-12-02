@@ -3,10 +3,9 @@
     x:Class="AplicativoPromotor.AppShell"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:AplicativoPromotor.Pages.MainPages"
-    xmlns:local2="clr-namespace:AplicativoPromotor.Pages.SubPages.Produtos"
-    xmlns:local3="clr-namespace:AplicativoPromotor.Pages.SubPages.Sovi"
-    xmlns:local4="clr-namespace:AplicativoPromotor.Pages.SubPages.Sovi.Resumo"
+    xmlns:local="clr-namespace:AplicativoPromotor.MVVM.View.IntroductionPage"
+    xmlns:local2="clr-namespace:AplicativoPromotor.MVVM.View.ProductsPage"
+    xmlns:local3="clr-namespace:AplicativoPromotor.MVVM.View.SoviPage"
     FlyoutBackgroundColor="Gray">
 
     <Shell.FlyoutHeader>
@@ -68,7 +67,7 @@
         <ShellContent
             Title="Resumo"
             Icon="resumo.png"
-            ContentTemplate="{DataTemplate local4:ResumoPage}" />
+            ContentTemplate="{DataTemplate local3:ResumoPage}" />
     </FlyoutItem>
 
 </Shell>

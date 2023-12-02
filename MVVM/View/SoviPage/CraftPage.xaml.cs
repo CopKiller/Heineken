@@ -2,7 +2,7 @@ using AplicativoPromotor.MVVM.Shared;
 using AplicativoPromotor.Pages.ToolsPages;
 using System.Diagnostics;
 
-namespace AplicativoPromotor.Pages.SubPages.Sovi;
+namespace AplicativoPromotor.MVVM.View.SoviPage;
 public partial class CraftPage : ContentPage
 {
 
