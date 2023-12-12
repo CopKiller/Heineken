@@ -1,5 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
-using Syncfusion.Maui.Core.Hosting;
+//using Syncfusion.Maui.Core.Hosting;
 
 namespace AplicativoPromotor
 {
@@ -17,11 +17,11 @@ namespace AplicativoPromotor
                 });
 
             // --> PDF Viewer
-            builder.ConfigureSyncfusionCore();
+//            builder.ConfigureSyncfusionCore();
 
-#if DEBUG
-            builder.Logging.AddDebug();
-#endif
+//#if DEBUG
+//            builder.Logging.AddDebug();
+//#endif
 
             return builder.Build();
         }

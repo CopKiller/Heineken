@@ -151,42 +151,5 @@ namespace AplicativoPromotor.MVVM.View.SoviPage
                 carouselHeights[pageType] = GetCarouselHeightForPageType(pageType);
             }
         }
-
-        //void ItemChanged(ProductsModel item)
-        //{
-        //    PreviousProductsModel = CurrentProductsModel;
-        //    CurrentProductsModel = item;
-        //    OnPropertyChanged("PreviousProductsModel");
-        //    OnPropertyChanged("CurrentProductsModel");
-        //}
-
-        //void PositionChanged(int position)
-        //{
-        //    PreviousPosition = CurrentPosition;
-        //    CurrentPosition = position;
-        //    OnPropertyChanged("PreviousPosition");
-        //    OnPropertyChanged("CurrentPosition");
-        //}
-
-        //void RemoveProductsModel(ProductsModel ProductsModel)
-        //{
-        //    if (CraftProductsModels.Contains(ProductsModel))
-        //    {
-        //        CraftProductsModels.Remove(ProductsModel);
-        //    }
-        //}
-
-        //void FilterItems(string filter)
-        //{
-        //    var filteredItems = CraftProductsModels
-        //        .Where(ProductsModel => ProductsModel.Name.ToLower().Contains(filter.ToLower()))
-        //        .ToList();
-
-        //    CraftProductsModels.Clear();
-        //    foreach (var ProductsModel in filteredItems)
-        //    {
-        //        CraftProductsModels.Add(ProductsModel);
-        //    }
-        //}
     }
 }

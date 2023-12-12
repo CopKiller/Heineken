@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="AplicativoPromotor.MVVM.View.SoviPage.ConfigPage"
+    Title="Configs"
+    BackgroundColor="#121B1A">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="20">
+
+            <Label
+                FontSize="Subtitle"
+                FontAttributes="Bold"
+                Text="Configurações"
+                TextColor="White"
+                HorizontalTextAlignment="Center" />
+
+            <Frame
+                Margin="20,40,20,20"
+                BorderColor="White"
+                HorizontalOptions="CenterAndExpand"
+                VerticalOptions="Start"
+                BackgroundColor="#121B1A">
+
+                <StackLayout
+                    Orientation="Vertical"
+                    Spacing="20">
+                    <!-- Aumente o valor de Spacing para adicionar mais espaçamento -->
+
+                    <StackLayout
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand">
+
+                        <Picker
+                            x:Name="PerfilPicker"
+                            Title="Selecione o Perfil"
+                            SelectedIndexChanged="OnPerfilPickerSelectedIndexChanged"
+                            TextColor="White"
+                            TitleColor="White">
+                        </Picker>
+
+                        <Label
+                            Text="Nome:"
+                            TextColor="White">
+                        </Label>
+
+                        <Entry
+                            x:Name="EntryPerfilName"
+                            TextColor="White"
+                            MaxLength="30">
+                        </Entry>
+
+                        <Button
+                            Margin="0,10,0,0"
+                            x:Name="ButtonAtualizar"
+                            Text="Atualizar"
+                            BackgroundColor="#121B1A"
+                            TextColor="White"
+                            FontAttributes="Bold"
+                            BorderWidth="1"
+                            BorderColor="Cyan"
+                            Clicked="ButtonAtualizar_Clicked">
+                        </Button>
+                    </StackLayout>
+
+                </StackLayout>
+            </Frame>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

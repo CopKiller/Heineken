@@ -33,9 +33,11 @@ namespace AplicativoPromotor.MVVM.Shared
     }
     public enum PagesSovi
     {
+        Config,
         Craft,
         Premium,
-        MainStream
+        MainStream,
+        Resumo
     }
 
     public static class GetValues

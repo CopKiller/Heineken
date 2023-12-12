@@ -53,6 +53,10 @@
         Title="Sovi"
         Icon="iconsovi.png">
         <ShellContent
+            Title="Configs"
+            Icon="config.png"
+            ContentTemplate="{DataTemplate local3:ConfigPage}" />
+        <ShellContent
             Title="Craft"
             Icon="craft.png"
             ContentTemplate="{DataTemplate local3:CraftPage}" />

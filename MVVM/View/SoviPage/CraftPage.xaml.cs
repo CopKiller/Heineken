@@ -16,19 +16,67 @@ public partial class CraftPage : ContentPage
     {
         InitializeComponent();
 
-        _ = InitializePage();
+        InitializePage();
     }
 
-    private Task InitializePage()
+    private void InitializePage()
     {
         // Informa que a página está em carregamento
         PageLoading = true;
+    }
 
-        // --> Inicializa informações compartilhadas das páginas do SOVI
-        _ = SharedSoviInfos.InitPages();
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
 
-        // --> Faz o carregamento dos ultimos dados salvos
-        _ = RefreshCraftData();
+        RefreshCraftData();
+    }
+
+    private Task RefreshCraftData()
+    {
+        // Lista de controles e propriedades para verificar
+        var controlsToCheck = new List<(Entry entry, Func<int> getValue, Func<string> format)>()
+{
+    (EntryAllCraft, () => SharedSoviInfos.SharedPerfil.Perfil[SharedSoviInfos.SharedPerfil.SelectedPerfil].PagesSovi[PageID].TotalCentimetros, () => ""),
+    (EntryCraft, () => SharedSoviInfos.SharedPerfil.Perfil[SharedSoviInfos.SharedPerfil.SelectedPerfil].PagesSovi[PageID].PortfolioCentimetros, () => ""),
+    (EntrySoviBadden, () => SharedSoviInfos.SharedPerfil.Perfil[SharedSoviInfos.SharedPerfil.SelectedPerfil].PagesSovi[PageID].Produtos[(int)CraftProducts.Badden].produtoSovi, () => ""),
+    (EntrySoviBluemoon, () => SharedSoviInfos.SharedPerfil.Perfil[SharedSoviInfos.SharedPerfil.SelectedPerfil].PagesSovi[PageID].Produtos[(int)CraftProducts.Bluemoon].produtoSovi, () => ""),
+    (EntrySoviLagunitas, () => SharedSoviInfos.SharedPerfil.Perfil[SharedSoviInfos.SharedPerfil.SelectedPerfil].PagesSovi[PageID].Produtos[(int)CraftProducts.Lagunitas].produtoSovi, () => "")
+};
+
+        foreach (var (Entry, getValue, format) in controlsToCheck)
+        {
+            int value = getValue();
+            if (value > 0)
+            {
+                Entry.Text = value.ToString();
+            }
+            else
+            {
+                Entry.Text = format();
+            }
+        }
+
+
+        // Crie uma lista de controle para cada produto com suas respectivas lambda expressions
+        var productControls = new List<(CraftProducts produto, Entry[] entries)>()
+{
+    (CraftProducts.Badden, new Entry[] { EntryBadden1, EntryBadden2, EntryBadden3, EntryBadden4, EntryBadden5, EntryBadden6, EntryBadden7, EntryBadden8, EntryBadden9 }),
+    (CraftProducts.Bluemoon, new Entry[] { EntryBluemoon1, EntryBluemoon2, EntryBluemoon3, EntryBluemoon4, EntryBluemoon5, EntryBluemoon6, EntryBluemoon7, EntryBluemoon8, EntryBluemoon9 }),
+    (CraftProducts.Lagunitas, new Entry[] { EntryLagunitas1, EntryLagunitas2, EntryLagunitas3, EntryLagunitas4, EntryLagunitas5, EntryLagunitas6, EntryLagunitas7, EntryLagunitas8, EntryLagunitas9 })
+};
+
+        foreach (var (produto, entries) in productControls)
+        {
+            for (int i = 0; i < entries.Length; i++)
+            {
+                Entry entry = entries[i];
+                int value = SharedSoviInfos.SharedPerfil.Perfil[SharedSoviInfos.SharedPerfil.SelectedPerfil].PagesSovi[PageID].Produtos[(int)produto].produtoCentimetro[i];
+
+                // Verifique se o valor é maior que 0 antes de atribuir
+                entry.Text = (value > 0) ? value.ToString() : "";
+            }
+        }
 
         return Task.CompletedTask;
     }
@@ -65,25 +113,25 @@ public partial class CraftPage : ContentPage
             switch (nomeDoInvocador)
             {
                 case "EntryAllCraft":
-                    SharedSoviInfos.PagesData[PageID].TotalCentimetros = num;
+                    SharedSoviInfos.SharedPerfil.Perfil[SharedSoviInfos.SharedPerfil.SelectedPerfil].PagesSovi[PageID].TotalCentimetros = num;
                     break;
                 case "EntryCraft":
-                    SharedSoviInfos.PagesData[PageID].PortfolioCentimetros = num;
+                    SharedSoviInfos.SharedPerfil.Perfil[SharedSoviInfos.SharedPerfil.SelectedPerfil].PagesSovi[PageID].PortfolioCentimetros = num;
                     break;
                 case "EntrySoviBadden":
                     num = Math.Max(0, Math.Min(num, 100));
                     ((Entry)sender).Text = num.ToString();
-                    SharedSoviInfos.PagesData[PageID].Produtos[(int)CraftProducts.Badden].produtoSovi = (byte)num;
+                    SharedSoviInfos.SharedPerfil.Perfil[SharedSoviInfos.SharedPerfil.SelectedPerfil].PagesSovi[PageID].Produtos[(int)CraftProducts.Badden].produtoSovi = (byte)num;
                     break;
                 case "EntrySoviBluemoon":
                     num = Math.Max(0, Math.Min(num, 100));
                     ((Entry)sender).Text = num.ToString();
-                    SharedSoviInfos.PagesData[PageID].Produtos[(int)CraftProducts.Bluemoon].produtoSovi = (byte)num;
+                    SharedSoviInfos.SharedPerfil.Perfil[SharedSoviInfos.SharedPerfil.SelectedPerfil].PagesSovi[PageID].Produtos[(int)CraftProducts.Bluemoon].produtoSovi = (byte)num;
                     break;
                 case "EntrySoviLagunitas":
                     num = Math.Max(0, Math.Min(num, 100));
                     ((Entry)sender).Text = num.ToString();
-                    SharedSoviInfos.PagesData[PageID].Produtos[(int)CraftProducts.Lagunitas].produtoSovi = (byte)num;
+                    SharedSoviInfos.SharedPerfil.Perfil[SharedSoviInfos.SharedPerfil.SelectedPerfil].PagesSovi[PageID].Produtos[(int)CraftProducts.Lagunitas].produtoSovi = (byte)num;
                     break;
             }
 
@@ -94,19 +142,19 @@ public partial class CraftPage : ContentPage
 
                 if (nomeDoInvocador == ("EntryBadden" + indiceReal.ToString()))
                 {
-                    SharedSoviInfos.PagesData[PageID].Produtos[(int)CraftProducts.Badden].produtoCentimetro[i] = num;
+                    SharedSoviInfos.SharedPerfil.Perfil[SharedSoviInfos.SharedPerfil.SelectedPerfil].PagesSovi[PageID].Produtos[(int)CraftProducts.Badden].produtoCentimetro[i] = num;
 
                     break;
                 }
                 else if (nomeDoInvocador == ("EntryBluemoon" + indiceReal.ToString()))
                 {
-                    SharedSoviInfos.PagesData[PageID].Produtos[(int)CraftProducts.Bluemoon].produtoCentimetro[i] = num;
+                    SharedSoviInfos.SharedPerfil.Perfil[SharedSoviInfos.SharedPerfil.SelectedPerfil].PagesSovi[PageID].Produtos[(int)CraftProducts.Bluemoon].produtoCentimetro[i] = num;
 
                     break;
                 }
                 else if (nomeDoInvocador == ("EntryLagunitas" + indiceReal.ToString()))
                 {
-                    SharedSoviInfos.PagesData[PageID].Produtos[(int)CraftProducts.Lagunitas].produtoCentimetro[i] = num;
+                    SharedSoviInfos.SharedPerfil.Perfil[SharedSoviInfos.SharedPerfil.SelectedPerfil].PagesSovi[PageID].Produtos[(int)CraftProducts.Lagunitas].produtoCentimetro[i] = num;
 
                     break;
                 }
@@ -139,56 +187,5 @@ public partial class CraftPage : ContentPage
 
         // Use a navegação do Shell para abrir a nova página
         await Shell.Current.Navigation.PushAsync(novaPagina);
-    }
-
-    private async Task RefreshCraftData()
-    {
-        SharedSoviInfos.PagesData = await SharedSoviInfos.ReadPagesFromFile();
-
-        // Lista de controles e propriedades para verificar
-        var controlsToCheck = new List<(Entry entry, Func<int> getValue, Func<string> format)>()
-{
-    (EntryAllCraft, () => SharedSoviInfos.PagesData[PageID].TotalCentimetros, () => ""),
-    (EntryCraft, () => SharedSoviInfos.PagesData[PageID].PortfolioCentimetros, () => ""),
-    (EntrySoviBadden, () => SharedSoviInfos.PagesData[PageID].Produtos[(int)CraftProducts.Badden].produtoSovi, () => ""),
-    (EntrySoviBluemoon, () => SharedSoviInfos.PagesData[PageID].Produtos[(int)CraftProducts.Bluemoon].produtoSovi, () => ""),
-    (EntrySoviLagunitas, () => SharedSoviInfos.PagesData[PageID].Produtos[(int)CraftProducts.Lagunitas].produtoSovi, () => "")
-};
-
-        foreach (var (Entry, getValue, format) in controlsToCheck)
-        {
-            int value = getValue();
-            if (value > 0)
-            {
-                Entry.Text = value.ToString();
-            }
-            else
-            {
-                Entry.Text = format();
-            }
-        }
-
-
-        // Crie uma lista de controle para cada produto com suas respectivas lambda expressions
-        var productControls = new List<(CraftProducts produto, Entry[] entries)>()
-{
-    (CraftProducts.Badden, new Entry[] { EntryBadden1, EntryBadden2, EntryBadden3, EntryBadden4, EntryBadden5, EntryBadden6, EntryBadden7, EntryBadden8, EntryBadden9 }),
-    (CraftProducts.Bluemoon, new Entry[] { EntryBluemoon1, EntryBluemoon2, EntryBluemoon3, EntryBluemoon4, EntryBluemoon5, EntryBluemoon6, EntryBluemoon7, EntryBluemoon8, EntryBluemoon9 }),
-    (CraftProducts.Lagunitas, new Entry[] { EntryLagunitas1, EntryLagunitas2, EntryLagunitas3, EntryLagunitas4, EntryLagunitas5, EntryLagunitas6, EntryLagunitas7, EntryLagunitas8, EntryLagunitas9 })
-};
-
-        foreach (var (produto, entries) in productControls)
-        {
-            for (int i = 0; i < entries.Length; i++)
-            {
-                Entry entry = entries[i];
-                int value = SharedSoviInfos.PagesData[PageID].Produtos[(int)produto].produtoCentimetro[i];
-
-                // Verifique se o valor é maior que 0 antes de atribuir
-                entry.Text = (value > 0) ? value.ToString() : "";
-            }
-        }
-
-        return;
     }
 }

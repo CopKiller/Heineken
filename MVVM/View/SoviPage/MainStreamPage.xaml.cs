@@ -17,11 +17,60 @@ public partial class MainStreamPage : ContentPage
         PageLoading = true;
 
         InitializeComponent();
+    }
 
-        // --> Inicializa informações compartilhadas das páginas do SOVI
-        //_ = SharedSoviInfos.InitPages();
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
 
-        _ = RefreshMainStreamData();
+        RefreshMainStreamData();
+    }
+
+    private Task RefreshMainStreamData()
+    {
+        // Lista de controles e propriedades para verificar
+        var controlsToCheck = new List<(Entry entry, Func<int> getValue, Func<string> format)>()
+{
+    (EntryAllMainStream, () => SharedSoviInfos.SharedPerfil.Perfil[SharedSoviInfos.SharedPerfil.SelectedPerfil].PagesSovi[PageID].TotalCentimetros, () => ""),
+    (EntryMainStream, () => SharedSoviInfos.SharedPerfil.Perfil[SharedSoviInfos.SharedPerfil.SelectedPerfil].PagesSovi[PageID].PortfolioCentimetros, () => ""),
+    (EntrySoviAmstel, () => SharedSoviInfos.SharedPerfil.Perfil[SharedSoviInfos.SharedPerfil.SelectedPerfil].PagesSovi[PageID].Produtos[(int)MainStreamProducts.Amstel].produtoSovi, () => ""),
+    (EntrySoviDevassa, () => SharedSoviInfos.SharedPerfil.Perfil[SharedSoviInfos.SharedPerfil.SelectedPerfil].PagesSovi[PageID].Produtos[(int)MainStreamProducts.Devassa].produtoSovi, () => ""),
+};
+
+        foreach (var (Entry, getValue, format) in controlsToCheck)
+        {
+            int value = getValue();
+            if (value > 0)
+            {
+                Entry.Text = value.ToString();
+            }
+            else
+            {
+                Entry.Text = format();
+            }
+        }
+
+
+        // Crie uma lista de controle para cada produto com suas respectivas lambda expressions
+        var productControls = new List<(MainStreamProducts produto, Entry[] entries)>()
+{
+    (MainStreamProducts.Amstel, new Entry[] { EntryAmstel1, EntryAmstel2, EntryAmstel3, EntryAmstel4, EntryAmstel5, EntryAmstel6, EntryAmstel7, EntryAmstel8, EntryAmstel9 }),
+    (MainStreamProducts.Devassa, new Entry[] { EntryDevassa1, EntryDevassa2, EntryDevassa3, EntryDevassa4, EntryDevassa5, EntryDevassa6, EntryDevassa7, EntryDevassa8, EntryDevassa9 })
+};
+
+        foreach (var (produto, entries) in productControls)
+        {
+            for (int i = 0; i < entries.Length; i++)
+            {
+                Entry entry = entries[i];
+                int value = SharedSoviInfos.SharedPerfil.Perfil[SharedSoviInfos.SharedPerfil.SelectedPerfil].PagesSovi[PageID].Produtos[(int)produto].produtoCentimetro[i];
+
+                // Verifique se o valor é maior que 0 antes de atribuir
+                entry.Text = (value > 0) ? value.ToString() : "";
+            }
+        }
+
+        return Task.CompletedTask;
     }
 
     private CancellationTokenSource textChangeTokenSource = new CancellationTokenSource();
@@ -56,20 +105,20 @@ public partial class MainStreamPage : ContentPage
             switch (nomeDoInvocador)
             {
                 case "EntryAllMainStream":
-                    SharedSoviInfos.PagesData[PageID].TotalCentimetros = num;
+                    SharedSoviInfos.SharedPerfil.Perfil[SharedSoviInfos.SharedPerfil.SelectedPerfil].PagesSovi[PageID].TotalCentimetros = num;
                     break;
                 case "EntryMainStream":
-                    SharedSoviInfos.PagesData[PageID].PortfolioCentimetros = num;
+                    SharedSoviInfos.SharedPerfil.Perfil[SharedSoviInfos.SharedPerfil.SelectedPerfil].PagesSovi[PageID].PortfolioCentimetros = num;
                     break;
                 case "EntrySoviAmstel":
                     num = Math.Max(0, Math.Min(num, 100));
                     ((Entry)sender).Text = num.ToString();
-                    SharedSoviInfos.PagesData[PageID].Produtos[(int)MainStreamProducts.Amstel].produtoSovi = (byte)num;
+                    SharedSoviInfos.SharedPerfil.Perfil[SharedSoviInfos.SharedPerfil.SelectedPerfil].PagesSovi[PageID].Produtos[(int)MainStreamProducts.Amstel].produtoSovi = (byte)num;
                     break;
                 case "EntrySoviDevassa":
                     num = Math.Max(0, Math.Min(num, 100));
                     ((Entry)sender).Text = num.ToString();
-                    SharedSoviInfos.PagesData[PageID].Produtos[(int)MainStreamProducts.Devassa].produtoSovi = (byte)num;
+                    SharedSoviInfos.SharedPerfil.Perfil[SharedSoviInfos.SharedPerfil.SelectedPerfil].PagesSovi[PageID].Produtos[(int)MainStreamProducts.Devassa].produtoSovi = (byte)num;
                     break;
             }
 
@@ -80,13 +129,13 @@ public partial class MainStreamPage : ContentPage
 
                 if (nomeDoInvocador == ("EntryAmstel" + indiceReal.ToString()))
                 {
-                    SharedSoviInfos.PagesData[PageID].Produtos[(int)MainStreamProducts.Amstel].produtoCentimetro[i] = num;
+                    SharedSoviInfos.SharedPerfil.Perfil[SharedSoviInfos.SharedPerfil.SelectedPerfil].PagesSovi[PageID].Produtos[(int)MainStreamProducts.Amstel].produtoCentimetro[i] = num;
 
                     break;
                 }
                 else if (nomeDoInvocador == ("EntryDevassa" + indiceReal.ToString()))
                 {
-                    SharedSoviInfos.PagesData[PageID].Produtos[(int)MainStreamProducts.Devassa].produtoCentimetro[i] = num;
+                    SharedSoviInfos.SharedPerfil.Perfil[SharedSoviInfos.SharedPerfil.SelectedPerfil].PagesSovi[PageID].Produtos[(int)MainStreamProducts.Devassa].produtoCentimetro[i] = num;
 
                     break;
                 }
@@ -117,52 +166,5 @@ public partial class MainStreamPage : ContentPage
 
         // Use a navegação do Shell para abrir a nova página
         await Shell.Current.Navigation.PushAsync(novaPagina);
-    }
-
-    private Task RefreshMainStreamData()
-    {
-        // Lista de controles e propriedades para verificar
-        var controlsToCheck = new List<(Entry entry, Func<int> getValue, Func<string> format)>()
-{
-    (EntryAllMainStream, () => SharedSoviInfos.PagesData[PageID].TotalCentimetros, () => ""),
-    (EntryMainStream, () => SharedSoviInfos.PagesData[PageID].PortfolioCentimetros, () => ""),
-    (EntrySoviAmstel, () => SharedSoviInfos.PagesData[PageID].Produtos[(int)MainStreamProducts.Amstel].produtoSovi, () => ""),
-    (EntrySoviDevassa, () => SharedSoviInfos.PagesData[PageID].Produtos[(int)MainStreamProducts.Devassa].produtoSovi, () => ""),
-};
-
-        foreach (var (Entry, getValue, format) in controlsToCheck)
-        {
-            int value = getValue();
-            if (value > 0)
-            {
-                Entry.Text = value.ToString();
-            }
-            else
-            {
-                Entry.Text = format();
-            }
-        }
-
-
-        // Crie uma lista de controle para cada produto com suas respectivas lambda expressions
-        var productControls = new List<(MainStreamProducts produto, Entry[] entries)>()
-{
-    (MainStreamProducts.Amstel, new Entry[] { EntryAmstel1, EntryAmstel2, EntryAmstel3, EntryAmstel4, EntryAmstel5, EntryAmstel6, EntryAmstel7, EntryAmstel8, EntryAmstel9 }),
-    (MainStreamProducts.Devassa, new Entry[] { EntryDevassa1, EntryDevassa2, EntryDevassa3, EntryDevassa4, EntryDevassa5, EntryDevassa6, EntryDevassa7, EntryDevassa8, EntryDevassa9 })
-};
-
-        foreach (var (produto, entries) in productControls)
-        {
-            for (int i = 0; i < entries.Length; i++)
-            {
-                Entry entry = entries[i];
-                int value = SharedSoviInfos.PagesData[PageID].Produtos[(int)produto].produtoCentimetro[i];
-
-                // Verifique se o valor é maior que 0 antes de atribuir
-                entry.Text = (value > 0) ? value.ToString() : "";
-            }
-        }
-
-        return Task.CompletedTask;
     }
 }

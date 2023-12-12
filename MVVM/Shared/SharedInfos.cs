@@ -1,17 +1,5 @@
 ﻿using System.ComponentModel;
 using System.Diagnostics;
-
-
-/* Alteração não mesclada do projeto 'AplicativoPromotor (net7.0-ios)'
-Antes:
-using System.Text.Json;
-Após:
-using System.Text.Json;
-using AplicativoPromotor;
-using AplicativoPromotor.Controller;
-using AplicativoPromotor.Controller;
-using AplicativoPromotor.Controller.SharedInfos;
-*/
 using System.Text.Json;
 
 namespace AplicativoPromotor.MVVM.Shared
@@ -19,19 +7,33 @@ namespace AplicativoPromotor.MVVM.Shared
 
     public static class SharedSoviInfos
     {
+        // Implementa a versão no JSON, para saber se houve alterações na estrutura
+        // Alterar aqui sempre quando houver alguma mudança na estrutura do código.
+        public const int CurrentVersion = 1;
+        public const string FileName = "dadosapp.json";
+
         // Como a interface do XAML não recebe retorno de métodos diretamente
         // Adicionei aqui no topo os dados que serão utilizados na página Resumo do XAML
         public static int GetAllCraftSpace()
         {
-            return PagesData[(int)PagesSovi.Craft].TotalCentimetros;
+            var selectedPerfil = SharedPerfil.SelectedPerfil;
+            var pageID = (int)PagesSovi.Craft;
+
+            return SharedPerfil.Perfil[selectedPerfil].PagesSovi[pageID].TotalCentimetros;
         } // Total
         public static int GetAllPremiumSpace()
         {
-            return PagesData[(int)PagesSovi.Premium].TotalCentimetros;
+            var selectedPerfil = SharedPerfil.SelectedPerfil;
+            var pageID = (int)PagesSovi.Premium;
+
+            return SharedPerfil.Perfil[selectedPerfil].PagesSovi[pageID].TotalCentimetros;
         } // Total
         public static int GetAllMainStreamSpace()
         {
-            return PagesData[(int)PagesSovi.MainStream].TotalCentimetros;
+            var selectedPerfil = SharedPerfil.SelectedPerfil;
+            var pageID = (int)PagesSovi.MainStream;
+
+            return SharedPerfil.Perfil[selectedPerfil].PagesSovi[pageID].TotalCentimetros;
         } // Total
 
         public static int GetAllCraftPortfolioSpace()
@@ -68,127 +70,18 @@ namespace AplicativoPromotor.MVVM.Shared
             return soma;
         } // Portfólio
 
-
-        public static List<PagesData> PagesData;
+        public static ConfigModel SharedPerfil;
 
         public static async Task InitPages()
         {
-            PagesData = new List<PagesData>();
+            SharedPerfil = new ConfigModel();
+            SharedPerfil.Version = CurrentVersion;
 
-
-
-            // Inicialize as páginas chamando métodos separados
-            await InitializeCraftPage();
-            await InitializePremiumPage();
-            await InitializeMainStreamPage();
-
-            return;
-        }
-
-        private static Task InitializeCraftPage()
-        {
-            var craftPage = new PagesData
-            {
-                TotalCentimetros = 0,
-                PortfolioCentimetros = 0,
-                Produtos = new ProdutosData[]
-                {
-            new ProdutosData
-            {
-                produtoType = (int)CraftProducts.Badden,
-                produtoSovi = 0,
-                produtoCentimetro = new int[9]
-            },
-            new ProdutosData
-            {
-                produtoType = (int)CraftProducts.Bluemoon,
-                produtoSovi = 0,
-                produtoCentimetro = new int[9]
-            },
-            new ProdutosData
-            {
-                produtoType = (int) CraftProducts.Lagunitas,
-                produtoSovi = 0,
-                produtoCentimetro = new int[9]
-            }
-                }
-            };
-
-            PagesData.Add(craftPage);
-
-            return Task.CompletedTask;
-        }
-
-        private static Task InitializePremiumPage()
-        {
-            var premiumPage = new PagesData
-            {
-                TotalCentimetros = 0,
-                PortfolioCentimetros = 0,
-                Produtos = new ProdutosData[]
-                {
-            new ProdutosData
-            {
-                produtoType = (int) PremiumProducts.Heineken,
-                produtoSovi = 0,
-                produtoCentimetro = new int[9]
-            },
-            new ProdutosData
-            {
-                produtoType = (int) PremiumProducts.Heineken00,
-                produtoSovi = 0,
-                produtoCentimetro = new int[9]
-            },
-            new ProdutosData
-            {
-                produtoType = (int) PremiumProducts.Eisenbahn,
-                produtoSovi = 0,
-                produtoCentimetro = new int[9]
-            },
-            new ProdutosData
-            {
-                produtoType = (int) PremiumProducts.Sol,
-                produtoSovi = 0,
-                produtoCentimetro = new int[9]
-            }
-                }
-            };
-
-            PagesData.Add(premiumPage);
-
-            return Task.CompletedTask;
-        }
-
-        private static Task InitializeMainStreamPage()
-        {
-            var mainStreamPage = new PagesData
-            {
-                TotalCentimetros = 0,
-                PortfolioCentimetros = 0,
-                Produtos = new ProdutosData[]
-                {
-            new ProdutosData
-            {
-                produtoType = (int) MainStreamProducts.Amstel,
-                produtoSovi = 0,
-                produtoCentimetro = new int[9]
-            },
-            new ProdutosData
-            {
-                produtoType = (int) MainStreamProducts.Devassa,
-                produtoSovi = 0,
-                produtoCentimetro = new int[9]
-            }
-                }
-            };
-
-            PagesData.Add(mainStreamPage);
-
-            return Task.CompletedTask;
+            await LoadingData();
         }
 
         #region Obter Espaço Centimetros- GetProductSpace
-            public static int GetProductSpace(PagesSovi pagina, CraftProducts produto)
+        public static int GetProductSpace(PagesSovi pagina, CraftProducts produto)
         {
             int espacoTotal = 0;
             // Itera através dos espaços ocupados pelo produto em 9 posições
@@ -196,12 +89,13 @@ namespace AplicativoPromotor.MVVM.Shared
             {
                 var indiceReal = i;
 
-                int espacoIndividual = PagesData[(int)pagina].Produtos[(int)produto].produtoCentimetro[i];
+
+                int espacoIndividual = SharedPerfil.Perfil[SharedPerfil.SelectedPerfil].PagesSovi[(int)pagina].Produtos[(int)produto].produtoCentimetro[i];
                 espacoTotal += espacoIndividual;
             }
             return espacoTotal;
         }
-            public static int GetProductSpace(PagesSovi pagina, PremiumProducts produto)
+        public static int GetProductSpace(PagesSovi pagina, PremiumProducts produto)
         {
             int espacoTotal = 0;
 
@@ -210,13 +104,13 @@ namespace AplicativoPromotor.MVVM.Shared
             {
                 var indiceReal = i;
 
-                int espacoIndividual = PagesData[(int)pagina].Produtos[(int)produto].produtoCentimetro[i];
+                int espacoIndividual = SharedPerfil.Perfil[SharedPerfil.SelectedPerfil].PagesSovi[(int)pagina].Produtos[(int)produto].produtoCentimetro[i];
                 espacoTotal += espacoIndividual;
             }
 
             return espacoTotal;
         }
-            public static int GetProductSpace(PagesSovi pagina, MainStreamProducts produto)
+        public static int GetProductSpace(PagesSovi pagina, MainStreamProducts produto)
         {
             int espacoTotal = 0;
 
@@ -225,7 +119,7 @@ namespace AplicativoPromotor.MVVM.Shared
             {
                 var indiceReal = i;
 
-                int espacoIndividual = PagesData[(int)pagina].Produtos[(int)produto].produtoCentimetro[i];
+                int espacoIndividual = SharedPerfil.Perfil[SharedPerfil.SelectedPerfil].PagesSovi[(int)pagina].Produtos[(int)produto].produtoCentimetro[i];
                 espacoTotal += espacoIndividual;
             }
 
@@ -234,22 +128,22 @@ namespace AplicativoPromotor.MVVM.Shared
         #endregion
 
         #region Obter Meta Porcentagem - GetProductMetaPercentage
-            public static double GetProductMetaPercentage(PagesSovi pagina, CraftProducts produto)
+        public static double GetProductMetaPercentage(PagesSovi pagina, CraftProducts produto)
         {
 
-            double meta = PagesData[(int)pagina].Produtos[(int)produto].produtoSovi;
+            double meta = SharedPerfil.Perfil[SharedPerfil.SelectedPerfil].PagesSovi[(int)pagina].Produtos[(int)produto].produtoSovi;
             return meta;
         }
-            public static double GetProductMetaPercentage(PagesSovi pagina, PremiumProducts produto)
+        public static double GetProductMetaPercentage(PagesSovi pagina, PremiumProducts produto)
         {
 
-            double meta = PagesData[(int)pagina].Produtos[(int)produto].produtoSovi;
+            double meta = SharedPerfil.Perfil[SharedPerfil.SelectedPerfil].PagesSovi[(int)pagina].Produtos[(int)produto].produtoSovi;
             return meta;
         }
-            public static double GetProductMetaPercentage(PagesSovi pagina, MainStreamProducts produto)
+        public static double GetProductMetaPercentage(PagesSovi pagina, MainStreamProducts produto)
         {
 
-            double meta = PagesData[(int)pagina].Produtos[(int)produto].produtoSovi;
+            double meta = SharedPerfil.Perfil[SharedPerfil.SelectedPerfil].PagesSovi[(int)pagina].Produtos[(int)produto].produtoSovi;
             return meta;
         }
         #endregion
@@ -258,7 +152,7 @@ namespace AplicativoPromotor.MVVM.Shared
         public static int GetProductMetaCentimeters(PagesSovi pagina, CraftProducts produto)
         {
 
-            int meta = PagesData[(int)pagina].Produtos[(int)produto].produtoSovi;
+            int meta = SharedPerfil.Perfil[SharedPerfil.SelectedPerfil].PagesSovi[(int)pagina].Produtos[(int)produto].produtoSovi;
             int espaco = GetAllCraftSpace();
             double result = Convert.ToDouble(meta > 0 && espaco > 0 ? (meta / 100f) * espaco : 0);
 
@@ -268,7 +162,7 @@ namespace AplicativoPromotor.MVVM.Shared
         public static int GetProductMetaCentimeters(PagesSovi pagina, PremiumProducts produto)
         {
 
-            int meta = PagesData[(int)pagina].Produtos[(int)produto].produtoSovi;
+            int meta = SharedPerfil.Perfil[SharedPerfil.SelectedPerfil].PagesSovi[(int)pagina].Produtos[(int)produto].produtoSovi;
             int espaco = GetAllPremiumSpace();
             double result = Convert.ToDouble(meta > 0 && espaco > 0 ? (meta / 100f) * espaco : 0);
 
@@ -278,7 +172,7 @@ namespace AplicativoPromotor.MVVM.Shared
         public static int GetProductMetaCentimeters(PagesSovi pagina, MainStreamProducts produto)
         {
 
-            int meta = PagesData[(int)pagina].Produtos[(int)produto].produtoSovi;
+            int meta = SharedPerfil.Perfil[SharedPerfil.SelectedPerfil].PagesSovi[(int)pagina].Produtos[(int)produto].produtoSovi;
             int espaco = GetAllMainStreamSpace();
             double result = Convert.ToDouble(meta > 0 && espaco > 0 ? (meta / 100f) * espaco : 0);
 
@@ -288,49 +182,73 @@ namespace AplicativoPromotor.MVVM.Shared
 
         public static async Task SavePagesToFile()
         {
-            string mainDir = FileSystem.AppDataDirectory;
-            string filePath = Path.Combine(mainDir, "dadosapp.json");
+            try
+            {
+                string mainDir = FileSystem.AppDataDirectory;
+                string filePath = Path.Combine(mainDir, FileName);
 
-            var json = JsonSerializer.Serialize(PagesData);
-            await File.WriteAllTextAsync(filePath, json);
+                var json = JsonSerializer.Serialize(SharedPerfil, new JsonSerializerOptions { WriteIndented = true });
+                await File.WriteAllTextAsync(filePath, json);
+            }
+            catch (IOException ioException)
+            {
+                Debug.WriteLine($"IOException ao salvar o arquivo: {ioException.Message}");
+                throw; // Tratamento específico para IOException (pode ocorrer ao acessar o arquivo)
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Exceção ao salvar o arquivo: {ex.Message}");
+                throw; // Tarefa falhada com a exceção fornecida
+            }
         }
 
-        public async static Task<List<PagesData>> ReadPagesFromFile()
+        public static void ClearFileData()
         {
             string mainDir = FileSystem.AppDataDirectory;
-            string filePath = Path.Combine(mainDir, "dadosapp.json");
+            string filePath = Path.Combine(mainDir, FileName);
 
-            Debug.Print(filePath);
+            File.Delete(filePath);
+        }
 
-            if (File.Exists(filePath))
-            {
-                var json = await File.ReadAllTextAsync(filePath);
-                return JsonSerializer.Deserialize<List<PagesData>>(json);
-            }
-            else
+        public static async Task<ConfigModel> ReadPagesFromFile()
+        {
+            string mainDir = FileSystem.AppDataDirectory;
+            string filePath = Path.Combine(mainDir, FileName);
+
+            if (!File.Exists(filePath))
             {
                 await SavePagesToFile();
+            }
 
+            // Agora que as páginas foram salvas, leia novamente o arquivo
+            await Task.Run(async () =>
+            {
                 var json = await File.ReadAllTextAsync(filePath);
-                return JsonSerializer.Deserialize<List<PagesData>>(json);
+                SharedPerfil = JsonSerializer.Deserialize<ConfigModel>(json);
+            });
+
+            return SharedPerfil;
+        }
+
+        public static async Task LoadingData()
+        {
+            var cfgModel = await SharedSoviInfos.ReadPagesFromFile();
+            string mainDir = FileSystem.AppDataDirectory;
+            string filePath = Path.Combine(mainDir, FileName);
+
+            if (cfgModel.Version == 0)
+            {
+                cfgModel.Version = CurrentVersion;
+                ClearFileData();
+                await SavePagesToFile();
+            }
+            else if (cfgModel.Version == CurrentVersion)
+            {
+                SharedSoviInfos.SharedPerfil = cfgModel;
+            } else
+            {
+
             }
         }
-    }
-
-    public class PagesData
-    {
-        public int TotalCentimetros { get; set; }
-        public int PortfolioCentimetros { get; set; }
-        public ProdutosData[] Produtos { get; set; }
-    }
-
-    public class ProdutosData
-    {
-        // Tipo, usado com enum
-        public int produtoType { get; set; }
-        // Numerico, recebido pela Entry
-        public byte produtoSovi { get; set; }
-        // Centimetros de cada box em array
-        public int[] produtoCentimetro { get; set; }
     }
 }
